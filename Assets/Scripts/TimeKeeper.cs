@@ -27,7 +27,6 @@ public class TimeKeeper : MonoBehaviour
 
     private void OnEnable()
     {
-        _maxTime = _length;
         _startedAt = Time.time;
         _endAt = _startedAt + _length;
     }

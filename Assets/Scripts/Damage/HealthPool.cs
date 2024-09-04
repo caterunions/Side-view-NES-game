@@ -21,6 +21,7 @@ public class HealthPool : MonoBehaviour
     private void OnEnable()
     {
         _health = MaxHealth;
+        OnHPChange?.Invoke(this, 0);
     }
 
     public float Damage(float damage)

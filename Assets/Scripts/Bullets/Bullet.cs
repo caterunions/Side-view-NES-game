@@ -50,7 +50,9 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("wall") && _destroyOnWalls)
+        if (collision.gameObject == _spawner) return;
+
+        if (collision.gameObject.layer == 7 && _destroyOnWalls)
         {
             Destroy(gameObject);
         }

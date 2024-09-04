@@ -8,17 +8,7 @@ public class BulletLauncher : MonoBehaviour
     public event Action<BulletLauncher, Bullet, DamageReceiver, DamageEvent> OnSpawnedBulletHit;
     public event Action<BulletLauncher, Bullet> OnLaunch;
 
-    private EntityStats _stats;
-    private EntityStats stats
-    {
-        get
-        {
-            if (_stats == null) _stats = GetComponentInParent<EntityStats>();
-            return _stats;
-        }
-    }
-
-    public void Launch(PatternData pattern, float damageMultiplier)
+    public void Launch(PatternData pattern)
     {
         float angleStep = pattern.Spread / pattern.Count;
         float aimAngle = pattern.FixedAngle == null ? transform.rotation.eulerAngles.z + pattern.AngleOffset : (float)pattern.FixedAngle + pattern.AngleOffset;
