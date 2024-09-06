@@ -308,6 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cf57a17688f5064dba39e8313e7ab3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerStats: {fileID: 1924648956}
   _lightAttack:
     _bullet: {fileID: 2468801110609282183, guid: 31d8698aec6e808448733fdedf632d0b, type: 3}
     _count: 1
@@ -337,6 +338,7 @@ MonoBehaviour:
     _fixedAngle: 0
     _randomAngleOffset: 3
   _heavyChargeTime: 0.6
+  _heavyEnergyCost: 4
 --- !u!4 &179182233
 Transform:
   m_ObjectHideFlags: 0
@@ -21281,8 +21283,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 10
-  _maxEnergy: 5
-  _energyRegen: 1
+  _maxEnergy: 12
+  _energyRegen: 0.5
 --- !u!1 &1953158087
 GameObject:
   m_ObjectHideFlags: 0

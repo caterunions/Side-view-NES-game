@@ -18,7 +18,8 @@ public class EnergyDisplay : MonoBehaviour
 
     private void OnEnable()
     {
-        _energyBarMaxPercentage = _playerStats.MaxEnergy / 16;
+        _energyBarMaxPercentage = _playerStats.MaxEnergy / 16f;
+        
         _energyBarEmpty.fillAmount = _energyBarMaxPercentage;
         _energyBar.fillAmount = _energyBarMaxPercentage;
 

@@ -43,7 +43,7 @@ public class PlayerFire : MonoBehaviour
     public void StartFiringHeavy()
     {
         _firingHeavy = true;
-        if (_fireRoutine == null)
+        if (_fireRoutine == null && _shipWeaponHolder.CanFireHeavyWeapon)
         {
             SwitchFiringHeavy();
         }
@@ -90,11 +90,11 @@ public class PlayerFire : MonoBehaviour
 
             yield return new WaitForSeconds(attack.EndDelay);
 
-            if (_firingHeavy) break;
+            if (_firingHeavy && _shipWeaponHolder.CanFireHeavyWeapon) break;
             if (!_firingLight) break;
         }
 
-        if(_firingHeavy)
+        if(_firingHeavy && _shipWeaponHolder.CanFireHeavyWeapon)
         {
             SwitchFiringHeavy();
         } 
@@ -120,6 +120,8 @@ public class PlayerFire : MonoBehaviour
 
         if(_shipWeaponHolder.ChargePercentage >= 1)
         {
+            _shipWeaponHolder.DeductHeavyWeaponCost();
+
             _shipWeaponHolder.ChargePercentage = 0;
 
             Attack attack = _shipWeaponHolder.HeavyAttack;
@@ -144,7 +146,7 @@ public class PlayerFire : MonoBehaviour
 
         _shipWeaponHolder.ChargePercentage = 0;
 
-        if (_firingHeavy)
+        if (_firingHeavy && _shipWeaponHolder.CanFireHeavyWeapon)
         {
             SwitchFiringHeavy();
         }

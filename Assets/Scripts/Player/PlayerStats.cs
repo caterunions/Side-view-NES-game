@@ -16,7 +16,7 @@ public class PlayerStats : EntityStats
     {
         get 
         {
-            return _currentEnergy;
+            return Mathf.Clamp(_currentEnergy, 0, _maxEnergy);
         } 
         set
         {
