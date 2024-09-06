@@ -38,4 +38,54 @@ public class EnemyBrain : MonoBehaviour
     [SerializeField]
     private EnemyAim _aimer;
     public EnemyAim Aimer => _aimer;
+
+    private EnemyAction _curAction;
+    private int _actionIndex = 0;
+
+    public void LockAimer()
+    {
+        Aimer.Locked = true;
+    }
+
+    public void UnlockAimer()
+    {
+        Aimer.Locked = false;
+    }
+
+    private void Awake()
+    {
+        Aimer.Player = Player.transform;
+    }
+
+    private void OnEnable()
+    {
+        _actionIndex = 0;
+        if (_startAction != null)
+        {
+            _curAction = _startAction;
+            _curAction.Act();
+        }
+        else _curAction = _actions[_actionIndex];
+    }
+
+    private void OnDisable()
+    {
+        _curAction.Stop();
+    }
+
+    private void Update()
+    {
+        if(_curAction.InProgress == false)
+        {
+            if(_curAction != _actions[_actionIndex] && !_actions[_actionIndex].InProgress)
+            {
+                _curAction = _actions[_actionIndex];
+            }
+
+            _curAction.Act();
+
+            if (_actionIndex < _actions.Count - 1) _actionIndex++;
+            else _actionIndex = 0;
+        }
+    }
 }
