@@ -31,9 +31,7 @@ public class EnemyBrain : MonoBehaviour
     [SerializeField]
     private List<EnemyAction> _actions;
 
-    [SerializeField]
     private GameObject _player;
-    public GameObject Player => _player;
 
     [SerializeField]
     private EnemyAim _aimer;
@@ -52,9 +50,11 @@ public class EnemyBrain : MonoBehaviour
         Aimer.Locked = false;
     }
 
-    private void Awake()
+    public void SetPlayer(GameObject player)
     {
-        Aimer.Player = Player.transform;
+        _player = player;
+
+        Aimer.Player = _player.transform;
     }
 
     private void OnEnable()
