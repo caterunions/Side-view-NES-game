@@ -408,7 +408,7 @@ Transform:
   m_GameObject: {fileID: 4045402375870064996}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16, y: 14, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -431,7 +431,7 @@ MonoBehaviour:
   _enemyBrain: {fileID: 1438103271395029590}
   _healthDamageReceiver: {fileID: 6991124606888668935}
   _splineContainer: {fileID: 7180456846741865973}
-  _splineAnimate: {fileID: 4319139352869291409}
+  _splineAnimate: {fileID: 8472991946905878758}
 --- !u!1 &6450078050556096724
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,20 +546,19 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2944255294049249097}
-  - component: {fileID: 1487481241399035917}
   - component: {fileID: 1438103271395029590}
   - component: {fileID: 6991124606888668935}
   - component: {fileID: 3207295007066005332}
   - component: {fileID: 2914980119761529767}
   - component: {fileID: 4450241256655401227}
-  - component: {fileID: 4319139352869291409}
+  - component: {fileID: 8472991946905878758}
   m_Layer: 6
-  m_Name: Brain
+  m_Name: EnemyBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2944255294049249097
 Transform:
   m_ObjectHideFlags: 0
@@ -578,33 +577,6 @@ Transform:
   - {fileID: 4847569888116056562}
   m_Father: {fileID: 2341372931234051569}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1487481241399035917
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6516697777826337947}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &1438103271395029590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -698,7 +670,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.77
---- !u!114 &4319139352869291409
+--- !u!114 &8472991946905878758
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -712,7 +684,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Target: {fileID: 7180456846741865973}
   m_PlayOnAwake: 1
-  m_LoopMode: 0
+  m_LoopMode: 1
   m_Method: 1
   m_Duration: 15.3879
   m_MaxSpeed: 6

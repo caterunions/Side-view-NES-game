@@ -2,19 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
 public class EnemyBrain : MonoBehaviour
 {
-    private Rigidbody2D _rb;
-    public Rigidbody2D Rb
-    {
-        get
-        {
-            if(_rb == null) _rb = GetComponent<Rigidbody2D>();
-            return _rb;
-        }
-    }
-
     private HealthPool _healthPool;
     protected HealthPool healthPool
     {

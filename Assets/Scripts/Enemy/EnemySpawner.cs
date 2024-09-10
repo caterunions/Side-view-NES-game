@@ -9,37 +9,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private GameObject _player;
 
-    [System.Serializable]
-    public struct EnemySpawnData
-    {
-        [SerializeField]
-        private EnemyPackage _enemyPackage;
-        public EnemyPackage EnemyPackage => _enemyPackage;
-
-        [SerializeField]
-        private Vector2 _spawnPos;
-        public Vector2 SpawnPos => _spawnPos;
-
-        [SerializeField]
-        private bool _flipSpline;
-        public bool FlipSpline => _flipSpline;
-
-        [SerializeField]
-        private float _splineStartOffset;
-        public float SplineStartOffset => _splineStartOffset;
-    }
-
-    // workaround for unity not serializing 2d arrays/lists
-    [System.Serializable]
-    public struct WaveData
-    {
-        [SerializeField]
-        private List<EnemySpawnData> _enemies;
-        public List<EnemySpawnData> Enemies => _enemies;
-    }
-
     [SerializeField]
-    private List<WaveData> _waves;
+    private EnemyWave[] _waves;
 
     [SerializeField]
     private List<EnemyPackage> _aliveEnemies;
@@ -62,7 +33,7 @@ public class EnemySpawner : MonoBehaviour
         _enemySpawnRoutine = null;
     }
 
-    private void SpawnWave(WaveData wave)
+    private void SpawnWave(EnemyWave wave)
     {
         foreach(EnemySpawnData data in wave.Enemies)
         {
@@ -103,7 +74,7 @@ public class EnemySpawner : MonoBehaviour
         while(true)
         {
             CleanupEnemies();
-            SpawnWave(_waves[Random.Range(0, _waves.Count - 1)]);
+            SpawnWave(_waves[Random.Range(0, _waves.Length - 1)]);
 
             yield return new WaitForSeconds(_delayBetweenWaves);
         }

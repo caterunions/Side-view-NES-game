@@ -11073,23 +11073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 1924648945}
   _waves:
-  - _enemies:
-    - _enemyPackage: {fileID: 366711845585834292, guid: c5010925fc2fc63409723746924ed6b3, type: 3}
-      _spawnPos: {x: -16, y: 14}
-      _flipSpline: 0
-      _splineStartOffset: 0
-    - _enemyPackage: {fileID: 366711845585834292, guid: c5010925fc2fc63409723746924ed6b3, type: 3}
-      _spawnPos: {x: -16, y: 14}
-      _flipSpline: 0
-      _splineStartOffset: 0.02
-    - _enemyPackage: {fileID: 366711845585834292, guid: c5010925fc2fc63409723746924ed6b3, type: 3}
-      _spawnPos: {x: 16, y: 14}
-      _flipSpline: 1
-      _splineStartOffset: 0
-    - _enemyPackage: {fileID: 366711845585834292, guid: c5010925fc2fc63409723746924ed6b3, type: 3}
-      _spawnPos: {x: 16, y: 14}
-      _flipSpline: 1
-      _splineStartOffset: 0.02
+  - {fileID: 11400000, guid: 65449dc51d09a724787a92c821831ba4, type: 2}
   _aliveEnemies: []
   _enemyDestroyHeight: -14
   _delayBetweenWaves: 10
