@@ -412,8 +412,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2944255294049249097}
   - {fileID: 57980885694329193}
+  - {fileID: 2944255294049249097}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &366711845585834292
@@ -662,7 +662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d647bb58e019c40bd9d004feee8a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 20
+  _maxHealth: 100
 --- !u!58 &4450241256655401227
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -714,8 +714,8 @@ MonoBehaviour:
   m_PlayOnAwake: 1
   m_LoopMode: 0
   m_Method: 1
-  m_Duration: 9.23274
-  m_MaxSpeed: 10
+  m_Duration: 15.3879
+  m_MaxSpeed: 6
   m_EasingMode: 0
   m_AlignmentMode: 1
   m_ObjectForwardAxis: 1

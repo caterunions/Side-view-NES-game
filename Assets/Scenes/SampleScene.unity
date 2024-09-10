@@ -11092,7 +11092,7 @@ MonoBehaviour:
       _splineStartOffset: 0.02
   _aliveEnemies: []
   _enemyDestroyHeight: -14
-  _delayBetweenWaves: 5
+  _delayBetweenWaves: 10
 --- !u!1 &1294822390
 GameObject:
   m_ObjectHideFlags: 0
@@ -21650,7 +21650,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 10
   _maxEnergy: 12
-  _energyRegen: 0.5
+  _energyRegen: 1
 --- !u!1 &1953158087
 GameObject:
   m_ObjectHideFlags: 0

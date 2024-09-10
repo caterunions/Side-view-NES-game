@@ -124,11 +124,11 @@ MonoBehaviour:
   _behaviours:
   - {fileID: 223325845200304342}
   - {fileID: 7788850422651095279}
-  _solidObjectPierceCount: 0
+  _solidObjectPierceCount: 1
   _range: 9999
   _collider: {fileID: 8560006284945210294}
   _destroyOnWalls: 1
-  _damage: 1
+  _damage: 10
 --- !u!114 &7788850422651095279
 MonoBehaviour:
   m_ObjectHideFlags: 0

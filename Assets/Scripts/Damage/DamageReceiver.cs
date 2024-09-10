@@ -12,7 +12,7 @@ public enum DamageTeam
 
 public class DamageReceiver : MonoBehaviour
 {
-    public event Action<DamageReceiver, DamageEvent> OnDamage;
+    public event Action<DamageReceiver, DamageEvent, DamageResult> OnDamage;
 
     [SerializeField]
     private DamageTeam _team;
@@ -20,14 +20,14 @@ public class DamageReceiver : MonoBehaviour
 
     public void ReceiveDamage(DamageEvent dmgEvent)
     {
-        HandleDamage(dmgEvent);
+        DamageResult result = HandleDamage(dmgEvent);
 
-        OnDamage?.Invoke(this, dmgEvent);
+        OnDamage?.Invoke(this, dmgEvent, result);
     }
 
-    protected virtual void HandleDamage(DamageEvent dmgEvent)
+    protected virtual DamageResult HandleDamage(DamageEvent dmgEvent)
     {
-        //logic for child damagereceivers overrides this method
+        return new DamageResult(dmgEvent.Damage, true);
     }
 }
 
@@ -43,5 +43,16 @@ public class DamageEvent
     public float Damage { get; }
     public GameObject MainSource { get; }
     public GameObject SpecificSource { get; }
-    public float AppliedDamage { get; set; }
+}
+
+public class DamageResult
+{
+    public float DamageTaken { get; private set; }
+    public bool Killed { get; private set; }
+
+    public DamageResult(float damageTaken, bool killed)
+    {
+        DamageTaken = damageTaken;
+        Killed = killed;
+    }
 }

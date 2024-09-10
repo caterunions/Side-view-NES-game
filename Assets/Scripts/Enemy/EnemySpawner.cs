@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -70,17 +72,51 @@ public class EnemySpawner : MonoBehaviour
             enemy.SplineAnimate.StartOffset = data.SplineStartOffset;
             if (data.FlipSpline) enemy.SplineContainer.transform.localScale = new Vector3(-1, 1, 1);
 
+            enemy.HealthDamageReceiver.OnDamage += MonitorEnemyHealth;
+
             _aliveEnemies.Add(enemy);
         }
+    }
+
+    private void DestroyEnemy(EnemyPackage enemy)
+    {
+        if(!_aliveEnemies.Contains(enemy)) return;
+
+        enemy.HealthDamageReceiver.OnDamage -= MonitorEnemyHealth;
+
+        _aliveEnemies.Remove(enemy);
+
+        Destroy(enemy.gameObject);
+    }
+
+    private void MonitorEnemyHealth(DamageReceiver dr, DamageEvent dmgEvent, DamageResult result)
+    {
+        if (!result.Killed) return;
+
+        EnemyPackage enemy = dr.GetComponentInParent<EnemyPackage>();
+
+        DestroyEnemy(enemy);
     }
 
     private IEnumerator EnemySpawnRoutine()
     {
         while(true)
         {
+            CleanupEnemies();
             SpawnWave(_waves[Random.Range(0, _waves.Count - 1)]);
 
             yield return new WaitForSeconds(_delayBetweenWaves);
+        }
+    }
+
+    private void CleanupEnemies()
+    {
+        foreach(EnemyPackage enemy in _aliveEnemies.ToList())
+        {
+            if(enemy.EnemyBrain.transform.position.y <= _enemyDestroyHeight)
+            {
+                DestroyEnemy(enemy);
+            }
         }
     }
 }
