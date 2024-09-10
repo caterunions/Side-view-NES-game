@@ -769,9 +769,9 @@ MonoBehaviour:
   _endDelay: 1
   _attacks:
   - _bullet: {fileID: 2716590072784265433, guid: cba8e1edf6215624d87e86e76acf7daf, type: 3}
-    _count: 3
+    _count: 1
     _countModifier: 0
-    _spread: 30
+    _spread: 0
     _spreadModifier: 0
     _angleOffsetStart: 0
     _angleOffsetIncrease: 0

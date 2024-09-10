@@ -123,7 +123,7 @@ MonoBehaviour:
   _behaviours:
   - {fileID: 3960479423469546842}
   _solidObjectPierceCount: 0
-  _range: 10
+  _range: 20
   _collider: {fileID: 8695837180933353734}
   _destroyOnWalls: 1
   _damage: 1
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2a2a7b908b571f42b01a55939c341fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _velocity: 15
+  _velocity: 5
 --- !u!1 &6114104000930344149
 GameObject:
   m_ObjectHideFlags: 0
