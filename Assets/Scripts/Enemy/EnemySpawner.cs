@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
+using System;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public event Action<EnemySpawner, EnemyPackage> OnSpawnedEnemyDeath;
+
     [SerializeField]
     private GameObject _player;
 
@@ -54,7 +56,7 @@ public class EnemySpawner : MonoBehaviour
         if(!_aliveEnemies.Contains(enemy)) return;
 
         enemy.HealthDamageReceiver.OnDamage -= MonitorEnemyHealth;
-
+        OnSpawnedEnemyDeath?.Invoke(this, enemy);
         _aliveEnemies.Remove(enemy);
 
         Destroy(enemy.gameObject);
@@ -74,7 +76,7 @@ public class EnemySpawner : MonoBehaviour
         while(true)
         {
             CleanupEnemies();
-            SpawnWave(_waves[Random.Range(0, _waves.Length - 1)]);
+            SpawnWave(_waves[UnityEngine.Random.Range(0, _waves.Length - 1)]);
 
             yield return new WaitForSeconds(_delayBetweenWaves);
         }

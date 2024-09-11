@@ -26,6 +26,10 @@ public class EnemyBrain : MonoBehaviour
     private EnemyAim _aimer;
     public EnemyAim Aimer => _aimer;
 
+    [SerializeField]
+    private int _scoreReward;
+    public int ScoreReward => _scoreReward;
+
     private EnemyAction _curAction;
     private int _actionIndex = 0;
 
