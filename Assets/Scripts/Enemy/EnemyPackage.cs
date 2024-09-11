@@ -23,6 +23,11 @@ public class EnemyPackage : MonoBehaviour
 
     private bool _firstFramePassed = false;
 
+    private void Awake()
+    {
+        _enemyBrain.gameObject.SetActive(false);
+    }
+
     private void Update()
     {
         // WE HAVE TO WAIT A FRAME BEFORE WE ACTIVATE THE GAMEOBJECT WITH A SPLINEANIMATE COMPONENT OR WE'LL ALL **DIEEEEE**!!!!!!

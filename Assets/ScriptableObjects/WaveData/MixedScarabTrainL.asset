@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2ac3802033873140bbb2bdb342fc2c4, type: 3}
+  m_Name: MixedScarabTrainL
+  m_EditorClassIdentifier: 
+  _enemies:
+  - _enemyPackage: {fileID: 865928285001739071, guid: 22910c17f898b7b40a634db68102e60b, type: 3}
+    _spawnPos: {x: -14.5, y: 19}
+    _flipSpline: 0
+    _splineStartOffset: 0
+  - _enemyPackage: {fileID: 9096701596887350013, guid: 3b5b8fcd7678fd8419a6a75253c8c04d, type: 3}
+    _spawnPos: {x: -14.5, y: 19}
+    _flipSpline: 0
+    _splineStartOffset: 0.025
+  - _enemyPackage: {fileID: 9096701596887350013, guid: 3b5b8fcd7678fd8419a6a75253c8c04d, type: 3}
+    _spawnPos: {x: -14.5, y: 19}
+    _flipSpline: 0
+    _splineStartOffset: 0.035
+  - _enemyPackage: {fileID: 865928285001739071, guid: 22910c17f898b7b40a634db68102e60b, type: 3}
+    _spawnPos: {x: -14.5, y: 19}
+    _flipSpline: 0
+    _splineStartOffset: 0.06
+  - _enemyPackage: {fileID: 865928285001739071, guid: 22910c17f898b7b40a634db68102e60b, type: 3}
+    _spawnPos: {x: -14.5, y: 19}
+    _flipSpline: 0
+    _splineStartOffset: 0.01
+  - _enemyPackage: {fileID: 865928285001739071, guid: 22910c17f898b7b40a634db68102e60b, type: 3}
+    _spawnPos: {x: -14.5, y: 19}
+    _flipSpline: 0
+    _splineStartOffset: 0.05

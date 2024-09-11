@@ -11245,9 +11245,15 @@ MonoBehaviour:
   _player: {fileID: 1924648945}
   _waves:
   - {fileID: 11400000, guid: 6545dfcda581ee54a958f1bbac97f5af, type: 2}
+  - {fileID: 11400000, guid: 6991fdfabfef6284a84c9a95a1321e99, type: 2}
+  - {fileID: 11400000, guid: c8d7ba065bd6b884e8cf34f794730d65, type: 2}
+  - {fileID: 11400000, guid: 919165641da1e9f4fbbf50b8e2994039, type: 2}
+  - {fileID: 11400000, guid: 642714ed680b0e040987bc3a005108f4, type: 2}
+  - {fileID: 11400000, guid: 4a4429b18730df0439b7ada9e58b945b, type: 2}
+  - {fileID: 11400000, guid: 26eb43beb6a438b4daa3e389ab76fad4, type: 2}
   _aliveEnemies: []
   _enemyDestroyHeight: -14
-  _delayBetweenWaves: 5
+  _delayBetweenWaves: 6
 --- !u!1 &1294822390
 GameObject:
   m_ObjectHideFlags: 0
@@ -21720,7 +21726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 1924648946}
-  _moveSpeed: 10
+  _moveSpeed: 15
 --- !u!114 &1924648948
 MonoBehaviour:
   m_ObjectHideFlags: 0
