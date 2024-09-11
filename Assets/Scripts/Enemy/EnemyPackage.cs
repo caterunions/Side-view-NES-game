@@ -20,4 +20,16 @@ public class EnemyPackage : MonoBehaviour
     [SerializeField]
     private SplineAnimate _splineAnimate;
     public SplineAnimate SplineAnimate => _splineAnimate;
+
+    private bool _firstFramePassed = false;
+
+    private void Update()
+    {
+        // WE HAVE TO WAIT A FRAME BEFORE WE ACTIVATE THE GAMEOBJECT WITH A SPLINEANIMATE COMPONENT OR WE'LL ALL **DIEEEEE**!!!!!!
+        if (_firstFramePassed)
+        {
+            _enemyBrain.gameObject.SetActive(true);
+        }
+        _firstFramePassed = true;
+    }
 }
