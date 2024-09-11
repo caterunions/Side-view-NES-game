@@ -45,6 +45,6 @@ public class SpawnScoreNumberOnDeath : MonoBehaviour
 
         FloatingText scoreText = Instantiate(_textObj, spawnPos, Quaternion.identity);
 
-        _textObj.Text.text = $"{Brain.ScoreReward}";
+        scoreText.Text.text = $"{Brain.ScoreReward}";
     }
 }

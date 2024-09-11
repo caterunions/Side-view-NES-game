@@ -6,13 +6,13 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public event Action<EnemySpawner, EnemyPackage> OnSpawnedEnemyDeath;
+    public event Action<EnemySpawner, EnemyPackage, bool> OnSpawnedEnemyDeath;
 
     [SerializeField]
     private GameObject _player;
 
     [SerializeField]
-    private EnemyWave[] _waves;
+    private List<EnemyWave> _waves;
 
     [SerializeField]
     private List<EnemyPackage> _aliveEnemies;
@@ -51,12 +51,12 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    private void DestroyEnemy(EnemyPackage enemy)
+    private void DestroyEnemy(EnemyPackage enemy, bool killedByPlayer)
     {
         if(!_aliveEnemies.Contains(enemy)) return;
 
         enemy.HealthDamageReceiver.OnDamage -= MonitorEnemyHealth;
-        OnSpawnedEnemyDeath?.Invoke(this, enemy);
+        OnSpawnedEnemyDeath?.Invoke(this, enemy, killedByPlayer);
         _aliveEnemies.Remove(enemy);
 
         Destroy(enemy.gameObject);
@@ -68,18 +68,22 @@ public class EnemySpawner : MonoBehaviour
 
         EnemyPackage enemy = dr.GetComponentInParent<EnemyPackage>();
 
-        DestroyEnemy(enemy);
+        DestroyEnemy(enemy, true);
     }
 
     private IEnumerator EnemySpawnRoutine()
     {
         while(true)
         {
-            CleanupEnemies();
-            SpawnWave(_waves[UnityEngine.Random.Range(0, _waves.Length - 1)]);
+            SpawnWave(_waves[UnityEngine.Random.Range(0, _waves.Count)]);
 
             yield return new WaitForSeconds(_delayBetweenWaves);
         }
+    }
+
+    private void Update()
+    {
+        CleanupEnemies();
     }
 
     private void CleanupEnemies()
@@ -88,7 +92,7 @@ public class EnemySpawner : MonoBehaviour
         {
             if(enemy.EnemyBrain.transform.position.y <= _enemyDestroyHeight)
             {
-                DestroyEnemy(enemy);
+                DestroyEnemy(enemy, false);
             }
         }
     }

@@ -629,7 +629,7 @@ MonoBehaviour:
   _actions:
   - {fileID: 7755496033966159660}
   _aimer: {fileID: 1102417276309163299}
-  _scoreReward: 10
+  _scoreReward: 100
 --- !u!114 &6991124606888668935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -721,7 +721,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Target: {fileID: 7180456846741865973}
   m_PlayOnAwake: 1
-  m_LoopMode: 1
+  m_LoopMode: 0
   m_Method: 1
   m_Duration: 15.3879
   m_MaxSpeed: 6
