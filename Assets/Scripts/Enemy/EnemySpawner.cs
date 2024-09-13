@@ -37,6 +37,8 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnWave(EnemyWave wave)
     {
+        Debug.Log(wave);
+
         foreach(EnemySpawnData data in wave.Enemies)
         {
             EnemyPackage enemy = Instantiate(data.EnemyPackage, new Vector3(data.SpawnPos.x, data.SpawnPos.y, 0), Quaternion.identity);
@@ -75,10 +77,26 @@ public class EnemySpawner : MonoBehaviour
     {
         while(true)
         {
-            SpawnWave(_waves[UnityEngine.Random.Range(0, _waves.Count)]);
+            SpawnWave(GetRandomWeightedWave(_waves));
 
             yield return new WaitForSeconds(_delayBetweenWaves);
         }
+    }
+
+    private EnemyWave GetRandomWeightedWave(List<EnemyWave> waves)
+    {
+        int[] weights = waves.Select(w => w.Weight).ToArray();
+        int randomWeight = UnityEngine.Random.Range(0, weights.Sum());
+        for (int i = 0; i < weights.Length; ++i)
+        {
+            randomWeight -= weights[i];
+            if (randomWeight < 0)
+            {
+                return waves[i];
+            }
+        }
+
+        return null;
     }
 
     private void Update()

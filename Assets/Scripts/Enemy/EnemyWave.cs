@@ -8,6 +8,10 @@ public class EnemyWave : ScriptableObject
     [SerializeField]
     private EnemySpawnData[] _enemies;
     public EnemySpawnData[] Enemies => _enemies;
+
+    [SerializeField]
+    private int _weight = 1;
+    public int Weight => _weight;
 }
 
 [System.Serializable]

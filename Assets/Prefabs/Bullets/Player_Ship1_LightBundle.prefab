@@ -73,7 +73,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Time: 0.07
   m_PreviewTimeScale: 1
   m_Parameters:
@@ -308,7 +308,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Time: 0.07
   m_PreviewTimeScale: 1
   m_Parameters:
@@ -493,11 +493,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _behaviours:
   - {fileID: 1316120871040448992}
-  _solidObjectPierceCount: 0
+  _solidObjectPierceCount: 1
   _range: 30
   _collider: {fileID: 7015091127004298367}
   _destroyOnWalls: 1
-  _damage: 8
+  _damage: 5
 --- !u!114 &1316120871040448992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -633,11 +633,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _behaviours:
   - {fileID: 2552913462856960143}
-  _solidObjectPierceCount: 0
+  _solidObjectPierceCount: 1
   _range: 30
   _collider: {fileID: 6427632617753947896}
   _destroyOnWalls: 1
-  _damage: 8
+  _damage: 5
 --- !u!114 &2552913462856960143
 MonoBehaviour:
   m_ObjectHideFlags: 0
