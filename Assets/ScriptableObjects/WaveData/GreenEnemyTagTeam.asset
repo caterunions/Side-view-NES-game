@@ -21,4 +21,4 @@ MonoBehaviour:
     _spawnPos: {x: 14.5, y: 19}
     _flipSpline: 1
     _splineStartOffset: 0
-  _weight: 3
+  _weight: 2
