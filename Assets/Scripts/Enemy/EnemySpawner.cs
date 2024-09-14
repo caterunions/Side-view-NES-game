@@ -20,25 +20,23 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private float _enemyDestroyHeight;
 
-    [SerializeField]
-    private float _delayBetweenWaves;
+    private float _nextSpawnTime;
 
-    private Coroutine _enemySpawnRoutine = null;
+    private float _timeRemaining
+    {
+        get
+        {
+            return _nextSpawnTime - Time.time;
+        }
+    }
 
     private void OnEnable()
     {
-        _enemySpawnRoutine = StartCoroutine(EnemySpawnRoutine());
-    }
-
-    private void OnDisable()
-    {
-        _enemySpawnRoutine = null;
+        
     }
 
     private void SpawnWave(EnemyWave wave)
     {
-        Debug.Log(wave);
-
         foreach(EnemySpawnData data in wave.Enemies)
         {
             EnemyPackage enemy = Instantiate(data.EnemyPackage, new Vector3(data.SpawnPos.x, data.SpawnPos.y, 0), Quaternion.identity);
@@ -51,6 +49,8 @@ public class EnemySpawner : MonoBehaviour
 
             _aliveEnemies.Add(enemy);
         }
+
+        _nextSpawnTime = Time.time + wave.WaitTimeUntilNextWave;
     }
 
     private void DestroyEnemy(EnemyPackage enemy, bool killedByPlayer)
@@ -73,16 +73,6 @@ public class EnemySpawner : MonoBehaviour
         DestroyEnemy(enemy, true);
     }
 
-    private IEnumerator EnemySpawnRoutine()
-    {
-        while(true)
-        {
-            SpawnWave(GetRandomWeightedWave(_waves));
-
-            yield return new WaitForSeconds(_delayBetweenWaves);
-        }
-    }
-
     private EnemyWave GetRandomWeightedWave(List<EnemyWave> waves)
     {
         int[] weights = waves.Select(w => w.Weight).ToArray();
@@ -101,6 +91,11 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
+        if(_aliveEnemies.Count == 0 || _timeRemaining <= 0)
+        {
+            SpawnWave(GetRandomWeightedWave(_waves));
+        }
+
         CleanupEnemies();
     }
 

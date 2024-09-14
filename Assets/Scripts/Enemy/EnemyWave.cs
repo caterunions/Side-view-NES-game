@@ -12,6 +12,10 @@ public class EnemyWave : ScriptableObject
     [SerializeField]
     private int _weight = 1;
     public int Weight => _weight;
+
+    [SerializeField]
+    private float _waitTimeUntilNextWave = 5;
+    public float WaitTimeUntilNextWave => _waitTimeUntilNextWave;
 }
 
 [System.Serializable]
