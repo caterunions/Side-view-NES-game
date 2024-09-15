@@ -952,8 +952,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pickupSpawns:
   - _pickup: {fileID: 5317634159893455183, guid: 2e287c92c20b5d640b8e1d16ed464119, type: 3}
-    _maxCount: 2
-    _chance: 0.75
+    _maxCount: 3
+    _chance: 0.5
+  - _pickup: {fileID: 2004176418326364073, guid: eb7e41cf381e7d34fb6fdf4cd0a34bce, type: 3}
+    _maxCount: 1
+    _chance: 0.05
 --- !u!1 &6298902081235026255
 GameObject:
   m_ObjectHideFlags: 0
