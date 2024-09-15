@@ -662,7 +662,7 @@ GameObject:
   - component: {fileID: 3194750085317809517}
   - component: {fileID: 2468801110609282183}
   m_Layer: 0
-  m_Name: Player_Ship1_LightBundle
+  m_Name: Player_RedShip_LightBundle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

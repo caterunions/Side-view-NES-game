@@ -243,6 +243,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: bullets_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 51
+        width: 1
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f652bcefa5cf554e92bfb1c28523007
+      internalID: 1349044416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -261,6 +282,7 @@ TextureImporter:
       bullets_4: 360488443
       bullets_5: -1982868638
       bullets_6: -2136476332
+      bullets_7: 1349044416
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

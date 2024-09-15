@@ -18,10 +18,6 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-    }
-
-    private void OnEnable()
-    {
         Player = Instantiate(_playerPrefab, Vector3.zero, Quaternion.identity);
     }
 }
