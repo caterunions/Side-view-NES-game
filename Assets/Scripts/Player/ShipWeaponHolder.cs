@@ -35,7 +35,7 @@ public class ShipWeaponHolder : MonoBehaviour
         set
         {
             _chargePercentage = value;
-            Mathf.Clamp01(_chargePercentage);
+            _chargePercentage = Mathf.Clamp01(_chargePercentage);
             OnChargePercentageChange?.Invoke(this);
         }
     }

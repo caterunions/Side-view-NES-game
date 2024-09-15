@@ -41,4 +41,9 @@ public class PlayerStats : EntityStats
             CurrentEnergy += _energyRegen * Time.deltaTime;
         }
     }
+
+    public void AddEnergy(float amt)
+    {
+        CurrentEnergy += amt;
+    }
 }

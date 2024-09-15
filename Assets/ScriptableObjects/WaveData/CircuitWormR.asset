@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2ac3802033873140bbb2bdb342fc2c4, type: 3}
+  m_Name: CircuitWormR
+  m_EditorClassIdentifier: 
+  _enemies:
+  - _enemyPackage: {fileID: 3999853304881611157, guid: e17672880a6585446a83dce810005b49, type: 3}
+    _spawnPos: {x: 14.5, y: 19}
+    _flipSpline: 1
+    _splineStartOffset: 0.04
+  _weight: 50
+  _waitTimeUntilNextWave: 4

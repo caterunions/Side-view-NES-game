@@ -7,8 +7,12 @@ public class RenderAimingLine : MonoBehaviour
     [SerializeField]
     private LineRenderer _lineRenderer;
 
-    [SerializeField]
     private Transform _cursor;
+
+    private void OnEnable()
+    {
+        _cursor = GameManager.Instance.Cursor;
+    }
 
     private void Update()
     {

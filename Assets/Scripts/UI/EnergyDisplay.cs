@@ -6,10 +6,8 @@ using UnityEngine.UI;
 
 public class EnergyDisplay : MonoBehaviour
 {
-    [SerializeField]
     private PlayerStats _playerStats;
 
-    [SerializeField]
     private ShipWeaponHolder _shipWeaponHolder;
 
     [SerializeField]
@@ -25,6 +23,9 @@ public class EnergyDisplay : MonoBehaviour
 
     private void OnEnable()
     {
+        _playerStats = GameManager.Instance.Player.GetComponent<PlayerStats>();
+        _shipWeaponHolder = GameManager.Instance.Player.GetComponentInChildren<ShipWeaponHolder>();
+
         _heavyAttackCostText.text = $"X{_shipWeaponHolder.HeavyEnergyCost}";
 
         _energyBarMaxPercentage = _playerStats.MaxEnergy / 16f;

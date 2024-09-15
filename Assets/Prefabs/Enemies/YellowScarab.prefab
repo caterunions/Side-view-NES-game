@@ -784,6 +784,7 @@ GameObject:
   - component: {fileID: 6185435614394160219}
   - component: {fileID: 9057368656976364229}
   - component: {fileID: 6613668785101774550}
+  - component: {fileID: 8119371097357185583}
   m_Layer: 6
   m_Name: EnemyBody
   m_TagString: Untagged
@@ -966,6 +967,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _particleSystem: {fileID: 752375256778287732, guid: 3a3839a6bddad63499dedc525b1b4957, type: 3}
+--- !u!114 &8119371097357185583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4143197533588843819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3812ff5cba7d2b1459fb779f045d868d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pickupSpawns:
+  - _pickup: {fileID: 5317634159893455183, guid: 2e287c92c20b5d640b8e1d16ed464119, type: 3}
+    _maxCount: 1
+    _chance: 0.2
 --- !u!1 &4178617627402197016
 GameObject:
   m_ObjectHideFlags: 0

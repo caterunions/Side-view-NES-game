@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: 2930198122127992010}
   - component: {fileID: 6954518843058382306}
   - component: {fileID: 8191929213739510844}
+  - component: {fileID: 5582798290109907478}
   m_Layer: 6
   m_Name: EnemyBody
   m_TagString: Untagged
@@ -435,6 +436,22 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 615893250405283344}
+--- !u!114 &5582798290109907478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615893250405283344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3812ff5cba7d2b1459fb779f045d868d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pickupSpawns:
+  - _pickup: {fileID: 5317634159893455183, guid: 2e287c92c20b5d640b8e1d16ed464119, type: 3}
+    _maxCount: 4
+    _chance: 0.75
 --- !u!1 &685988401156558681
 GameObject:
   m_ObjectHideFlags: 0

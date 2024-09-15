@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class HealthDisplay : MonoBehaviour
 {
-    [SerializeField]
     private HealthPool _healthPool;
 
     [SerializeField]
@@ -18,6 +17,8 @@ public class HealthDisplay : MonoBehaviour
 
     private void OnEnable()
     {
+        _healthPool = GameManager.Instance.Player.GetComponent<HealthPool>();
+
         _healthBarMaxPercentage = _healthPool.MaxHealth / 16f;
         _healthBarEmpty.fillAmount = _healthBarMaxPercentage;
         _healthBar.fillAmount = _healthBarMaxPercentage;
