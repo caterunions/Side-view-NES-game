@@ -143,9 +143,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 4
-        y: 48
-        width: 6
-        height: 16
+        y: 54
+        width: 3
+        height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,10 +163,10 @@ TextureImporter:
       name: bullets_3
       rect:
         serializedVersion: 2
-        x: 10
-        y: 48
-        width: 6
-        height: 16
+        x: 7
+        y: 54
+        width: 3
+        height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,10 +184,10 @@ TextureImporter:
       name: bullets_4
       rect:
         serializedVersion: 2
-        x: 16
-        y: 57
-        width: 7
-        height: 7
+        x: 10
+        y: 58
+        width: 6
+        height: 6
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,10 +205,10 @@ TextureImporter:
       name: bullets_5
       rect:
         serializedVersion: 2
-        x: 23
-        y: 55
-        width: 9
-        height: 9
+        x: 16
+        y: 57
+        width: 7
+        height: 7
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -226,8 +226,8 @@ TextureImporter:
       name: bullets_6
       rect:
         serializedVersion: 2
-        x: 16
-        y: 47
+        x: 10
+        y: 48
         width: 7
         height: 10
       alignment: 0
@@ -252,7 +252,7 @@ TextureImporter:
         width: 1
         height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -260,6 +260,48 @@ TextureImporter:
       bones: []
       spriteID: 7f652bcefa5cf554e92bfb1c28523007
       internalID: 1349044416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullets_8
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 53
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3e1660d3a145384daf14f640cdb5e83
+      internalID: -1258452048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullets_9
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 56
+        width: 4
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de573548797023d4dad5876ba065a403
+      internalID: 1305981093
       vertices: []
       indices: 
       edges: []
@@ -283,6 +325,8 @@ TextureImporter:
       bullets_5: -1982868638
       bullets_6: -2136476332
       bullets_7: 1349044416
+      bullets_8: -1258452048
+      bullets_9: 1305981093
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

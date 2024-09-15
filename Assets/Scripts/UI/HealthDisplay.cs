@@ -17,6 +17,8 @@ public class HealthDisplay : MonoBehaviour
 
     private void OnEnable()
     {
+        if (GameManager.Instance == null) return;
+
         _healthPool = GameManager.Instance.Player.GetComponent<HealthPool>();
 
         _healthBarMaxPercentage = _healthPool.MaxHealth / 16f;
@@ -26,6 +28,11 @@ public class HealthDisplay : MonoBehaviour
         _healthPool.OnHPChange += UpdateHealthBar;
 
         UpdateHealthBar(_healthPool, 0);
+    }
+
+    private void Start()
+    {
+        OnEnable();
     }
 
     private void OnDisable()

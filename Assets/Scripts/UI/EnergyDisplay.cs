@@ -23,6 +23,8 @@ public class EnergyDisplay : MonoBehaviour
 
     private void OnEnable()
     {
+        if (GameManager.Instance == null) return;
+
         _playerStats = GameManager.Instance.Player.GetComponent<PlayerStats>();
         _shipWeaponHolder = GameManager.Instance.Player.GetComponentInChildren<ShipWeaponHolder>();
 
@@ -36,6 +38,11 @@ public class EnergyDisplay : MonoBehaviour
         _playerStats.OnEnergyChange += UpdateEnergyBar;
 
         UpdateEnergyBar(_playerStats, 0);
+    }
+
+    private void Start()
+    {
+        OnEnable();
     }
 
     private void OnDisable()
