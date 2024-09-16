@@ -19,6 +19,14 @@ public class EnemySpawner : MonoBehaviour
 
     private float _nextSpawnTime;
 
+    public List<Transform> EnemyTransforms
+    {
+        get
+        {
+            return _aliveEnemies.Select(e => e.EnemyBrain.transform).ToList();
+        }
+    }
+
     private float _timeRemaining
     {
         get

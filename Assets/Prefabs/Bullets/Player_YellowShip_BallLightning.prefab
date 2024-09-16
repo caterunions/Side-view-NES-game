@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6426462427343021237}
   - component: {fileID: 985812620269330228}
   - component: {fileID: 1094286020373047775}
+  - component: {fileID: 7380572543696139892}
   - component: {fileID: 2876825616473466601}
   - component: {fileID: 85737555671953984}
-  - component: {fileID: 7380572543696139892}
   - component: {fileID: -6902779231867736174}
   m_Layer: 0
   m_Name: Player_YellowShip_BallLightning
@@ -123,34 +123,6 @@ MonoBehaviour:
   _collider: {fileID: 6426462427343021237}
   _destroyOnWalls: 1
   _damage: 10
---- !u!114 &2876825616473466601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1131163750251324544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9eaa15e6c158424993baf12b464610a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _startVelocity: 20
-  _endVelocity: 1
-  _rampTime: 0.5
---- !u!114 &85737555671953984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1131163750251324544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c5ee3720afb16c418a2bc207c584db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _lifetime: 8
 --- !u!114 &7380572543696139892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,21 +135,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5358eef59edb804c98e6c6e28146168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnDelay: 0.2
+  _spawnDelay: 1.5
   _attacks:
   - _bullet: {fileID: 4357320367395020635, guid: 8e4ac45007c493747a4bbd671ce003b0, type: 3}
     _count: 3
-    _countModifier: 0
-    _spread: 0
+    _countModifier: 1
+    _spread: 360
     _spreadModifier: 0
     _angleOffsetStart: 0
     _angleOffsetIncrease: 0
     _repetitions: 999
-    _repeatDelay: 0.1
+    _repeatDelay: 0.25
     _endDelay: 0
     _startAtFixedAngle: 1
     _fixedAngle: 0
-    _randomAngleOffset: 180
+    _randomAngleOffset: 45
+--- !u!114 &2876825616473466601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131163750251324544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9eaa15e6c158424993baf12b464610a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startVelocity: 10
+  _endVelocity: 0
+  _rampTime: 2
+--- !u!114 &85737555671953984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131163750251324544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c5ee3720afb16c418a2bc207c584db4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lifetime: 5
 --- !u!114 &-6902779231867736174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hitbox: {fileID: 6426462427343021237}
-  _flickerRate: 0.2
+  _flickerRate: 0.25
 --- !u!1 &2076719028046246567
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,6 +203,7 @@ GameObject:
   - component: {fileID: 4140531812118048383}
   - component: {fileID: 8189057844605918369}
   - component: {fileID: 5571864264686107301}
+  - component: {fileID: 8291637096421170826}
   m_Layer: 0
   m_Name: Visuals
   m_TagString: Untagged
@@ -289,4 +290,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9f6cea36ac49845b6d4b0a644673eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationSpeed: 360
+  _rotationSpeed: 2000
+--- !u!114 &8291637096421170826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076719028046246567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec6e3efd340e7444b7ef2cbd839436c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startScale: 0.5
+  _endScale: 2
+  _rampTime: 2

@@ -11,6 +11,11 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private Transform _cursor;
+
+    [SerializeField]
+    private EnemySpawner _enemySpawner;
+    public EnemySpawner EnemySpawner => _enemySpawner;
+
     public Transform Cursor => _cursor;
 
     public GameObject Player { get; private set; }

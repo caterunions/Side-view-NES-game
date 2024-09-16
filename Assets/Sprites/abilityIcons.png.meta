@@ -101,7 +101,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 26
+        y: 232
         width: 24
         height: 24
       alignment: 0
@@ -122,7 +122,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 24
-        y: 26
+        y: 232
         width: 24
         height: 24
       alignment: 0
@@ -134,6 +134,48 @@ TextureImporter:
       bones: []
       spriteID: 1e4609824cc4c6746a869eba3d37160c
       internalID: 2042357188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: abilityIcons_2
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 232
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ae353cc291084d4ba5fd12f49dc963e
+      internalID: 1348124070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: abilityIcons_3
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 232
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 238486243eb039d47ba78310ab330df3
+      internalID: -1569336768
       vertices: []
       indices: 
       edges: []
@@ -151,6 +193,8 @@ TextureImporter:
     nameFileIdTable:
       abilityIcons_0: -1185748336
       abilityIcons_1: 2042357188
+      abilityIcons_2: 1348124070
+      abilityIcons_3: -1569336768
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

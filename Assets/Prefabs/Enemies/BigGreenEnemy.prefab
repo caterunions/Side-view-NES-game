@@ -502,7 +502,7 @@ RotationConstraint:
   m_AffectRotationX: 1
   m_AffectRotationY: 1
   m_AffectRotationZ: 1
-  m_Active: 0
+  m_Active: 1
   m_IsLocked: 0
   m_Sources:
   - sourceTransform: {fileID: 5326493881332839396}
@@ -517,7 +517,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4947981888901983465}
   - component: {fileID: 4835326186601312632}
-  - component: {fileID: 6389753309932631740}
   m_Layer: 6
   m_Name: Ship
   m_TagString: Untagged
@@ -592,26 +591,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1818360609 &6389753309932631740
-RotationConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4940316304073300350}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Weight: 1
-  m_RotationAtRest: {x: 0, y: 0, z: 0}
-  m_RotationOffset: {x: 0, y: 0, z: 0}
-  m_AffectRotationX: 1
-  m_AffectRotationY: 1
-  m_AffectRotationZ: 1
-  m_Active: 1
-  m_IsLocked: 0
-  m_Sources:
-  - sourceTransform: {fileID: 5326493881332839396}
-    weight: 1
 --- !u!1 &6752277501447053325
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 395559249314459594}
   - component: {fileID: 6388224664562758015}
   - component: {fileID: 5906983508779794392}
+  - component: {fileID: 2197747295840271984}
   m_Layer: 0
   m_Name: Player_YellowShip_1
   m_TagString: Untagged
@@ -124,11 +125,12 @@ MonoBehaviour:
   _behaviours:
   - {fileID: 6388224664562758015}
   - {fileID: 5906983508779794392}
-  _solidObjectPierceCount: 99
+  - {fileID: 2197747295840271984}
+  _solidObjectPierceCount: 0
   _range: 20
   _collider: {fileID: 2436280147218453994}
   _destroyOnWalls: 1
-  _damage: 2
+  _damage: 5
 --- !u!114 &6388224664562758015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +160,20 @@ MonoBehaviour:
   _maxFrequency: 40
   _minMagnitude: -8
   _maxMagnitude: 8
+--- !u!114 &2197747295840271984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4230911505482098415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a47712069b98150479a36371632c3221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxTurnDegrees: 5
+  _homingDistance: 5
 --- !u!1 &6165119800334799410
 GameObject:
   m_ObjectHideFlags: 0

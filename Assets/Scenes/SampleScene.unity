@@ -6148,6 +6148,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 26eb43beb6a438b4daa3e389ab76fad4, type: 2}
   - {fileID: 11400000, guid: 95dcb54dbb366a64984a1ef2dbb516ef, type: 2}
   - {fileID: 11400000, guid: 0c0bc9bad7ae0e44b82c232d72548307, type: 2}
+  - {fileID: 11400000, guid: 0ecb6b9f817602c45b843c8ca4163d3b, type: 2}
   _aliveEnemies: []
   _enemyDestroyHeight: -14
 --- !u!1 &1294822390
@@ -11808,6 +11809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerPrefab: {fileID: 5138296747864910140, guid: bbba4dc93a6f5bb40b081f8e2f6570db, type: 3}
   _cursor: {fileID: 1787981680}
+  _enemySpawner: {fileID: 1221254948}
 --- !u!1 &2035841105
 GameObject:
   m_ObjectHideFlags: 0

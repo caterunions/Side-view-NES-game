@@ -4944,7 +4944,7 @@ MonoBehaviour:
   _collectionParticles: {fileID: 8052412446715508926, guid: 6ff8bbe275bc66a49847d57b7c79e52f, type: 3}
   rb: {fileID: 648215009247543444}
   _magnetDistance: 5
-  _magnetForce: 50
+  _magnetForce: 80
 --- !u!61 &223398319972138214
 BoxCollider2D:
   m_ObjectHideFlags: 0

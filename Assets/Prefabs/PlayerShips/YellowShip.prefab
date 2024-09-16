@@ -10285,7 +10285,7 @@ MonoBehaviour:
     _bullet: {fileID: 395559249314459594, guid: 3c32d171862caee4abcb28bfd389dbe1, type: 3}
     _count: 1
     _countModifier: 0
-    _spread: 0
+    _spread: 10
     _spreadModifier: 0
     _angleOffsetStart: 0
     _angleOffsetIncrease: 0
@@ -10294,8 +10294,8 @@ MonoBehaviour:
     _endDelay: 0.05
     _startAtFixedAngle: 0
     _fixedAngle: 0
-    _randomAngleOffset: 0
-  _lightAttackSprite: {fileID: -1185748336, guid: 94cf795ac7bb36e4d823478f0da4b6a1, type: 3}
+    _randomAngleOffset: 5
+  _lightAttackSprite: {fileID: 1348124070, guid: 94cf795ac7bb36e4d823478f0da4b6a1, type: 3}
   _heavyAttack:
     _bullet: {fileID: 1094286020373047775, guid: 34df86c13cd84254cbbc44ff35f004ec, type: 3}
     _count: 1
@@ -10310,9 +10310,9 @@ MonoBehaviour:
     _startAtFixedAngle: 0
     _fixedAngle: 0
     _randomAngleOffset: 0
-  _heavyAttackSprite: {fileID: 2042357188, guid: 94cf795ac7bb36e4d823478f0da4b6a1, type: 3}
+  _heavyAttackSprite: {fileID: -1569336768, guid: 94cf795ac7bb36e4d823478f0da4b6a1, type: 3}
   _heavyChargeTime: 1.5
-  _heavyEnergyCost: 5
+  _heavyEnergyCost: 4
 --- !u!1 &5138296747864910140
 GameObject:
   m_ObjectHideFlags: 0
@@ -10421,7 +10421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 9096637576742376245}
-  _moveSpeed: 15
+  _moveSpeed: 20
 --- !u!50 &9096637576742376245
 Rigidbody2D:
   serializedVersion: 4
@@ -10540,7 +10540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 6
-  _maxEnergy: 5
+  _maxEnergy: 10
   _energyRegen: 0
 --- !u!114 &6189274286858719825
 MonoBehaviour:
