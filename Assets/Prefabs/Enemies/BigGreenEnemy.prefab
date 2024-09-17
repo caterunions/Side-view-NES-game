@@ -972,7 +972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maskedWhiteSprite: {fileID: 6891056346723089093}
-  _flashDuration: 0.05
+  _flashDuration: 0.1
 --- !u!114 &8385391779425926347
 MonoBehaviour:
   m_ObjectHideFlags: 0

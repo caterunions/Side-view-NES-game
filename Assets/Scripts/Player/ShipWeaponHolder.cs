@@ -58,7 +58,9 @@ public class ShipWeaponHolder : MonoBehaviour
 
     private float _powerUpEndTime = 0f;
 
-    private float _powerUpTimeRemaining
+    public float PowerUpDuration { get; private set; }
+
+    public float PowerUpTimeRemaining
     {
         get { return _powerUpEndTime - Time.time; }
     }
@@ -89,13 +91,14 @@ public class ShipWeaponHolder : MonoBehaviour
     {
         _powerUpLightAttack = powerUpAttack;
         _powerUpLightAttackSprite = powerUpSprite;
+        PowerUpDuration = powerUpTime;
         _powerUpEndTime = Time.time + powerUpTime;
         OnGainLightAttackPowerUp?.Invoke(this);
     }
 
     private void Update()
     {
-        if(_powerUpTimeRemaining <= 0f)
+        if(PowerUpTimeRemaining <= 0f)
         {
             _powerUpLightAttack = null;
             _powerUpLightAttackSprite = null;

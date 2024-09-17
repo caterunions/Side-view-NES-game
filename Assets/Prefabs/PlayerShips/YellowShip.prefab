@@ -10540,7 +10540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 6
-  _maxEnergy: 10
+  _maxEnergy: 8
   _energyRegen: 0
 --- !u!114 &6189274286858719825
 MonoBehaviour:
@@ -10555,7 +10555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maskedWhiteSprite: {fileID: 7513281886737740244}
-  _flashDuration: 0.05
+  _flashDuration: 0.1
 --- !u!1 &6582053267624412175
 GameObject:
   m_ObjectHideFlags: 0

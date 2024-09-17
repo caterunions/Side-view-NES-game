@@ -11,6 +11,9 @@ public class DisplayAttackIcons : MonoBehaviour
     [SerializeField]
     private Image _heavyAttackIcon;
 
+    [SerializeField]
+    private Image _lightAttackPowerUpBorder;
+
     private ShipWeaponHolder _shipWeaponHolder;
 
     private void OnEnable()
@@ -40,5 +43,10 @@ public class DisplayAttackIcons : MonoBehaviour
     {
         _lightAttackIcon.sprite = _shipWeaponHolder.LightAttackSprite;
         _heavyAttackIcon.sprite = _shipWeaponHolder.HeavyAttackSprite;
+    }
+
+    private void Update()
+    {
+        _lightAttackPowerUpBorder.fillAmount = _shipWeaponHolder.PowerUpTimeRemaining / _shipWeaponHolder.PowerUpDuration;
     }
 }

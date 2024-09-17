@@ -352,7 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maskedWhiteSprite: {fileID: 2126215210444565465}
-  _flashDuration: 0.05
+  _flashDuration: 0.1
 --- !u!114 &2930198122127992010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,6 +455,9 @@ MonoBehaviour:
   - _pickup: {fileID: 2004176418326364073, guid: eb7e41cf381e7d34fb6fdf4cd0a34bce, type: 3}
     _maxCount: 2
     _chance: 0.1
+  - _pickup: {fileID: 8160840149836070347, guid: d3e63fb2e8dd0764cb78f16233552c5a, type: 3}
+    _maxCount: 1
+    _chance: 0.2
 --- !u!1 &685988401156558681
 GameObject:
   m_ObjectHideFlags: 0

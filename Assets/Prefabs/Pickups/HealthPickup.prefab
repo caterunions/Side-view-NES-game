@@ -5015,5 +5015,5 @@ MonoBehaviour:
   spriteRenderer: {fileID: 4680233726202891143}
   _collectionParticles: {fileID: 3749638157346257636, guid: d7a3352174a15384d92cec23224425d8, type: 3}
   rb: {fileID: 2986905904510764482}
-  _magnetDistance: 5
+  _magnetDistance: 7
   _magnetForce: 80
