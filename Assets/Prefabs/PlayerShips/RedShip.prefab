@@ -10354,6 +10354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 10
   _maxEnergy: 6
+  _sprite: {fileID: -480988487, guid: 03bc55655487f814aa75ad07b44f8b96, type: 3}
   _energyRegen: 0
 --- !u!114 &7937538179741863149
 MonoBehaviour:

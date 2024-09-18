@@ -7,7 +7,12 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     [SerializeField]
-    private GameObject _playerPrefab;
+    private PlayerMenuChoices _menuChoices;
+
+    public Gamemode Gamemode
+    {
+        get { return _menuChoices.Gamemode; }
+    }
 
     [SerializeField]
     private Transform _cursor;
@@ -18,11 +23,11 @@ public class GameManager : MonoBehaviour
 
     public Transform Cursor => _cursor;
 
-    public GameObject Player { get; private set; }
+    public PlayerStats Player { get; private set; }
 
     private void Awake()
     {
         Instance = this;
-        Player = Instantiate(_playerPrefab, Vector3.zero, Quaternion.identity);
+        Player = Instantiate(_menuChoices.PlayerShip, Vector3.zero, Quaternion.identity);
     }
 }

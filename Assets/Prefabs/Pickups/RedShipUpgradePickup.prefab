@@ -5027,7 +5027,7 @@ MonoBehaviour:
     _angleOffsetIncrease: 0
     _repetitions: 1
     _repeatDelay: 0
-    _endDelay: 0.15
+    _endDelay: 0.1
     _startAtFixedAngle: 0
     _fixedAngle: 0
     _randomAngleOffset: 0

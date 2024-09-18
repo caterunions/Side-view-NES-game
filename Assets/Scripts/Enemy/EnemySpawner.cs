@@ -45,7 +45,7 @@ public class EnemySpawner : MonoBehaviour
         foreach(EnemySpawnData data in wave.Enemies)
         {
             EnemyPackage enemy = Instantiate(data.EnemyPackage, new Vector3(data.SpawnPos.x, data.SpawnPos.y, 0), Quaternion.identity);
-            enemy.EnemyBrain.SetPlayer(GameManager.Instance.Player);
+            enemy.EnemyBrain.SetPlayer(GameManager.Instance.Player.gameObject);
 
             enemy.SplineAnimate.StartOffset = data.SplineStartOffset;
             if (data.FlipSpline) enemy.SplineContainer.transform.localScale = new Vector3(-1, 1, 1);

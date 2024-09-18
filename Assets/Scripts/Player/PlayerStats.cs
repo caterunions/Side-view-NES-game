@@ -11,6 +11,10 @@ public class PlayerStats : EntityStats
     private int _maxEnergy;
     public int MaxEnergy => _maxEnergy;
 
+    [SerializeField]
+    private Sprite _sprite;
+    public Sprite Sprite => _sprite;
+
     private float _currentEnergy;
     public float CurrentEnergy
     {
