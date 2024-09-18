@@ -9,16 +9,12 @@ using System;
 
 public class MenuManager : MonoBehaviour
 {
-    [Header("Stored Objects")]
-    [SerializeField]
-    private PlayerMenuChoices _playerMenuChoices;
-
-    [SerializeField]
-    private StoredScores _storedScores;
-
     [Header("UI Elements")]
     [SerializeField]
     private Button _startButton;
+
+    [SerializeField]
+    private Button _shipSelectButton;
 
     [SerializeField]
     private Image _shipDisplay;
@@ -33,19 +29,24 @@ public class MenuManager : MonoBehaviour
     {
         _startButton.onClick.AddListener(StartGame);
 
-        Sprite shipSprite = _playerMenuChoices.PlayerShip.Sprite;
+        _shipSelectButton.onClick.AddListener(LoadShipSelect);
 
-        _shipDisplay.sprite = shipSprite;
-        _shipDisplay.rectTransform.sizeDelta = new Vector2(shipSprite.textureRect.width * 2, shipSprite.textureRect.height * 2);
+        //Sprite shipSprite = _playerMenuChoices.PlayerShip.Sprite;
 
-        UpdateGamemodeAndHiScore((int)_playerMenuChoices.Gamemode);
+        //_shipDisplay.sprite = shipSprite;
+        //_shipDisplay.rectTransform.sizeDelta = new Vector2(shipSprite.textureRect.width * 2, shipSprite.textureRect.height * 2);
 
+        UpdateGamemodeAndHiScore(PlayerPrefs.GetInt("GamemodeSelection", 0));
+
+        _gamemodeDropdown.SetValueWithoutNotify(PlayerPrefs.GetInt("GamemodeSelection", 0));
         _gamemodeDropdown.onValueChanged.AddListener(UpdateGamemodeAndHiScore);
     }
 
     private void OnDisable()
     {
         _startButton.onClick.RemoveListener(StartGame);
+
+        _shipSelectButton.onClick.RemoveListener(LoadShipSelect);
 
         _gamemodeDropdown.onValueChanged.RemoveListener(UpdateGamemodeAndHiScore);
     }
@@ -55,14 +56,19 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("Gameplay");
     }
 
+    private void LoadShipSelect()
+    {
+        SceneManager.LoadScene("ShipSelection");
+    }
+
     private void UpdateGamemodeAndHiScore(int selection)
     {
-        Gamemode gamemode = (Gamemode)selection;
+        PlayerPrefs.SetInt("GamemodeSelection", selection);
 
-        _playerMenuChoices.Gamemode = gamemode;
+        PlayerPrefs.Save();
 
         int hiScore = 0;
-        _storedScores.Scores.TryGetValue(gamemode, out hiScore);
+        
 
         _hiScoreText.text = hiScore.ToString("00000000");
     }

@@ -757,9 +757,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e756402f551cf2d478ba94ad8b8cb287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerMenuChoices: {fileID: 11400000, guid: 05fc90a0204826948b3c4329e0d0ccba, type: 2}
-  _storedScores: {fileID: 11400000, guid: a94c2b36a6fdfde4fb1a4979017d7693, type: 2}
   _startButton: {fileID: 1446532122}
+  _shipSelectButton: {fileID: 697931110}
   _shipDisplay: {fileID: 1490821837}
   _gamemodeDropdown: {fileID: 1920331532}
   _hiScoreText: {fileID: 1089757803}

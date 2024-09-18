@@ -114,4 +114,12 @@ public class EnemySpawner : MonoBehaviour
             }
         }
     }
+
+    public void ForceClearEnemies()
+    {
+        foreach (EnemyPackage enemy in _aliveEnemies.ToList())
+        {
+            DestroyEnemy(enemy, false);
+        }
+    }
 }
