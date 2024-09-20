@@ -41,6 +41,16 @@ public class GameManager : MonoBehaviour
 
     public Transform Cursor => _cursor;
 
+    public int HiScore
+    {
+        get
+        {
+            if (Gamemode == Gamemode.Standard) return PlayerPrefs.GetInt("StandardHiScore", 0);
+            else if (Gamemode == Gamemode.Endless) return PlayerPrefs.GetInt("EndlessHiScore", 0);
+            return 0;
+        }
+    }
+
     public PlayerStats Player { get; private set; }
 
     private HealthDamageReceiver _playerHDR;
@@ -64,17 +74,17 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
-        _playerHDR.OnDamage += HandleGameOver;
+        _playerHDR.OnDamage += HandlePlayerDeath;
         _timeKeeper.OnTimeRunOut += HandleTimeRunOut;
     }
 
     private void OnDisable()
     {
-        _playerHDR.OnDamage -= HandleGameOver;
+        _playerHDR.OnDamage -= HandlePlayerDeath;
         _timeKeeper.OnTimeRunOut -= HandleTimeRunOut;
     }
 
-    private void HandleGameOver(DamageReceiver dr, DamageEvent dmgEvent, DamageResult result)
+    private void HandlePlayerDeath(DamageReceiver dr, DamageEvent dmgEvent, DamageResult result)
     {
         if (!result.Killed) return;
 
@@ -104,5 +114,7 @@ public class GameManager : MonoBehaviour
 
         _playerMove.enabled = false;
         _playerInputHandler.enabled = false;
+
+        OnGameEnd?.Invoke(this, goodEnd);
     }
 }

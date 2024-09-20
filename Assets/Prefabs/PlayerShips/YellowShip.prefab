@@ -10332,6 +10332,7 @@ GameObject:
   - component: {fileID: 5082629777071433822}
   - component: {fileID: 856576452838349901}
   - component: {fileID: 6189274286858719825}
+  - component: {fileID: 5204882950706977751}
   m_Layer: 3
   m_Name: YellowShip
   m_TagString: Player
@@ -10557,6 +10558,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maskedWhiteSprite: {fileID: 7513281886737740244}
   _flashDuration: 0.1
+--- !u!114 &5204882950706977751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5138296747864910140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 585523bc995b57f42af52b61bdd81b8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _particleSystem: {fileID: 752375256778287732, guid: 3a3839a6bddad63499dedc525b1b4957, type: 3}
 --- !u!1 &6582053267624412175
 GameObject:
   m_ObjectHideFlags: 0

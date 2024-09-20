@@ -15523,6 +15523,7 @@ GameObject:
   - component: {fileID: 699160935375200701}
   - component: {fileID: 1041056699328438483}
   - component: {fileID: 8394565747221080489}
+  - component: {fileID: 5753203088230089166}
   m_Layer: 3
   m_Name: BlueShip
   m_TagString: Player
@@ -15748,3 +15749,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maskedWhiteSprite: {fileID: 1105843054069149912}
   _flashDuration: 0.1
+--- !u!114 &5753203088230089166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9076904181473791027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 585523bc995b57f42af52b61bdd81b8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _particleSystem: {fileID: 752375256778287732, guid: 3a3839a6bddad63499dedc525b1b4957, type: 3}

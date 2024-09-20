@@ -33,7 +33,7 @@ public class ShipSelectManager : MonoBehaviour
 
     private void LoadMenu()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("Title");
     }
 
     public void SetSelectionOverlay(RectTransform rTransform)

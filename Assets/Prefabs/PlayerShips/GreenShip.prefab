@@ -10338,6 +10338,7 @@ GameObject:
   - component: {fileID: 4451232369328957129}
   - component: {fileID: 8028007896358809712}
   - component: {fileID: 6236064100336645044}
+  - component: {fileID: 1623502459259093526}
   m_Layer: 3
   m_Name: GreenShip
   m_TagString: Player
@@ -10563,6 +10564,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maskedWhiteSprite: {fileID: 4200847197470140580}
   _flashDuration: 0.1
+--- !u!114 &1623502459259093526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7302219542766010411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 585523bc995b57f42af52b61bdd81b8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _particleSystem: {fileID: 752375256778287732, guid: 3a3839a6bddad63499dedc525b1b4957, type: 3}
 --- !u!1 &7478574073319620736
 GameObject:
   m_ObjectHideFlags: 0

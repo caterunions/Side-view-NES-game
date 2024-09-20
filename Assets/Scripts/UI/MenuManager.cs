@@ -71,7 +71,18 @@ public class MenuManager : MonoBehaviour
         PlayerPrefs.Save();
 
         int hiScore = 0;
-        
+
+        switch((Gamemode)selection)
+        {
+            case Gamemode.Standard:
+                hiScore = PlayerPrefs.GetInt("StandardHiScore", 0);
+                break;
+            case Gamemode.Endless:
+                hiScore = PlayerPrefs.GetInt("EndlessHiScore", 0);
+                break;
+            default:
+                break;
+        }
 
         _hiScoreText.text = hiScore.ToString("00000000");
     }
