@@ -15,6 +15,9 @@ public class SinWaveMovement : BulletBehaviour
     private void Update()
     {
         _timeAlive += Time.deltaTime;
-        transform.position = new Vector2(transform.position.x, transform.position.y) + new Vector2(transform.right.x, transform.right.y) * Mathf.Cos(_timeAlive * _frequency) * (_magnitude * 0.01f);
+        transform.position = 
+            new Vector2(transform.position.x, transform.position.y) + 
+            new Vector2(transform.right.x, transform.right.y) * 
+            Mathf.Cos(_timeAlive * _frequency) * (_magnitude * 0.01f);
     }
 }

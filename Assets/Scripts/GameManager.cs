@@ -95,8 +95,6 @@ public class GameManager : MonoBehaviour
 
     private void HandleTimeRunOut(TimeKeeper timeKeeper)
     {
-        _timeKeeper.enabled = false;
-
         _enemySpawner.ForceClearEnemies();
 
         Bullet cleanupProjectile = Instantiate(_cleanupProjectile, Player.transform.position, Quaternion.identity);
@@ -108,6 +106,8 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator GameEndRoutine(bool goodEnd)
     {
+        _timeKeeper.enabled = false;
+
         _enemySpawner.gameObject.SetActive(false);
 
         yield return new WaitForSeconds(2f);

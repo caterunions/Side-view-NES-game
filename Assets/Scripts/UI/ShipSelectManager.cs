@@ -23,6 +23,8 @@ public class ShipSelectManager : MonoBehaviour
 
     private void OnEnable()
     {
+        _selectionOverlay.enabled = false;
+
         _backButton.onClick.AddListener(LoadMenu);
     }
 
@@ -38,6 +40,8 @@ public class ShipSelectManager : MonoBehaviour
 
     public void SetSelectionOverlay(RectTransform rTransform)
     {
+        _selectionOverlay.enabled = true;
+
         _selectionOverlay.rectTransform.position = rTransform.position;
 
         if(_shipSelectionButtons.Contains(rTransform))
@@ -46,16 +50,5 @@ public class ShipSelectManager : MonoBehaviour
 
             PlayerPrefs.Save();
         }
-    }
-
-    private void Update()
-    {
-        // layout groups are fussy and need a frame to set things up
-        if (_firstFramePassed && !_secondFramePassed)
-        {
-            SetSelectionOverlay(_shipSelectionButtons[PlayerPrefs.GetInt("ShipSelection", 0)]);
-            _secondFramePassed = true;
-        }
-        _firstFramePassed = true;
     }
 }
