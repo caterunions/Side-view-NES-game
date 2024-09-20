@@ -9,6 +9,9 @@ using System;
 
 public class MenuManager : MonoBehaviour
 {
+    [SerializeField]
+    private ShipDictionary _shipDictionary;
+
     [Header("UI Elements")]
     [SerializeField]
     private Button _startButton;
@@ -31,10 +34,10 @@ public class MenuManager : MonoBehaviour
 
         _shipSelectButton.onClick.AddListener(LoadShipSelect);
 
-        //Sprite shipSprite = _playerMenuChoices.PlayerShip.Sprite;
+        Sprite shipSprite = _shipDictionary.Ships[PlayerPrefs.GetInt("ShipSelection", 0)].Sprite;
 
-        //_shipDisplay.sprite = shipSprite;
-        //_shipDisplay.rectTransform.sizeDelta = new Vector2(shipSprite.textureRect.width * 2, shipSprite.textureRect.height * 2);
+        _shipDisplay.sprite = shipSprite;
+        _shipDisplay.rectTransform.sizeDelta = new Vector2(shipSprite.textureRect.width * 2, shipSprite.textureRect.height * 2);
 
         UpdateGamemodeAndHiScore(PlayerPrefs.GetInt("GamemodeSelection", 0));
 

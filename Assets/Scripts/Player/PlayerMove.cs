@@ -20,4 +20,10 @@ public class PlayerMove : MonoBehaviour
     {
         _rb.velocity = _lastMoveInput * _moveSpeed;
     }
+
+    private void OnDisable()
+    {
+        _lastMoveInput = Vector2.zero;
+        _rb.velocity = Vector2.zero;
+    }
 }

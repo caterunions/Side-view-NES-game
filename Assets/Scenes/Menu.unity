@@ -757,6 +757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e756402f551cf2d478ba94ad8b8cb287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _shipDictionary: {fileID: 11400000, guid: 52cb30ea426e3124e9645fc3c47763fb, type: 2}
   _startButton: {fileID: 1446532122}
   _shipSelectButton: {fileID: 697931110}
   _shipDisplay: {fileID: 1490821837}

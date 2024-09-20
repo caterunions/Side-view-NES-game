@@ -315,7 +315,7 @@ MonoBehaviour:
   - {fileID: 2036569918529121192}
   - {fileID: 5787282588622529888}
   - {fileID: 1664869762566958323}
-  _solidObjectPierceCount: 9999
+  _solidObjectPierceCount: 0
   _range: 7
   _collider: {fileID: 5231481964350974854}
   _destroyOnWalls: 1

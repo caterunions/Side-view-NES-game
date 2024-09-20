@@ -44,6 +44,10 @@ public class GameManager : MonoBehaviour
     public PlayerStats Player { get; private set; }
 
     private HealthDamageReceiver _playerHDR;
+    private PlayerMove _playerMove;
+    private PlayerInputHandler _playerInputHandler;
+
+    private Coroutine _gameEndRoutine;
 
     private void Awake()
     {
@@ -52,8 +56,10 @@ public class GameManager : MonoBehaviour
         Player = Instantiate(_shipDictionary.Ships[PlayerPrefs.GetInt("ShipSelection", 0)], Vector3.zero, Quaternion.identity);
 
         _playerHDR = Player.GetComponentInChildren<HealthDamageReceiver>();
+        _playerMove = Player.GetComponentInChildren<PlayerMove>();
+        _playerInputHandler = Player.GetComponentInChildren<PlayerInputHandler>();
 
-        if(Gamemode != Gamemode.Standard) _timeKeeper.enabled = false;
+        if (Gamemode != Gamemode.Standard) _timeKeeper.enabled = false;
     }
 
     private void OnEnable()
@@ -74,7 +80,7 @@ public class GameManager : MonoBehaviour
 
         Player.gameObject.SetActive(false);
 
-        EndGame(false);
+        _gameEndRoutine = StartCoroutine(GameEndRoutine(false));
     }
 
     private void HandleTimeRunOut(TimeKeeper timeKeeper)
@@ -87,11 +93,16 @@ public class GameManager : MonoBehaviour
 
         cleanupProjectile.Initialize(gameObject, null, DamageTeam.Player);
 
-        EndGame(true);
+        _gameEndRoutine = StartCoroutine(GameEndRoutine(true));
     }
 
-    private void EndGame(bool goodEnd)
+    private IEnumerator GameEndRoutine(bool goodEnd)
     {
         _enemySpawner.gameObject.SetActive(false);
+
+        yield return new WaitForSeconds(2f);
+
+        _playerMove.enabled = false;
+        _playerInputHandler.enabled = false;
     }
 }
