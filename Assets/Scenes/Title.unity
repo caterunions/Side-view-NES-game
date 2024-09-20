@@ -12107,7 +12107,7 @@ MonoBehaviour:
   m_AssetsPPU: 8
   m_RefResolutionX: 256
   m_RefResolutionY: 224
-  m_UpscaleRT: 0
+  m_UpscaleRT: 1
   m_PixelSnapping: 1
   m_CropFrameX: 1
   m_CropFrameY: 1

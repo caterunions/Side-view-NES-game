@@ -1367,10 +1367,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+    x: 0.14705883
+    y: 0.005882353
+    width: 0.7058824
+    height: 0.9882353
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -1387,7 +1387,7 @@ Camera:
   m_HDR: 1
   m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
+  m_ForceIntoRT: 1
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
@@ -1421,7 +1421,7 @@ MonoBehaviour:
   m_AssetsPPU: 8
   m_RefResolutionX: 256
   m_RefResolutionY: 224
-  m_UpscaleRT: 0
+  m_UpscaleRT: 1
   m_PixelSnapping: 1
   m_CropFrameX: 1
   m_CropFrameY: 1
