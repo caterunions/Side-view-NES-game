@@ -10,16 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2ac3802033873140bbb2bdb342fc2c4, type: 3}
-  m_Name: GreenEnemyTagTeam
+  m_Name: GreenFlyR
   m_EditorClassIdentifier: 
   _enemies:
-  - _enemyPackage: {fileID: 2119782110607016083, guid: d8ff6dc00a0a7864696e1a97923e6538, type: 3}
-    _spawnPos: {x: -14.5, y: 19}
-    _flipSpline: 0
-    _splineStartOffset: 0
-  - _enemyPackage: {fileID: 2119782110607016083, guid: d8ff6dc00a0a7864696e1a97923e6538, type: 3}
+  - _enemyPackage: {fileID: 2119782110607016083, guid: 622d17710aceb544089e7b195dc06704, type: 3}
     _spawnPos: {x: 14.5, y: 19}
     _flipSpline: 1
     _splineStartOffset: 0
-  _weight: 100
-  _waitTimeUntilNextWave: 7
+  _weight: 40
+  _waitTimeUntilNextWave: 10

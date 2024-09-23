@@ -26,6 +26,8 @@ public class EnemyBrain : MonoBehaviour
     private EnemyAim _aimer;
     public EnemyAim Aimer => _aimer;
 
+    public EnemySpawner Spawner { get; set; }
+
     [SerializeField]
     private int _scoreReward;
     public int ScoreReward => _scoreReward;

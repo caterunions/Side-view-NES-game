@@ -6950,6 +6950,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 95dcb54dbb366a64984a1ef2dbb516ef, type: 2}
   - {fileID: 11400000, guid: 0c0bc9bad7ae0e44b82c232d72548307, type: 2}
   - {fileID: 11400000, guid: 0ecb6b9f817602c45b843c8ca4163d3b, type: 2}
+  - {fileID: 11400000, guid: c0477092725e1b244838c262bf43f984, type: 2}
+  - {fileID: 11400000, guid: 1518dd2551ab5ee4799707ebf5fc5cb4, type: 2}
+  - {fileID: 11400000, guid: 2567e461e45a85f48a414c47854ef5f7, type: 2}
+  - {fileID: 11400000, guid: 2d4f2626a77d0294aa08e36ec76fee81, type: 2}
   _aliveEnemies: []
   _enemyDestroyHeight: -14
 --- !u!1 &1294822390
