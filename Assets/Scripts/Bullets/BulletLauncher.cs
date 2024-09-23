@@ -6,7 +6,7 @@ using UnityEngine;
 public class BulletLauncher : MonoBehaviour
 {
     public event Action<BulletLauncher, Bullet, DamageReceiver, DamageEvent> OnSpawnedBulletHit;
-    public event Action<BulletLauncher, Bullet> OnLaunch;
+    public event Action<BulletLauncher, PatternData> OnLaunch;
 
     public void Launch(PatternData pattern)
     {
@@ -30,6 +30,8 @@ public class BulletLauncher : MonoBehaviour
             b.OnHit += TriggerSpawnedHitEvent;
             b.Initialize(transform.root.gameObject, this, pattern.Team);
         }
+
+        OnLaunch?.Invoke(this, pattern);
     }
 
     private void TriggerSpawnedHitEvent(Bullet bullet, DamageReceiver dr, DamageEvent dmgEvent)

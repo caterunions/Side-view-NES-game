@@ -10606,7 +10606,7 @@ MonoBehaviour:
     _randomAngleOffset: 0
   _heavyAttackSprite: {fileID: 2091988210, guid: 94cf795ac7bb36e4d823478f0da4b6a1, type: 3}
   _heavyChargeTime: 0.5
-  _heavyEnergyCost: 5
+  _heavyEnergyCost: 7
 --- !u!1 &7284507714774217578
 GameObject:
   m_ObjectHideFlags: 0
@@ -15732,7 +15732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 12
-  _maxEnergy: 10
+  _maxEnergy: 14
   _sprite: {fileID: 1286198333, guid: 03bc55655487f814aa75ad07b44f8b96, type: 3}
   _energyRegen: 0
 --- !u!114 &8394565747221080489

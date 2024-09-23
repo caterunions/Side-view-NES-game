@@ -101,7 +101,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 30
+        y: 245
         width: 13
         height: 11
       alignment: 9
@@ -122,7 +122,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 13
-        y: 29
+        y: 244
         width: 13
         height: 12
       alignment: 9
@@ -143,7 +143,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 26
-        y: 30
+        y: 245
         width: 15
         height: 11
       alignment: 9
@@ -164,7 +164,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 41
-        y: 27
+        y: 242
         width: 11
         height: 14
       alignment: 9
@@ -185,7 +185,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 23
+        y: 238
         width: 7
         height: 7
       alignment: 0
@@ -206,7 +206,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 41
-        y: 18
+        y: 233
         width: 9
         height: 9
       alignment: 0
@@ -227,7 +227,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 13
+        y: 228
         width: 19
         height: 10
       alignment: 0
@@ -248,11 +248,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 19
-        y: 14
+        y: 229
         width: 15
         height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -260,6 +260,27 @@ TextureImporter:
       bones: []
       spriteID: 16e77cc48497b3b468c200b1ac92edee
       internalID: -1099436559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ships_8
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 242
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5d39d9ba77324c43b308755a3942f8e
+      internalID: -801751671
       vertices: []
       indices: 
       edges: []
@@ -283,6 +304,7 @@ TextureImporter:
       ships_5: 1636147044
       ships_6: -555257623
       ships_7: -1099436559
+      ships_8: -801751671
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
