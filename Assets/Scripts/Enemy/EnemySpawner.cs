@@ -9,6 +9,9 @@ public class EnemySpawner : MonoBehaviour
     public event Action<EnemySpawner, EnemyPackage, bool> OnSpawnedEnemyDeath;
 
     [SerializeField]
+    private ScoreKeeper _scoreKeeper;
+
+    [SerializeField]
     private List<EnemyWave> _waves;
 
     [SerializeField]
@@ -35,11 +38,6 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        
-    }
-
     private void SpawnWave(EnemyWave wave)
     {
         foreach(EnemySpawnData data in wave.Enemies)
@@ -56,7 +54,7 @@ public class EnemySpawner : MonoBehaviour
             _aliveEnemies.Add(enemy);
         }
 
-        _nextSpawnTime = Time.time + wave.WaitTimeUntilNextWave;
+        _nextSpawnTime = Time.time + (wave.WaitTimeUntilNextWave / (1 + (_scoreKeeper.Score / 100000)));
     }
 
     private void DestroyEnemy(EnemyPackage enemy, bool killedByPlayer)
@@ -81,7 +79,7 @@ public class EnemySpawner : MonoBehaviour
 
     private EnemyWave GetRandomWeightedWave(List<EnemyWave> waves)
     {
-        int[] weights = waves.Select(w => w.Weight).ToArray();
+        int[] weights = waves.Where(w => w.MinScoreToSpawn <= _scoreKeeper.Score).Select(w => w.Weight).ToArray();
         int randomWeight = UnityEngine.Random.Range(0, weights.Sum());
         for (int i = 0; i < weights.Length; ++i)
         {

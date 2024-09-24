@@ -420,16 +420,16 @@ MonoBehaviour:
   _endDelay: 0
   _attacks:
   - _bullet: {fileID: 5589746652005843830, guid: 8e5bb3bb1f326cf43aea8fcad53ec0c9, type: 3}
-    _count: 2
+    _count: 4
     _countModifier: 0
-    _spread: 20
+    _spread: 360
     _spreadModifier: 0
     _angleOffsetStart: 0
     _angleOffsetIncrease: 0
     _repetitions: 5
     _repeatDelay: 0.7
     _endDelay: 0
-    _startAtFixedAngle: 0
+    _startAtFixedAngle: 1
     _fixedAngle: 0
     _randomAngleOffset: 0
   - _bullet: {fileID: 1490810674018701117, guid: 1f95a61f193fb5f45a1ae28ca2d254ec, type: 3}
@@ -1115,10 +1115,10 @@ MonoBehaviour:
   _pickupSpawns:
   - _pickup: {fileID: 5317634159893455183, guid: 2e287c92c20b5d640b8e1d16ed464119, type: 3}
     _maxCount: 3
-    _chance: 0.5
+    _chance: 0.3
   - _pickup: {fileID: 2004176418326364073, guid: eb7e41cf381e7d34fb6fdf4cd0a34bce, type: 3}
     _maxCount: 1
-    _chance: 0.05
+    _chance: 0.1
 --- !u!1 &7704323640960124155
 GameObject:
   m_ObjectHideFlags: 0

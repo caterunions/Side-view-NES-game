@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 98916019907508120}
   - component: {fileID: 1174284549700935524}
   - component: {fileID: 8097162149608824311}
+  - component: {fileID: 4784235609118578906}
+  - component: {fileID: 5788399763115169487}
   m_Layer: 0
   m_Name: PurpleEnemy_1
   m_TagString: Untagged
@@ -156,6 +158,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frequency: 5
   _magnitude: 3
+--- !u!114 &4784235609118578906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989415976854562559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b9e36778e0e81940a4f4d94ee817df1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _team: 0
+--- !u!114 &5788399763115169487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989415976854562559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd7270320fb04704eb3465fe6da9b0db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3671053560342682406
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,6 +658,8 @@ GameObject:
   - component: {fileID: 2106647052258113308}
   - component: {fileID: 6402748553327198506}
   - component: {fileID: 3204203252604715108}
+  - component: {fileID: 3905059377518580309}
+  - component: {fileID: 7544223752668965711}
   m_Layer: 0
   m_Name: PurpleEnemy_1 (1)
   m_TagString: Untagged
@@ -773,3 +802,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frequency: 5
   _magnitude: -3
+--- !u!114 &3905059377518580309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8205879269957685041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b9e36778e0e81940a4f4d94ee817df1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _team: 0
+--- !u!114 &7544223752668965711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8205879269957685041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd7270320fb04704eb3465fe6da9b0db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

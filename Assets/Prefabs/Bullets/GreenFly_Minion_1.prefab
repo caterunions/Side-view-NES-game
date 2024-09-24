@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 8295378158419257091}
   - component: {fileID: 7742745721561516334}
   - component: {fileID: 4718377193717145026}
+  - component: {fileID: 6742149873575511041}
+  - component: {fileID: 750063214657925624}
   m_Layer: 0
   m_Name: GreenFly_Minion_1
   m_TagString: Untagged
@@ -140,6 +142,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _velocity: 7
+--- !u!114 &6742149873575511041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521663066635030767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b9e36778e0e81940a4f4d94ee817df1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _team: 0
+--- !u!114 &750063214657925624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521663066635030767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd7270320fb04704eb3465fe6da9b0db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1350948398342923241
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,6 +16,10 @@ public class EnemyWave : ScriptableObject
     [SerializeField]
     private float _waitTimeUntilNextWave = 5;
     public float WaitTimeUntilNextWave => _waitTimeUntilNextWave;
+
+    [SerializeField]
+    private int _minScoreToSpawn = 0;
+    public int MinScoreToSpawn => _minScoreToSpawn;
 }
 
 [System.Serializable]

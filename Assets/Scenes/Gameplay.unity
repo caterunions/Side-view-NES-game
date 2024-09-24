@@ -6937,6 +6937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f17fa6636511f42821c6d3145f1f9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _scoreKeeper: {fileID: 1997071950}
   _waves:
   - {fileID: 11400000, guid: 919165641da1e9f4fbbf50b8e2994039, type: 2}
   - {fileID: 11400000, guid: 89da089df5eac944798c9f5fd3facffc, type: 2}

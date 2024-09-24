@@ -404,10 +404,10 @@ MonoBehaviour:
   _pickupSpawns:
   - _pickup: {fileID: 5317634159893455183, guid: 2e287c92c20b5d640b8e1d16ed464119, type: 3}
     _maxCount: 1
-    _chance: 0.4
+    _chance: 0.2
   - _pickup: {fileID: 2004176418326364073, guid: eb7e41cf381e7d34fb6fdf4cd0a34bce, type: 3}
     _maxCount: 1
-    _chance: 0.03
+    _chance: 0.02
   - _pickup: {fileID: 7856523963947580566, guid: ebcaa061bf3b5844ca72e3070084fff8, type: 3}
     _maxCount: 1
     _chance: 0.01
