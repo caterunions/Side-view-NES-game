@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CopyBulletLauncher : MonoBehaviour
+public class CopyBulletLauncher : BulletLauncher
 {
     [SerializeField]
     private BulletLauncher _launcherToCopy;
@@ -37,7 +37,7 @@ public class CopyBulletLauncher : MonoBehaviour
             Bullet b = Instantiate(pattern.Bullet, position, rotation);
 
             //b.OnHit += TriggerSpawnedHitEvent;
-            b.Initialize(transform.root.gameObject, launcher, pattern.Team);
+            b.Initialize(transform.root.gameObject, this, pattern.Team);
         }
     }
 }
