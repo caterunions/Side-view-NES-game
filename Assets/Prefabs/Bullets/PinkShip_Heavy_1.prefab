@@ -209,7 +209,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5982566611421591543}
   serializedVersion: 8
-  lengthInSec: 4
+  lengthInSec: 6
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -5147,7 +5147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c5ee3720afb16c418a2bc207c584db4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lifetime: 5
+  _lifetime: 7
 --- !u!114 &5238505027185957039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5160,9 +5160,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aec6e3efd340e7444b7ef2cbd839436c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startScale: 1.2
-  _endScale: 0.7
-  _rampTime: 5
+  _startScale: 1.5
+  _endScale: 0.5
+  _rampTime: 7
 --- !u!114 &7225666198296435803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5175,6 +5175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae14d110777b1fe4b9c0f245db5365f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxTurnDegrees: 5
 --- !u!114 &6296237527758763439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5202,8 +5203,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 3055303361381734455}
-  _delay: 3
-  _fadeTime: 2
+  _delay: 4
+  _fadeTime: 5
 --- !u!114 &6838330265585976429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5217,8 +5218,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 2689906529373493895}
-  _delay: 3
-  _fadeTime: 2
+  _delay: 4
+  _fadeTime: 5
 --- !u!114 &840349514178472864
 MonoBehaviour:
   m_ObjectHideFlags: 0

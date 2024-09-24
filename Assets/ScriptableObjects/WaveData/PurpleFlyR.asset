@@ -17,6 +17,6 @@ MonoBehaviour:
     _spawnPos: {x: 14.5, y: 19}
     _flipSpline: 1
     _splineStartOffset: 0
-  _weight: 100
-  _waitTimeUntilNextWave: 10
+  _weight: 60
+  _waitTimeUntilNextWave: 5
   _minScoreToSpawn: 7500

@@ -79,7 +79,7 @@ public class EnemySpawner : MonoBehaviour
 
     private EnemyWave GetRandomWeightedWave(List<EnemyWave> waves)
     {
-        int[] weights = waves.Where(w => w.MinScoreToSpawn <= _scoreKeeper.Score).Select(w => w.Weight).ToArray();
+        int[] weights = waves.Where(w => _scoreKeeper.Score >= w.MinScoreToSpawn).Select(w => w.Weight).ToArray();
         int randomWeight = UnityEngine.Random.Range(0, weights.Sum());
         for (int i = 0; i < weights.Length; ++i)
         {

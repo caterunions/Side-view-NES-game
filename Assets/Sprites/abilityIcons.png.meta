@@ -315,7 +315,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -323,6 +323,48 @@ TextureImporter:
       bones: []
       spriteID: e5a2f39a3809d47418da885f6f1bb11f
       internalID: -935565194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: abilityIcons_11
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 208
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc825ed8bace0ca48ac5bf56e19c0a1f
+      internalID: 552063705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: abilityIcons_12
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 208
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af605aa835173014b8991238e0c573ef
+      internalID: -168500448
       vertices: []
       indices: 
       edges: []
@@ -341,6 +383,8 @@ TextureImporter:
       abilityIcons_0: -1185748336
       abilityIcons_1: 2042357188
       abilityIcons_10: -935565194
+      abilityIcons_11: 552063705
+      abilityIcons_12: -168500448
       abilityIcons_2: 1348124070
       abilityIcons_3: -1569336768
       abilityIcons_4: -399481616
