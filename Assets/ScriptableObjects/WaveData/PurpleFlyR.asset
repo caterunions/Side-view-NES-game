@@ -19,4 +19,4 @@ MonoBehaviour:
     _splineStartOffset: 0
   _weight: 100
   _waitTimeUntilNextWave: 10
-  _minScoreToSpawn: 8000
+  _minScoreToSpawn: 7500

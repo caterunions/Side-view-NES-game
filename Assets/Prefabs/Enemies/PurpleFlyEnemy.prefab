@@ -426,8 +426,8 @@ MonoBehaviour:
     _spreadModifier: 0
     _angleOffsetStart: 0
     _angleOffsetIncrease: 0
-    _repetitions: 5
-    _repeatDelay: 0.7
+    _repetitions: 4
+    _repeatDelay: 0.5
     _endDelay: 0
     _startAtFixedAngle: 1
     _fixedAngle: 0
