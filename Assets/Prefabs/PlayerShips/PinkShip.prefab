@@ -70,7 +70,7 @@ MonoBehaviour:
     _angleOffsetIncrease: 0
     _repetitions: 1
     _repeatDelay: 0
-    _endDelay: 4
+    _endDelay: 8
     _startAtFixedAngle: 0
     _fixedAngle: 0
     _randomAngleOffset: 0

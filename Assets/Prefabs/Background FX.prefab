@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4510902185572067838}
   - component: {fileID: 8380477450810708474}
-  - component: {fileID: 107505529440254843}
   m_Layer: 0
   m_Name: Object Spawner
   m_TagString: Untagged
@@ -27,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 511928304644166062}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 24, z: 0}
+  m_LocalPosition: {x: 0, y: 17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -50,32 +49,15 @@ MonoBehaviour:
   - {fileID: 9194026536333822504, guid: 20fc395b7d0aa7347a67f071d5b8fc63, type: 3}
   - {fileID: 9194026536333822504, guid: 0b8b90e24a6a222488f1c5516484027d, type: 3}
   - {fileID: 9194026536333822504, guid: 58ac84e6fca52dc4384668e859b5db32, type: 3}
-  _minSpawnTime: 20
-  _maxSpawnTime: 30
+  - {fileID: 9194026536333822504, guid: a63b5410b917048478319ea98c573805, type: 3}
+  - {fileID: 9194026536333822504, guid: 9e52030c3724bc44680c63ec728c89a3, type: 3}
+  - {fileID: 9194026536333822504, guid: 744fc617f14d1f642b597bc2807dee08, type: 3}
+  - {fileID: 9194026536333822504, guid: 6ca4a26c49d6b49418a6c5e94eee7e24, type: 3}
+  - {fileID: 9194026536333822504, guid: 204f8f94df79132439b035bf690963d1, type: 3}
+  _minSpawnTime: 30
+  _maxSpawnTime: 35
   _cleanupPlaneY: -16
   _spawnRangeX: 18
---- !u!114 &107505529440254843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 511928304644166062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e375b3e89be64d4c916922b3d47afde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _backgroundObjects:
-  - {fileID: 9194026536333822504, guid: ab4d81b95091c7f4c8d8ee7bd2e6a3d7, type: 3}
-  - {fileID: 9194026536333822504, guid: b0cccbae5b17ace438cd2636abe04a1c, type: 3}
-  - {fileID: 9194026536333822504, guid: d98d2afebfa105341b65df9c79758509, type: 3}
-  - {fileID: 9194026536333822504, guid: 68560bcf91adb2c4fb384b5105fc6031, type: 3}
-  - {fileID: 9194026536333822504, guid: b585bd3507426d14c98da4cfa9af07a3, type: 3}
-  _minSpawnTime: 10
-  _maxSpawnTime: 15
-  _cleanupPlaneY: -32
-  _spawnRangeX: 0
 --- !u!1 &1382056820153419935
 GameObject:
   m_ObjectHideFlags: 0
@@ -4916,6 +4898,61 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!1 &1466289164603607846
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2838586651947634631}
+  - component: {fileID: 424363754863029466}
+  m_Layer: 0
+  m_Name: Cloud Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2838586651947634631
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466289164603607846}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 24, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 338799712857680518}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &424363754863029466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466289164603607846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e375b3e89be64d4c916922b3d47afde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _backgroundObjects:
+  - {fileID: 9194026536333822504, guid: ab4d81b95091c7f4c8d8ee7bd2e6a3d7, type: 3}
+  - {fileID: 9194026536333822504, guid: b0cccbae5b17ace438cd2636abe04a1c, type: 3}
+  - {fileID: 9194026536333822504, guid: d98d2afebfa105341b65df9c79758509, type: 3}
+  - {fileID: 9194026536333822504, guid: 68560bcf91adb2c4fb384b5105fc6031, type: 3}
+  - {fileID: 9194026536333822504, guid: b585bd3507426d14c98da4cfa9af07a3, type: 3}
+  - {fileID: 9194026536333822504, guid: f1ceafbea4ab77d47a480e524e9dfa49, type: 3}
+  _minSpawnTime: 5
+  _maxSpawnTime: 12
+  _cleanupPlaneY: -32
+  _spawnRangeX: 0
 --- !u!1 &6085139249993057217
 GameObject:
   m_ObjectHideFlags: 0
@@ -4948,6 +4985,7 @@ Transform:
   - {fileID: 6737960106389236968}
   - {fileID: 7027581603136211357}
   - {fileID: 4510902185572067838}
+  - {fileID: 2838586651947634631}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8420904692785878242

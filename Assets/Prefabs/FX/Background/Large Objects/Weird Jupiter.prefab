@@ -10,11 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6425693523088257970}
   - component: {fileID: 2707391143607368566}
-  - component: {fileID: 1368347405390647261}
-  - component: {fileID: 9146859749661571086}
-  - component: {fileID: 184435063250518399}
+  - component: {fileID: 6988121705522127375}
   m_Layer: 0
-  m_Name: Dust 3
+  m_Name: Weird Jupiter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,8 +73,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -20
-  m_Sprite: {fileID: 776939943, guid: 98a1663896891d44b90649438f355794, type: 3}
+  m_SortingOrder: -50
+  m_Sprite: {fileID: 471846226, guid: 55fcb769e496d6141b9adedb51200a9a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1368347405390647261
+--- !u!114 &6988121705522127375
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,43 +94,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 9194026536333822504}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3f4577950a5ab247bb2703d9978f548, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spriteRenderer: {fileID: 2707391143607368566}
---- !u!114 &9146859749661571086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9194026536333822504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d07b50ea4e7482439fc9227cc009e78, type: 3}
+  m_Script: {fileID: 11500000, guid: 1144ba9018141c04eba2e468d465d2ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _moveDirection: {x: 0, y: -1}
-  _minSpeed: 0.05
-  _maxSpeed: 1
---- !u!114 &184435063250518399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9194026536333822504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b7cad96384949a4fb89294366db4b08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _colors:
-  - {r: 0.49411762, g: 0.7367858, b: 1, a: 0.011764706}
-  - {r: 0.49411762, g: 0.5574376, b: 1, a: 0.011764706}
-  - {r: 0.61149216, g: 0.49411762, b: 1, a: 0.011764706}
-  - {r: 0.7112521, g: 0.49411762, b: 1, a: 0.011764706}
-  - {r: 0.791565, g: 0.49411762, b: 1, a: 0.011764706}
-  - {r: 0.9561137, g: 0.49411762, b: 1, a: 0.011764706}
-  - {r: 1, g: 0.49411762, b: 0.8817163, a: 0.011764706}
-  _spriteRenderer: {fileID: 2707391143607368566}
+  _speed: 0.1

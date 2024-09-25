@@ -202,13 +202,97 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
+      name: backgroundObjects_6
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 455
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a231f50286efc7c4b8dd1e749b06a95c
+      internalID: -209368436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backgroundObjects_7
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 444
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2504dee8b4eeba643b6d0aef414b6d4f
+      internalID: 471846226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backgroundObjects_8
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 456
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee7a556ac5f51a2478766e49d172a16d
+      internalID: 1842914844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backgroundObjects_9
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 456
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f64562b1eb4c6a47ba0719b173dbb41
+      internalID: -1375279442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: backgroundObjects_5
       rect:
         serializedVersion: 2
-        x: 112
-        y: 442
-        width: 70
-        height: 70
+        x: 110
+        y: 467
+        width: 45
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,7 +300,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d49675d2aa83df44ae0bd59ca433d64
+      spriteID: 84fa4aaeaf9b6ad49832b4eeea62ea45
       internalID: -2087869968
       vertices: []
       indices: 
@@ -239,6 +323,10 @@ TextureImporter:
       backgroundObjects_3: -897760473
       backgroundObjects_4: -1290778074
       backgroundObjects_5: -2087869968
+      backgroundObjects_6: -209368436
+      backgroundObjects_7: 471846226
+      backgroundObjects_8: 1842914844
+      backgroundObjects_9: -1375279442
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
