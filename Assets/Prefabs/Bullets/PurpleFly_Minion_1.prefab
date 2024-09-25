@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _frequency: 5
-  _magnitude: 3
+  _magnitude: 10
 --- !u!114 &4784235609118578906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -801,7 +801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _frequency: 5
-  _magnitude: -3
+  _magnitude: -10
 --- !u!114 &3905059377518580309
 MonoBehaviour:
   m_ObjectHideFlags: 0

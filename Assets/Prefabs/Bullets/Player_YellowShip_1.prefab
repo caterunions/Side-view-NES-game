@@ -158,8 +158,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minFrequency: 40
   _maxFrequency: 40
-  _minMagnitude: -8
-  _maxMagnitude: 8
+  _minMagnitude: -16
+  _maxMagnitude: 16
 --- !u!114 &2197747295840271984
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _frequency: 15
-  _magnitude: -5
+  _magnitude: -13
 --- !u!4 &3926522033746265162 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7108965215800040201, guid: 528a1d1c37fcd0941a77cb13c1653e22, type: 3}
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _frequency: 15
-  _magnitude: 5
+  _magnitude: 13
 --- !u!4 &1185019225826640279 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7108965215800040201, guid: 528a1d1c37fcd0941a77cb13c1653e22, type: 3}

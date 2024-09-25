@@ -54,8 +54,8 @@ MonoBehaviour:
   - {fileID: 9194026536333822504, guid: 744fc617f14d1f642b597bc2807dee08, type: 3}
   - {fileID: 9194026536333822504, guid: 6ca4a26c49d6b49418a6c5e94eee7e24, type: 3}
   - {fileID: 9194026536333822504, guid: 204f8f94df79132439b035bf690963d1, type: 3}
-  _minSpawnTime: 30
-  _maxSpawnTime: 35
+  _minSpawnTime: 40
+  _maxSpawnTime: 45
   _cleanupPlaneY: -16
   _spawnRangeX: 18
 --- !u!1 &1382056820153419935

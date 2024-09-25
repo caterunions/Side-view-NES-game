@@ -30,4 +30,5 @@ MonoBehaviour:
     _flipSpline: 1
     _splineStartOffset: 0.05
   _weight: 50
-  _waitTimeUntilNextWave: 5
+  _waitTimeUntilNextWave: 6
+  _minScoreToSpawn: 0

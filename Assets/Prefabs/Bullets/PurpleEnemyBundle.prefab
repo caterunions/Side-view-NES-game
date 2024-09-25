@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _frequency: 5
-  _magnitude: 3
+  _magnitude: 10
 --- !u!1 &3671053560342682406
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,4 +772,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _frequency: 5
-  _magnitude: -3
+  _magnitude: -10
