@@ -18,12 +18,12 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
-        _rb.velocity = _lastMoveInput * _moveSpeed;
+        _rb.linearVelocity = _lastMoveInput * _moveSpeed;
     }
 
     private void OnDisable()
     {
         _lastMoveInput = Vector2.zero;
-        _rb.velocity = Vector2.zero;
+        _rb.linearVelocity = Vector2.zero;
     }
 }

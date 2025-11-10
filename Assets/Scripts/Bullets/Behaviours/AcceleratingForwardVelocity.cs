@@ -22,6 +22,6 @@ public class AcceleratingForwardVelocity : BulletBehaviour
 
     private void Update()
     {
-        rb.velocity = transform.up * Mathf.SmoothStep(_endVelocity, _startVelocity, (_endTime - Time.time) / _rampTime);
+        rb.linearVelocity = transform.up * Mathf.SmoothStep(_endVelocity, _startVelocity, (_endTime - Time.time) / _rampTime);
     }
 }

@@ -11,6 +11,6 @@ public class ConstantForwardVelocity : BulletBehaviour
 
     private void Update()
     {
-        rb.velocity = transform.up * _velocity;
+        rb.linearVelocity = transform.up * _velocity;
     }
 }

@@ -28,7 +28,7 @@ public abstract class Pickup : MonoBehaviour
     {
         _lifetimeRoutine = StartCoroutine(LifetimeRoutine());
 
-        rb.velocity = new Vector2(Random.Range(-10f, 10f), 10f);
+        rb.linearVelocity = new Vector2(Random.Range(-10f, 10f), 10f);
     }
 
     private void Update()
