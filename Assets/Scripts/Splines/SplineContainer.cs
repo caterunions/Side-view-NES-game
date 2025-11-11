@@ -14,6 +14,8 @@ public class SplineContainer : MonoBehaviour
     [SerializeField]
     private List<SplinePoint> _inputPoints = new List<SplinePoint>();
 
+    private List<Vector2> _bezierPoints = new List<Vector2>();
+
     private List<Vector2> _calculatedPoints = new List<Vector2>();
 
     public void AddPoint()
@@ -58,6 +60,20 @@ public class SplineContainer : MonoBehaviour
     private void OnValidate()
     {
         _calculatedPoints.Clear();
+        _bezierPoints.Clear();
+
+        for (int i = 0; i < _inputPoints.Count; i++)
+        {
+            Vector2 handlePoint = new Vector2(
+                Mathf.Cos(_inputPoints[i].HandleAngle * Mathf.Deg2Rad), 
+                Mathf.Sin(_inputPoints[i].HandleAngle * Mathf.Deg2Rad));
+
+            handlePoint *= _inputPoints[i].HandleLength;
+
+            if(i > 0) _bezierPoints.Add(handlePoint + _inputPoints[i].Position);
+            _bezierPoints.Add(_inputPoints[i].Position);
+            if(i < _inputPoints.Count - 1) _bezierPoints.Add(new Vector2(handlePoint.x * -1, handlePoint.y * -1) + _inputPoints[i].Position);
+        }
 
         for (int i = 0; i < _inputPoints.Count; i++)
         {
@@ -102,7 +118,16 @@ public class SplineContainer : MonoBehaviour
             Gizmos.DrawSphere(point.Position, 0.5f);
         }
 
-        for(int i = 0; i < _calculatedPoints.Count; i++)
+        for (int i = 0; i < _bezierPoints.Count; i++)
+        {
+            Gizmos.color = Color.orange;
+            if (i > 0)
+            {
+                Gizmos.DrawLine(_bezierPoints[i - 1], _bezierPoints[i]);
+            }
+        }
+
+        for (int i = 0; i < _calculatedPoints.Count; i++)
         {
             Gizmos.color = Color.yellow;
             if(i > 0)
@@ -129,10 +154,12 @@ public struct SplinePoint
     public Vector2 Position => _position;
 
     [SerializeField]
+    [Range(0f, 360f)]
     private float _handleAngle;
     public float HandleAngle => _handleAngle;
 
     [SerializeField]
+    [Range(1f,10f)]
     private float _handleLength;
     public float HandleLength => _handleLength;
 }
