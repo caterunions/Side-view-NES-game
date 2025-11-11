@@ -45,14 +45,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _drawArenaBox: 1
-  _segmentsPerCurve: 1
+  _segmentsPerCurve: 7
   _inputPoints:
-  - _position: {x: -4.7, y: 5.83}
-    _handleAngle: 27
-    _handleLength: 1
+  - _position: {x: -4.65, y: 5.83}
+    _handleAngle: 0
+    _handleLength: 4.7
   - _position: {x: -5.04, y: -4.52}
-    _handleAngle: 128
-    _handleLength: 1
+    _handleAngle: 141
+    _handleLength: 5
   - _position: {x: 2.55, y: -6.8}
-    _handleAngle: 190
+    _handleAngle: 101
+    _handleLength: 2.03
+  - _position: {x: 6.49, y: -4.78}
+    _handleAngle: 319
+    _handleLength: 1.17
+  - _position: {x: 8.53, y: -2.7}
+    _handleAngle: 288
     _handleLength: 1

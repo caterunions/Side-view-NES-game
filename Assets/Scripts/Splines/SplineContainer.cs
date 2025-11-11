@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using System.Net;
+using UnityEditor;
 using UnityEngine;
+
+using Color = UnityEngine.Color;
 
 public class SplineContainer : MonoBehaviour
 {
@@ -17,17 +20,7 @@ public class SplineContainer : MonoBehaviour
     private List<Vector2> _bezierPoints = new List<Vector2>();
 
     private List<Vector2> _calculatedPoints = new List<Vector2>();
-
-    public void AddPoint()
-    {
-        _inputPoints.Add(new SplinePoint(Vector2.zero, 0));
-    }
-
-    private Vector2 QuadraticBezierPoint(Vector2 pos1, Vector2 pos2, Vector2 pos3, float t)
-    {
-        float amt = 1 - t;
-        return (pos1 * (amt * amt)) + (2 * (amt * t * pos2)) + (t * t * pos3);
-    }
+    public List<Vector2> CalculatedPoints => _calculatedPoints;
 
     private Vector3 CubicBezierPoint(Vector2 p0, Vector2 p1, Vector2 p2, Vector2 p3, float t)
     {
@@ -36,29 +29,21 @@ public class SplineContainer : MonoBehaviour
         return p0 * Mathf.Pow(amt, 3) + p1 * (3 * amt * amt * t) + p2 * (3 * amt * t * t) + p3 * Mathf.Pow(t, 3);
     }
 
-    private void GenerateSplinePoints(Vector2 pos1, Vector2 pos2, Vector2 pos3, int segments)
+    private void GenerateSplinePoints(Vector2 p0, Vector2 p1, Vector2 p2, Vector2 p3, int segments)
     {
         int curveSegments = Mathf.Max(1, segments);
-        Vector2 modifiedPos2 = pos2;
-        bool switched = false;
         for (int j = 0; j < curveSegments; j++)
         {
             float t = j / (float)curveSegments;
 
-            if(t > 0.5f && !switched)
-            {
-                switched = true;
-                Vector2 newStart = QuadraticBezierPoint(pos1, pos2, pos3, 0.5f);
-                _calculatedPoints.Add(newStart);
-                modifiedPos2 = newStart;
-            }
-
-            _calculatedPoints.Add(QuadraticBezierPoint(pos1,modifiedPos2,pos3,t));
+            _calculatedPoints.Add(CubicBezierPoint(p0,p1,p2,p3,t));
         }
     }
 
     private void OnValidate()
     {
+        if (Application.isPlaying) return;
+
         _calculatedPoints.Clear();
         _bezierPoints.Clear();
 
@@ -72,32 +57,30 @@ public class SplineContainer : MonoBehaviour
 
             if(i > 0) _bezierPoints.Add(handlePoint + _inputPoints[i].Position);
             _bezierPoints.Add(_inputPoints[i].Position);
-            if(i < _inputPoints.Count - 1) _bezierPoints.Add(new Vector2(handlePoint.x * -1, handlePoint.y * -1) + _inputPoints[i].Position);
+            if(i < _inputPoints.Count - 1) _bezierPoints.Add((handlePoint * -1) + _inputPoints[i].Position);
         }
 
-        for (int i = 0; i < _inputPoints.Count; i++)
+        for (int i = 0; i < _inputPoints.Count - 1; i++)
         {
-            if (i > 0 && i < _inputPoints.Count - 1)
-            {
-                GenerateSplinePoints(
-                    _inputPoints[i - 1].Position, // p1
-                    _inputPoints[i].Position, // p2
-                    _inputPoints[i + 1].Position, // p3
-                    _segmentsPerCurve // segments
-                    );
-            }
-            else
-            {
-                _calculatedPoints.Add(_inputPoints[i].Position);
-            }
+            _bezierPoints.Add(_inputPoints[i].Position);
+
+            GenerateSplinePoints(
+                _bezierPoints[i * 3],
+                _bezierPoints[(i * 3) + 1],
+                _bezierPoints[(i * 3) + 2],
+                _bezierPoints[(i * 3) + 3],
+                _segmentsPerCurve
+                );
         }
+
+        _calculatedPoints.Add(_inputPoints[^1].Position);
     }
 
     private void OnDrawGizmos()
     {
         if (_drawArenaBox)
         {
-            Gizmos.color = Color.green;
+            Gizmos.color = Color.lawnGreen;
 
             Vector3[] arenaPoints = new Vector3[8]
             {
@@ -110,32 +93,36 @@ public class SplineContainer : MonoBehaviour
             Gizmos.DrawLineList(arenaPoints);
         }
 
-        if (_inputPoints == null) return;
+        if (_inputPoints.Count == 0 || _bezierPoints.Count == 0 || _calculatedPoints.Count == 0) return;
 
         foreach(SplinePoint point in _inputPoints)
         {
             Gizmos.color = Color.hotPink;
-            Gizmos.DrawSphere(point.Position, 0.5f);
+            Gizmos.DrawSphere(point.Position, 0.25f);
         }
 
-        for (int i = 0; i < _bezierPoints.Count; i++)
+        for (int i = 0; i < _inputPoints.Count; i++)
         {
             Gizmos.color = Color.orange;
-            if (i > 0)
+
+            if(i > 0)
             {
-                Gizmos.DrawLine(_bezierPoints[i - 1], _bezierPoints[i]);
+                Gizmos.DrawLine(_bezierPoints[i * 3], _bezierPoints[(i * 3) - 1]);
+            }
+            if(i < _inputPoints.Count - 1)
+            {
+                Gizmos.DrawLine(_bezierPoints[i * 3], _bezierPoints[(i * 3) + 1]);
             }
         }
 
         for (int i = 0; i < _calculatedPoints.Count; i++)
         {
-            Gizmos.color = Color.yellow;
+            Gizmos.color = Color.limeGreen;
             if(i > 0)
             {
                 Gizmos.DrawLine(_calculatedPoints[i - 1], _calculatedPoints[i]);
             }
         }
-        
     }
 }
 
