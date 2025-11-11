@@ -31,7 +31,7 @@ public class SteamworksTest : MonoBehaviour
         SteamFriends.SetRichPresence("status", "Testing The Game");
         SteamFriends.SetRichPresence("score", "1000");
         SteamFriends.SetRichPresence("ship", "ShipName");
-        SteamFriends.SetRichPresence("steam_display", "#Status_InGame");
+        SteamFriends.SetRichPresence("steam_display", "#Status_InGame"); 
 
         Debug.Log("[Steamworks]: Connected to Steam API!");
 
