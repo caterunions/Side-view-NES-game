@@ -1,0 +1,9 @@
+"lang"
+{
+	"Language"	"english"
+	"Tokens"
+	{
+		"#Status_InGame"	"%ship%: %score% - %status%"
+		"#Status_AtMainMenu"	"At the main menu"
+	}
+}
