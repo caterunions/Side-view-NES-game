@@ -54,7 +54,7 @@ public class Bullet : MonoBehaviour
 
         if (collision.gameObject.layer == 7 && _destroyOnWalls)
         {
-            Destroy(gameObject);
+            Destroy(gameObject, 1f);
         }
 
         DamageReceiver dr = collision.GetComponentInParent<DamageReceiver>();

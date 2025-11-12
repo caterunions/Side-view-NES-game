@@ -13,30 +13,24 @@ MonoBehaviour:
   m_Name: YellowScarabTrainR
   m_EditorClassIdentifier: 
   _enemies:
-  - _enemyPackage: {fileID: 865928285001739071, guid: 22910c17f898b7b40a634db68102e60b, type: 3}
-    _spawnPos: {x: 14.5, y: 19}
+  - _enemy: {fileID: 0}
     _flipSpline: 1
-    _splineStartOffset: 0
-  - _enemyPackage: {fileID: 865928285001739071, guid: 22910c17f898b7b40a634db68102e60b, type: 3}
-    _spawnPos: {x: 14.5, y: 19}
+    _initDelay: 0
+  - _enemy: {fileID: 0}
     _flipSpline: 1
-    _splineStartOffset: 0.01
-  - _enemyPackage: {fileID: 865928285001739071, guid: 22910c17f898b7b40a634db68102e60b, type: 3}
-    _spawnPos: {x: 14.5, y: 19}
+    _initDelay: 0
+  - _enemy: {fileID: 0}
     _flipSpline: 1
-    _splineStartOffset: 0.02
-  - _enemyPackage: {fileID: 865928285001739071, guid: 22910c17f898b7b40a634db68102e60b, type: 3}
-    _spawnPos: {x: 14.5, y: 19}
+    _initDelay: 0
+  - _enemy: {fileID: 0}
     _flipSpline: 1
-    _splineStartOffset: 0.03
-  - _enemyPackage: {fileID: 865928285001739071, guid: 22910c17f898b7b40a634db68102e60b, type: 3}
-    _spawnPos: {x: 14.5, y: 19}
+    _initDelay: 0
+  - _enemy: {fileID: 0}
     _flipSpline: 1
-    _splineStartOffset: 0.04
-  - _enemyPackage: {fileID: 865928285001739071, guid: 22910c17f898b7b40a634db68102e60b, type: 3}
-    _spawnPos: {x: 14.5, y: 19}
+    _initDelay: 0
+  - _enemy: {fileID: 0}
     _flipSpline: 1
-    _splineStartOffset: 0.05
-  _weight: 100
+    _initDelay: 0
+  _weight: 102
   _waitTimeUntilNextWave: 5
   _minScoreToSpawn: 0

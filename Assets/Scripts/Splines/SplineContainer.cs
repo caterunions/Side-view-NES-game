@@ -19,6 +19,7 @@ public class SplineContainer : MonoBehaviour
 
     private List<Vector2> _bezierPoints = new List<Vector2>();
 
+    [SerializeField]
     private List<Vector2> _calculatedPoints = new List<Vector2>();
     public List<Vector2> CalculatedPoints => _calculatedPoints;
 
@@ -73,7 +74,10 @@ public class SplineContainer : MonoBehaviour
                 );
         }
 
-        _calculatedPoints.Add(_inputPoints[^1].Position);
+        if(_inputPoints.Count > 0)
+        {
+            _calculatedPoints.Add(_inputPoints[^1].Position);
+        }
     }
 
     private void OnDrawGizmos()
@@ -84,10 +88,10 @@ public class SplineContainer : MonoBehaviour
 
             Vector3[] arenaPoints = new Vector3[8]
             {
-                new Vector3(-18, -12), new Vector3(18, -12),
-                new Vector3(18, 15), new Vector3(18, -12),
-                new Vector3(18, 15), new Vector3(-18, 15),
-                new Vector3(-18, 15), new Vector3(-18, -12),
+                new Vector3(-16, -14), new Vector3(16, -14),
+                new Vector3(16, 14), new Vector3(16, -14),
+                new Vector3(16, 14), new Vector3(-16, 14),
+                new Vector3(-16, 14), new Vector3(-16, -14),
             };
 
             Gizmos.DrawLineList(arenaPoints);

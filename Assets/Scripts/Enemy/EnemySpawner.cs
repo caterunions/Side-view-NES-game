@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public event Action<EnemySpawner, EnemyPackage, bool> OnSpawnedEnemyDeath;
+    public event Action<EnemySpawner, EnemyBrain, bool> OnSpawnedEnemyDeath;
 
     [SerializeField]
     private ScoreKeeper _scoreKeeper;
@@ -14,11 +14,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private List<EnemyWave> _waves;
 
-    [SerializeField]
-    private List<EnemyPackage> _aliveEnemies;
-
-    [SerializeField]
-    private float _enemyDestroyHeight;
+    private List<EnemyBrain> _aliveEnemies = new List<EnemyBrain>();
 
     private float _nextSpawnTime;
 
@@ -26,7 +22,7 @@ public class EnemySpawner : MonoBehaviour
     {
         get
         {
-            return _aliveEnemies.Select(e => e.EnemyBrain.transform).ToList();
+            return _aliveEnemies.Select(e => e.transform).ToList();
         }
     }
 
@@ -42,14 +38,11 @@ public class EnemySpawner : MonoBehaviour
     {
         foreach(EnemySpawnData data in wave.Enemies)
         {
-            EnemyPackage enemy = Instantiate(data.EnemyPackage, new Vector3(data.SpawnPos.x, data.SpawnPos.y, 0), Quaternion.identity);
-            enemy.EnemyBrain.SetPlayer(GameManager.Instance.Player.gameObject);
-            enemy.EnemyBrain.Spawner = this;
+            EnemyBrain enemy = Instantiate(data.Enemy, new Vector2(0, 50), Quaternion.identity);
 
-            enemy.SplineAnimate.StartOffset = data.SplineStartOffset;
-            if (data.FlipSpline) enemy.SplineContainer.transform.localScale = new Vector3(-1, 1, 1);
+            enemy.Initialize(GameManager.Instance.Player.gameObject, this, data.FlipSpline, data.InitDelay);
 
-            enemy.HealthDamageReceiver.OnDamage += MonitorEnemyHealth;
+            enemy.DamageReceiver.OnDamage += MonitorEnemyHealth;
 
             _aliveEnemies.Add(enemy);
         }
@@ -57,11 +50,11 @@ public class EnemySpawner : MonoBehaviour
         _nextSpawnTime = Time.time + (wave.WaitTimeUntilNextWave / (1 + (_scoreKeeper.Score / 100000)));
     }
 
-    private void DestroyEnemy(EnemyPackage enemy, bool killedByPlayer)
+    public void DestroyEnemy(EnemyBrain enemy, bool killedByPlayer)
     {
         if(!_aliveEnemies.Contains(enemy)) return;
 
-        enemy.HealthDamageReceiver.OnDamage -= MonitorEnemyHealth;
+        enemy.DamageReceiver.OnDamage -= MonitorEnemyHealth;
         OnSpawnedEnemyDeath?.Invoke(this, enemy, killedByPlayer);
         _aliveEnemies.Remove(enemy);
 
@@ -72,7 +65,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (!result.Killed) return;
 
-        EnemyPackage enemy = dr.GetComponentInParent<EnemyPackage>();
+        EnemyBrain enemy = dr.GetComponentInParent<EnemyBrain>();
 
         DestroyEnemy(enemy, true);
     }
@@ -99,24 +92,11 @@ public class EnemySpawner : MonoBehaviour
         {
             SpawnWave(GetRandomWeightedWave(_waves));
         }
-
-        CleanupEnemies();
-    }
-
-    private void CleanupEnemies()
-    {
-        foreach(EnemyPackage enemy in _aliveEnemies.ToList())
-        {
-            if(enemy.EnemyBrain.transform.position.y <= _enemyDestroyHeight)
-            {
-                DestroyEnemy(enemy, false);
-            }
-        }
     }
 
     public void ForceClearEnemies()
     {
-        foreach (EnemyPackage enemy in _aliveEnemies.ToList())
+        foreach (EnemyBrain enemy in _aliveEnemies.ToList())
         {
             DestroyEnemy(enemy, false);
         }

@@ -26,18 +26,14 @@ public class EnemyWave : ScriptableObject
 public struct EnemySpawnData
 {
     [SerializeField]
-    private EnemyPackage _enemyPackage;
-    public EnemyPackage EnemyPackage => _enemyPackage;
-
-    [SerializeField]
-    private Vector2 _spawnPos;
-    public Vector2 SpawnPos => _spawnPos;
+    private EnemyBrain _enemy;
+    public EnemyBrain Enemy => _enemy;
 
     [SerializeField]
     private bool _flipSpline;
     public bool FlipSpline => _flipSpline;
 
     [SerializeField]
-    private float _splineStartOffset;
-    public float SplineStartOffset => _splineStartOffset;
+    private float _initDelay;
+    public float InitDelay => _initDelay;
 }
