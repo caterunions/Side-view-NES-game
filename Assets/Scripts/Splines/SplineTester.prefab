@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8436598472785155835
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5284070508745141361}
+  - component: {fileID: 8832844092649853120}
+  m_Layer: 0
+  m_Name: SplineTester
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5284070508745141361
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8436598472785155835}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8832844092649853120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8436598472785155835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c50342e0b78a9494b90191d7e1f478d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _drawArenaBox: 1
+  _segmentsPerCurve: 7
+  _inputPoints:
+  - _position: {x: -4.65, y: 5.83}
+    _handleAngle: 0
+    _handleLength: 4.7
+  - _position: {x: -5.04, y: -4.52}
+    _handleAngle: 141
+    _handleLength: 5
+  - _position: {x: 2.55, y: -6.8}
+    _handleAngle: 101
+    _handleLength: 2.03
+  - _position: {x: 6.49, y: -4.78}
+    _handleAngle: 319
+    _handleLength: 1.17
+  - _position: {x: 8.53, y: -2.7}
+    _handleAngle: 288
+    _handleLength: 1
