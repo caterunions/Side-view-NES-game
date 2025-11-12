@@ -8,8 +8,12 @@ public class BulletLauncher : MonoBehaviour
     public event Action<BulletLauncher, Bullet, DamageReceiver, DamageEvent> OnSpawnedBulletHit;
     public event Action<BulletLauncher, PatternData> OnLaunch;
 
+    public bool Blocked { get; set; }
+
     public void Launch(PatternData pattern)
     {
+        if (Blocked) return;
+
         float angleStep = pattern.Spread / pattern.Count;
         float aimAngle = pattern.FixedAngle == null ? transform.rotation.eulerAngles.z + pattern.AngleOffset : (float)pattern.FixedAngle + pattern.AngleOffset;
         float centeringOffset = (pattern.Spread / 2) - (angleStep / 2);

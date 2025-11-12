@@ -14,6 +14,26 @@ public class EnemyBrain : MonoBehaviour
         }
     }
 
+    private HealthDamageReceiver _damageReceiver;
+    public HealthDamageReceiver DamageReceiver
+    {
+        get
+        {
+            if (_damageReceiver == null) _damageReceiver = GetComponent<HealthDamageReceiver>();
+            return _damageReceiver;
+        }
+    }
+
+    [SerializeField]
+    private SplineContainer _splineContainer;
+
+    [SerializeField]
+    private bool _moveOnStart = true;
+
+    [SerializeField]
+    private EnemyMove _mover;
+    public EnemyMove Mover => _mover;
+
     [SerializeField]
     private EnemyAction _startAction;
 
@@ -61,6 +81,11 @@ public class EnemyBrain : MonoBehaviour
             _curAction.Act();
         }
         else _curAction = _actions[_actionIndex];
+
+        if(_moveOnStart)
+        {
+            _mover.FollowSpline(_splineContainer);
+        }
     }
 
     private void OnDisable()
