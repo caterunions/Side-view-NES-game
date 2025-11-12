@@ -17,19 +17,19 @@ MonoBehaviour:
     _flipSpline: 0
     _initDelay: 0
   - _enemy: {fileID: 3151780183727672985, guid: 86be676c09cd0b54b85e818f9c51244c, type: 3}
-    _flipSpline: 0
+    _flipSpline: 1
     _initDelay: 0.2
   - _enemy: {fileID: 3151780183727672985, guid: 86be676c09cd0b54b85e818f9c51244c, type: 3}
     _flipSpline: 0
     _initDelay: 0.4
   - _enemy: {fileID: 3151780183727672985, guid: 86be676c09cd0b54b85e818f9c51244c, type: 3}
-    _flipSpline: 0
+    _flipSpline: 1
     _initDelay: 0.6
   - _enemy: {fileID: 3151780183727672985, guid: 86be676c09cd0b54b85e818f9c51244c, type: 3}
     _flipSpline: 0
     _initDelay: 0.8
   - _enemy: {fileID: 3151780183727672985, guid: 86be676c09cd0b54b85e818f9c51244c, type: 3}
-    _flipSpline: 0
+    _flipSpline: 1
     _initDelay: 1
   _weight: 100
   _waitTimeUntilNextWave: 5

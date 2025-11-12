@@ -21,7 +21,7 @@ public class EnemyMove : MonoBehaviour
     {
         get 
         {
-            if (FlipSpline) return new Vector2(_spline.CalculatedPoints[_targetIndex].x, _spline.CalculatedPoints[_targetIndex].y * -1);
+            if (FlipSpline) return new Vector2(_spline.CalculatedPoints[_targetIndex].x * -1, _spline.CalculatedPoints[_targetIndex].y);
             return _spline.CalculatedPoints[_targetIndex]; 
         }
     }
@@ -30,8 +30,8 @@ public class EnemyMove : MonoBehaviour
     {
         _endReached = false;
         _spline = spline;
-        transform.position = _spline.CalculatedPoints[0];
         _targetIndex = 0;
+        transform.position = _curTarget;
     }
 
     private void Update()
