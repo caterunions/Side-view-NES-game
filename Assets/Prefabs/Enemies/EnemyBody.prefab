@@ -357,6 +357,7 @@ MonoBehaviour:
   _splineContainer: {fileID: 2227721361624158228}
   _moveOnStart: 1
   _mover: {fileID: 202712700676898033}
+  _launcher: {fileID: 2687716963495624833}
   _startAction: {fileID: 3617773150698744460}
   _actions:
   - {fileID: 1391576852860654123}
@@ -736,79 +737,87 @@ MonoBehaviour:
   _drawArenaBox: 1
   _segmentsPerCurve: 1
   _inputPoints:
-  - _position: {x: -20, y: 14}
+  - _position: {x: -20, y: 20}
     _handleAngle: 0
     _handleLength: 1
-  - _position: {x: -15, y: 10}
+  - _position: {x: -15, y: 13}
     _handleAngle: 0
     _handleLength: 0
+  - _position: {x: 15, y: 13}
+    _handleAngle: 0
+    _handleLength: 1
   - _position: {x: 15, y: 10}
     _handleAngle: 0
     _handleLength: 1
-  - _position: {x: 15, y: 7}
+  - _position: {x: -15, y: 10}
     _handleAngle: 0
     _handleLength: 1
   - _position: {x: -15, y: 7}
     _handleAngle: 0
     _handleLength: 1
-  - _position: {x: -15, y: 4}
+  - _position: {x: 15, y: 7}
     _handleAngle: 0
     _handleLength: 1
   - _position: {x: 15, y: 4}
     _handleAngle: 0
     _handleLength: 1
-  - _position: {x: 15, y: 1}
+  - _position: {x: -15, y: 4}
     _handleAngle: 0
     _handleLength: 1
   - _position: {x: -15, y: 1}
     _handleAngle: 0
     _handleLength: 1
-  - _position: {x: -15, y: -2}
+  - _position: {x: 15, y: 1}
     _handleAngle: 0
     _handleLength: 1
   - _position: {x: 15, y: -2}
     _handleAngle: 0
     _handleLength: 1
-  - _position: {x: 15, y: -5}
+  - _position: {x: -15, y: -2}
     _handleAngle: 0
     _handleLength: 1
   - _position: {x: -15, y: -5}
     _handleAngle: 0
     _handleLength: 1
-  - _position: {x: -15, y: -8}
+  - _position: {x: 15, y: -5}
     _handleAngle: 0
     _handleLength: 1
   - _position: {x: 15, y: -8}
     _handleAngle: 0
     _handleLength: 1
-  - _position: {x: 15, y: -11}
+  - _position: {x: -15, y: -8}
     _handleAngle: 0
     _handleLength: 1
   - _position: {x: -15, y: -11}
     _handleAngle: 0
     _handleLength: 1
-  - _position: {x: -15, y: -15}
+  - _position: {x: 15, y: -11}
+    _handleAngle: 0
+    _handleLength: 1
+  - _position: {x: 15, y: -17}
     _handleAngle: 0
     _handleLength: 1
   _calculatedPoints:
-  - {x: -20, y: 14}
-  - {x: -15, y: 10}
+  - {x: -20, y: 20}
+  - {x: -15, y: 13}
+  - {x: 15, y: 13}
   - {x: 15, y: 10}
-  - {x: 15, y: 7}
+  - {x: -15, y: 10}
   - {x: -15, y: 7}
-  - {x: -15, y: 4}
+  - {x: 15, y: 7}
   - {x: 15, y: 4}
-  - {x: 15, y: 1}
+  - {x: -15, y: 4}
   - {x: -15, y: 1}
-  - {x: -15, y: -2}
+  - {x: 15, y: 1}
   - {x: 15, y: -2}
-  - {x: 15, y: -5}
+  - {x: -15, y: -2}
   - {x: -15, y: -5}
-  - {x: -15, y: -8}
+  - {x: 15, y: -5}
   - {x: 15, y: -8}
-  - {x: 15, y: -11}
+  - {x: -15, y: -8}
   - {x: -15, y: -11}
-  - {x: -15, y: -15}
+  - {x: 15, y: -11}
+  - {x: 15, y: -17}
 --- !u!1 &7798970928728403723
 GameObject:
   m_ObjectHideFlags: 0

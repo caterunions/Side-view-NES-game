@@ -15,15 +15,19 @@ public class EnemyMove : MonoBehaviour
 
     private int _targetIndex = 0;
     private bool _endReached;
+    public bool FlipSpline { get; set; } = false;
 
     private Vector2 _curTarget
     {
-        get { return _spline.CalculatedPoints[_targetIndex]; }
+        get 
+        {
+            if (FlipSpline) return new Vector2(_spline.CalculatedPoints[_targetIndex].x, _spline.CalculatedPoints[_targetIndex].y * -1);
+            return _spline.CalculatedPoints[_targetIndex]; 
+        }
     }
 
     public void FollowSpline(SplineContainer spline)
     {
-        Debug.Log(spline.CalculatedPoints.Count);
         _endReached = false;
         _spline = spline;
         transform.position = _spline.CalculatedPoints[0];

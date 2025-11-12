@@ -33,10 +33,10 @@ public class ScoreKeeper : MonoBehaviour
         _enemySpawner.OnSpawnedEnemyDeath -= HandleEnemyScoreReward;
     }
 
-    private void HandleEnemyScoreReward(EnemySpawner spawner, EnemyPackage enemy, bool killedByPlayer)
+    private void HandleEnemyScoreReward(EnemySpawner spawner, EnemyBrain enemy, bool killedByPlayer)
     {
         if (!killedByPlayer) return;
 
-        Score += enemy.EnemyBrain.ScoreReward;
+        Score += enemy.ScoreReward;
     }
 }
