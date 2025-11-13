@@ -49,7 +49,7 @@ RotationConstraint:
   m_AffectRotationX: 1
   m_AffectRotationY: 1
   m_AffectRotationZ: 1
-  m_Active: 0
+  m_Active: 1
   m_IsLocked: 0
   m_Sources:
   - sourceTransform: {fileID: 4387873496471359046}
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d1a28c76f1e3084cbe7717eaccf2a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _locked: 1
+  _locked: 0
 --- !u!114 &2687716963495624833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,7 +192,7 @@ MonoBehaviour:
   _startDelay: 0
   _endDelay: 1.5
   _attacks:
-  - _bullet: {fileID: 5788265927488326345, guid: 4ae0e01e334be6740b72bb6f0bc60d64, type: 3}
+  - _bullet: {fileID: 536244971038436315, guid: dd0ccc148f170374fa3a88620fbdb9a4, type: 3}
     _count: 1
     _countModifier: 0
     _spread: 0
@@ -202,8 +202,8 @@ MonoBehaviour:
     _repetitions: 1
     _repeatDelay: 0
     _endDelay: 0.5
-    _startAtFixedAngle: 1
-    _fixedAngle: 180
+    _startAtFixedAngle: 0
+    _fixedAngle: 0
     _randomAngleOffset: 0
   _launcher: {fileID: 2687716963495624833}
 --- !u!1 &5440129100339400408
@@ -285,7 +285,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 424620093, guid: 6991e5ee967c7f54b9dce23f185ffe52, type: 3}
+  m_Sprite: {fileID: 1920599813, guid: 6991e5ee967c7f54b9dce23f185ffe52, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 157514930127168751}
   - component: {fileID: 3290305457317696467}
   m_Layer: 6
-  m_Name: EnemyBody
+  m_Name: RedScarab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -679,7 +679,7 @@ SpriteMask:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 424620093, guid: 6991e5ee967c7f54b9dce23f185ffe52, type: 3}
+  m_Sprite: {fileID: 1920599813, guid: 6991e5ee967c7f54b9dce23f185ffe52, type: 3}
   m_MaskAlphaCutoff: 0.136
   m_FrontSortingLayerID: 0
   m_BackSortingLayerID: 0
