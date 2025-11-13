@@ -32,6 +32,9 @@ public class EnemyBrain : MonoBehaviour
     private bool _moveOnStart = true;
 
     [SerializeField]
+    private bool _destroyOnSplineEnd = true;
+
+    [SerializeField]
     private EnemyMove _mover;
     public EnemyMove Mover => _mover;
 
@@ -140,6 +143,9 @@ public class EnemyBrain : MonoBehaviour
 
     private void RequestDestroy(EnemyMove mover)
     {
-        _spawner.DestroyEnemy(this, false);
+        if(_destroyOnSplineEnd)
+        {
+            _spawner.DestroyEnemy(this, false);
+        }
     }
 }
