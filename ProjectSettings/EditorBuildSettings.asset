@@ -14,5 +14,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ShipSelection.unity
     guid: 52cffa0779810a943b1fff5e7e80dca7
+  - enabled: 1
+    path: Assets/TESTING/Scenes/NEW_GUI/Title_Testing.unity
+    guid: 64bc664470922ef4cba900971c71f6e6
+  - enabled: 1
+    path: Assets/TESTING/Scenes/NEW_GUI/Gameplay_Testing.unity
+    guid: f60c2d36104d3eb49aa267c506d1919a
+  - enabled: 1
+    path: Assets/TESTING/Scenes/NEW_GUI/ShipSelection_Testing.unity
+    guid: 4132d10129ebb2240ae9d2c9acc33fbb
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: a05bafc8e1b312d4aa0b82b46d538db0, type: 2}
+  m_UseUCBPForAssetBundles: 0
