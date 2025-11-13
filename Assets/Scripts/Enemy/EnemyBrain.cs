@@ -134,8 +134,8 @@ public class EnemyBrain : MonoBehaviour
         _launcher.Blocked = (
             transform.position.x > 16  ||
             transform.position.x < -16 ||
-            transform.position.y > 14  ||
-            transform.position.y < -14);
+            transform.position.y > 16  ||
+            transform.position.y < -16);
     }
 
     private void RequestDestroy(EnemyMove mover)
