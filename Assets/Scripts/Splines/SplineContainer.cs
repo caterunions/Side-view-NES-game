@@ -88,10 +88,10 @@ public class SplineContainer : MonoBehaviour
 
             Vector3[] arenaPoints = new Vector3[8]
             {
-                new Vector3(-16, -16), new Vector3(16, -16),
-                new Vector3(16, 16), new Vector3(16, -16),
-                new Vector3(16, 16), new Vector3(-16, 16),
-                new Vector3(-16, 16), new Vector3(-16, -16),
+                new Vector3(-17, -17), new Vector3(17, -17),
+                new Vector3(17, 17), new Vector3(17, -17),
+                new Vector3(17, 17), new Vector3(-17, 17),
+                new Vector3(-17, 17), new Vector3(-17, -17),
             };
 
             Gizmos.DrawLineList(arenaPoints);
