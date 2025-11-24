@@ -77,6 +77,21 @@ public class BulletMLPatternManager : MonoBehaviour, IBulletManager
         _bullets.Add(top, topBullet);
     }
 
+    public void StartPattern(TextAsset xmlAsset)
+    {
+        ClearBullets();
+        _pattern = new BulletPattern();
+        Pattern.ParseXML(xmlAsset);
+
+        MLBullet top = new MLBullet(this, true);
+        UnityMLBullet topBullet = Instantiate(_bulletPrefab);
+        top.InitTopNode(Pattern.RootNode);
+
+        topBullet.Initialize(top);
+
+        _bullets.Add(top, topBullet);
+    }
+
     public MLBullet CreateBullet(MLBullet source, bool top)
     {
         MLBullet bullet = new MLBullet(this, top);

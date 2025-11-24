@@ -1,5 +1,4 @@
 using System.Collections;
-using UnityEditor;
 using UnityEngine;
 
 public class EnemyAttackFromML : EnemyAction
@@ -15,7 +14,7 @@ public class EnemyAttackFromML : EnemyAction
 
     protected override IEnumerator ActionInstructions()
     {
-        EnemyBrain.BulletMLPatternManager.StartPattern(AssetDatabase.GetAssetPath(_patternFile));
+        EnemyBrain.BulletMLPatternManager.StartPattern(_patternFile);
         yield return new WaitForSeconds(_duration);
         EnemyBrain.BulletMLPatternManager.StopPattern(_destroyBulletsOnFinish);
     }
