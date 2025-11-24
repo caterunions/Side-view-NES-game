@@ -55,6 +55,9 @@ public class EnemyBrain : MonoBehaviour
 
     private EnemySpawner _spawner;
 
+    private BulletMLPatternManager _bulletMLPatternManager;
+    public BulletMLPatternManager BulletMLPatternManager => _bulletMLPatternManager;
+
     [SerializeField]
     private int _scoreReward;
     public int ScoreReward => _scoreReward;
@@ -76,11 +79,13 @@ public class EnemyBrain : MonoBehaviour
         Aimer.Locked = false;
     }
 
-    public void Initialize(GameObject player, EnemySpawner spawner, bool flipSpline, float delay)
+    public void Initialize(GameObject player, EnemySpawner spawner,  BulletMLPatternManager bulletMLPatternManager, bool flipSpline, float delay)
     {
         _player = player;
 
         Aimer.Player = _player.transform;
+
+        _bulletMLPatternManager = bulletMLPatternManager;
 
         _spawner = spawner;
 
@@ -105,6 +110,8 @@ public class EnemyBrain : MonoBehaviour
     private void OnDisable()
     {
         _mover.OnEndReached -= RequestDestroy;
+
+        StopAllCoroutines();
 
         _curAction.Stop();
     }

@@ -2168,6 +2168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreKeeper: {fileID: 1997071950}
+  _bulletMLPatternManager: {fileID: 1924362906}
   _waves:
   - {fileID: 11400000, guid: 6545dfcda581ee54a958f1bbac97f5af, type: 2}
   - {fileID: 11400000, guid: c8d7ba065bd6b884e8cf34f794730d65, type: 2}
@@ -3161,6 +3162,166 @@ MonoBehaviour:
   _energyBar: {fileID: 1869710134}
   _energyBarEmpty: {fileID: 1068966238}
   _heavyAttackCostText: {fileID: 2113079661}
+--- !u!1 &1924362902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1924362903}
+  - component: {fileID: 1924362906}
+  - component: {fileID: 1924362905}
+  - component: {fileID: 1924362904}
+  m_Layer: 0
+  m_Name: BulletMLPatternManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1924362903
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924362902}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1924362904
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924362902}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1924362905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924362902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 516ef5c31afaa904ebefbe0b9f912c31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BulletMLSoundPlayer
+  _source: {fileID: 1924362904}
+  _sounds: []
+--- !u!114 &1924362906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924362902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9684da86f1006cd4695f58817d426ce8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BulletMLPatternManager
+  _bulletPrefab: {fileID: 266643245576942986, guid: c7a21ba84ff4cce46a0f26c0bfd06d21, type: 3}
+  _soundPlayer: {fileID: 1924362905}
+  _visualsBank: {fileID: 11400000, guid: fa434c50a5ae0bf49ba719f9d1dcfa38, type: 2}
 --- !u!1 &1953158087
 GameObject:
   m_ObjectHideFlags: 0
@@ -3594,6 +3755,7 @@ MonoBehaviour:
   _scoreKeeper: {fileID: 1997071950}
   _enemySpawner: {fileID: 1221254948}
   _cleanupProjectile: {fileID: 8435871461447521201, guid: bb9795ea2ef2d8a4e85ef0268d7ca5b1, type: 3}
+  _bulletMLPatternManager: {fileID: 1924362906}
   _timeKeeper: {fileID: 1997071952}
 --- !u!1 &2018298567
 GameObject:
@@ -4352,3 +4514,4 @@ SceneRoots:
   - {fileID: 1221254947}
   - {fileID: 1997071951}
   - {fileID: 232932307}
+  - {fileID: 1924362903}

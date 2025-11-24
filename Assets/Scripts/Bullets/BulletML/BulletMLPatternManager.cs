@@ -45,9 +45,9 @@ public class BulletMLPatternManager : MonoBehaviour, IBulletManager
         _combatPlayer = combatPlayer;
     }
 
-    public void StopPattern()
+    public void StopPattern(bool destroyBullets = true)
     {
-        ClearBullets();
+        if(destroyBullets) ClearBullets();
         _pattern = new BulletPattern();
     }
 

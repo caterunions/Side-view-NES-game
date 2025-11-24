@@ -12,6 +12,9 @@ public class EnemySpawner : MonoBehaviour
     private ScoreKeeper _scoreKeeper;
 
     [SerializeField]
+    private BulletMLPatternManager _bulletMLPatternManager;
+
+    [SerializeField]
     private List<EnemyWave> _waves;
 
     private List<EnemyBrain> _aliveEnemies = new List<EnemyBrain>();
@@ -40,7 +43,7 @@ public class EnemySpawner : MonoBehaviour
         {
             EnemyBrain enemy = Instantiate(data.Enemy, new Vector2(0, 50), Quaternion.identity);
 
-            enemy.Initialize(GameManager.Instance.Player.gameObject, this, data.FlipSpline, data.InitDelay);
+            enemy.Initialize(GameManager.Instance.Player.gameObject, this, _bulletMLPatternManager, data.FlipSpline, data.InitDelay);
 
             enemy.DamageReceiver.OnDamage += MonitorEnemyHealth;
 
