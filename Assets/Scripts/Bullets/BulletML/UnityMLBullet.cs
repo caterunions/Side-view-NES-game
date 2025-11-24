@@ -4,11 +4,11 @@ using BulletMLLib;
 public class UnityMLBullet : MonoBehaviour
 {
     private MLBullet _bullet;
-    public EnemyPatternManager CombatManager { get; set; }
+    public BulletMLPatternManager CombatManager { get; set; }
 
     public ElementType ElementType { get; private set; }
 
-    public BulletVisuals Visuals { get; set; }
+    public BulletMLVisuals Visuals { get; set; }
 
     private bool _top = false;
     private float _lifetime = 0;

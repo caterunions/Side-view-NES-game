@@ -1,18 +1,19 @@
 using BulletMLLib;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
-public class BulletMLPatternManager : MonoBehaviour
+public class BulletMLPatternManager : MonoBehaviour, IBulletManager
 {
-    public static EnemyPatternManager Instance { get; private set; }
+    public static BulletMLPatternManager Instance { get; private set; }
 
     [SerializeField]
     private UnityMLBullet _bulletPrefab;
 
     [SerializeField]
-    private BulletSoundPlayer _soundPlayer;
+    private BulletMLSoundPlayer _soundPlayer;
 
-    private Dictionary<Bullet, UnityMLBullet> _bullets = new Dictionary<Bullet, UnityMLBullet>();
+    private Dictionary<MLBullet, UnityMLBullet> _bullets = new Dictionary<MLBullet, UnityMLBullet>();
 
     private BulletPattern Pattern
     {
@@ -26,9 +27,8 @@ public class BulletMLPatternManager : MonoBehaviour
         }
     }
 
-    private BattleData _battleData;
-
-    private MaterialBank _materialBank;
+    [SerializeField]
+    private BulletMLVisualsBank _visualsBank;
 
     private GameObject _combatPlayer;
 
@@ -40,10 +40,8 @@ public class BulletMLPatternManager : MonoBehaviour
         Instance = this;
     }
 
-    public void Initialize(BattleData battleData, MaterialBank matBank, GameObject combatPlayer)
+    public void Initialize(GameObject combatPlayer)
     {
-        _battleData = battleData;
-        _materialBank = matBank;
         _combatPlayer = combatPlayer;
     }
 
@@ -70,7 +68,7 @@ public class BulletMLPatternManager : MonoBehaviour
         _pattern = new BulletPattern();
         Pattern.ParseXML(path);
 
-        Bullet top = new Bullet(this, true);
+        MLBullet top = new MLBullet(this, true);
         UnityMLBullet topBullet = Instantiate(_bulletPrefab);
         top.InitTopNode(Pattern.RootNode);
 
@@ -79,9 +77,9 @@ public class BulletMLPatternManager : MonoBehaviour
         _bullets.Add(top, topBullet);
     }
 
-    public Bullet CreateBullet(Bullet source, bool top)
+    public MLBullet CreateBullet(MLBullet source, bool top)
     {
-        Bullet bullet = new Bullet(this, top);
+        MLBullet bullet = new MLBullet(this, top);
         bullet.OnFinishSetup += InitializeUnityBullet;
         UnityMLBullet unityBullet = Instantiate(_bulletPrefab);
         unityBullet.CombatManager = this;
@@ -91,18 +89,18 @@ public class BulletMLPatternManager : MonoBehaviour
         return bullet;
     }
 
-    public Vector2 PlayerPosition(Bullet targettedBullet)
+    public Vector2 PlayerPosition(MLBullet targettedBullet)
     {
         return _combatPlayer.transform.position;
     }
 
-    public void RemoveBullet(Bullet deadBullet)
+    public void RemoveBullet(MLBullet deadBullet)
     {
         Destroy(_bullets[deadBullet].gameObject);
         _bullets.Remove(deadBullet);
     }
 
-    public void Trigger(Bullet source, string name)
+    public void Trigger(MLBullet source, string name)
     {
         string[] parameters = name.Split('|');
 
@@ -114,7 +112,7 @@ public class BulletMLPatternManager : MonoBehaviour
         }
     }
 
-    public void InitializeUnityBullet(Bullet bullet)
+    public void InitializeUnityBullet(MLBullet bullet)
     {
         UnityMLBullet uBullet = _bullets[bullet];
 
@@ -122,10 +120,10 @@ public class BulletMLPatternManager : MonoBehaviour
 
         if (!bullet.Top)
         {
-            BulletVisuals vis = Instantiate(_battleData.GetVisuals(bullet.Visuals), uBullet.transform);
+            BulletMLVisuals vis = Instantiate(_visualsBank.GetVisuals(bullet.Visuals), uBullet.transform);
             uBullet.Visuals = vis;
             uBullet.VisualFix();
-            vis.SpriteRenderer.material = _materialBank.GetElementMaterial(bullet.ElementType);
+            //vis.SpriteRenderer.material = _materialBank.GetElementMaterial(bullet.ElementType);
         }
 
         bullet.OnFinishSetup -= InitializeUnityBullet;
