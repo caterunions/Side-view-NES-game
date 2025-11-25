@@ -356,6 +356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _splineContainer: {fileID: 2227721361624158228}
   _moveOnStart: 1
+  _destroyOnSplineEnd: 1
   _mover: {fileID: 202712700676898033}
   _launcher: {fileID: 2687716963495624833}
   _startAction: {fileID: 3617773150698744460}
@@ -828,6 +829,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4800873020065667365}
   - component: {fileID: 3617773150698744460}
+  - component: {fileID: 91119083317552299}
   m_Layer: 6
   m_Name: 0 wait
   m_TagString: Untagged
@@ -864,4 +866,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startDelay: 2
   _endDelay: 0
-  _groupedActions: []
+  _groupedActions:
+  - {fileID: 91119083317552299}
+--- !u!114 &91119083317552299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7798970928728403723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 545ba97feff96c44cb61b385e35e9487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyPhaseAction
+  _startDelay: 0
+  _endDelay: 0
+  _healthPool: {fileID: 0}
+  _phaseChangeThreshold: 0.132
+  _loopBehaviour: 0
+  _phaseStartAction: {fileID: 0}
+  _phaseEndAction: {fileID: 0}
+  _phaseActions: []

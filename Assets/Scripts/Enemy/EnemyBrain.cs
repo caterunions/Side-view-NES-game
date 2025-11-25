@@ -47,13 +47,13 @@ public class EnemyBrain : MonoBehaviour
     [SerializeField]
     private List<EnemyAction> _actions;
 
-    private GameObject _player;
+    protected GameObject _player;
 
     [SerializeField]
     private EnemyAim _aimer;
     public EnemyAim Aimer => _aimer;
 
-    private EnemySpawner _spawner;
+    protected EnemySpawner _spawner;
 
     private BulletMLPatternManager _bulletMLPatternManager;
     public BulletMLPatternManager BulletMLPatternManager => _bulletMLPatternManager;
@@ -94,9 +94,9 @@ public class EnemyBrain : MonoBehaviour
         _delayMoveTime = delay;
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
-        _mover.OnEndReached += RequestDestroy;
+        _mover.OnEndReached += HandleSplineEndReached;
 
         _actionIndex = 0;
         if (_startAction != null)
@@ -107,16 +107,16 @@ public class EnemyBrain : MonoBehaviour
         else _curAction = _actions[_actionIndex];
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
-        _mover.OnEndReached -= RequestDestroy;
+        _mover.OnEndReached -= HandleSplineEndReached;
 
         StopAllCoroutines();
 
         _curAction.Stop();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if(!_moved && _accumulatedMoveTime >= _delayMoveTime && _moveOnStart)
         {
@@ -148,7 +148,7 @@ public class EnemyBrain : MonoBehaviour
             transform.position.y < -17);
     }
 
-    private void RequestDestroy(EnemyMove mover)
+    protected void HandleSplineEndReached(EnemyMove mover)
     {
         if(_destroyOnSplineEnd)
         {
