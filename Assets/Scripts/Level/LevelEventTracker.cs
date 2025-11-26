@@ -1,6 +1,7 @@
+using System;
 using UnityEngine;
 
-public class LevelEventTracker : MonoBehaviour
+public abstract class LevelEventTracker : MonoBehaviour
 {
-    
+    public event Action<LevelEventTracker> OnEventComplete;
 }
