@@ -13,14 +13,12 @@ MonoBehaviour:
   m_Name: GreenEnemyTagTeam
   m_EditorClassIdentifier: 
   _enemies:
-  - _enemyPackage: {fileID: 2119782110607016083, guid: d8ff6dc00a0a7864696e1a97923e6538, type: 3}
-    _spawnPos: {x: -14.5, y: 19}
+  - _enemy: {fileID: 3151780183727672985, guid: 85260384506b63348af2bc914ae20ac9, type: 3}
     _flipSpline: 0
-    _splineStartOffset: 0
-  - _enemyPackage: {fileID: 2119782110607016083, guid: d8ff6dc00a0a7864696e1a97923e6538, type: 3}
-    _spawnPos: {x: 14.5, y: 19}
+    _initDelay: 0
+  - _enemy: {fileID: 3151780183727672985, guid: 85260384506b63348af2bc914ae20ac9, type: 3}
     _flipSpline: 1
-    _splineStartOffset: 0
+    _initDelay: 0
   _weight: 200
   _waitTimeUntilNextWave: 7
   _minScoreToSpawn: 1000

@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a633a1ec534b74041bd21cd4694b8ea9, type: 3}
+  m_Name: TestVisualsBank
+  m_EditorClassIdentifier: Assembly-CSharp::BulletMLVisualsBank
+  _errorFallbackVisuals: {fileID: 8671176004113074250, guid: 5f58252e995466b4687d001e159c474f, type: 3}
+  _bulletBank: []

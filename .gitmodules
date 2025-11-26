@@ -1,0 +1,3 @@
+[submodule "Assets/BulletMLLib"]
+	path = Assets/BulletMLLib
+	url = https://github.com/caterunions/BulletMLLib.git

@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3334435869543973511}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -49,11 +49,60 @@ RotationConstraint:
   m_AffectRotationX: 1
   m_AffectRotationY: 1
   m_AffectRotationZ: 1
-  m_Active: 0
+  m_Active: 1
   m_IsLocked: 0
   m_Sources:
   - sourceTransform: {fileID: 4387873496471359046}
     weight: 1
+--- !u!1 &3483002461597980635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6079358605306598120}
+  - component: {fileID: 4753620057793859141}
+  m_Layer: 6
+  m_Name: 2 mltest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6079358605306598120
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3483002461597980635}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5316133863632661026}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4753620057793859141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3483002461597980635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfb961ad70c96b347824228cd105936a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttackFromML
+  _startDelay: 0
+  _endDelay: 2
+  _patternFile: {fileID: 4900000, guid: fcdf656108051c24c949a0550c6791c7, type: 3}
+  _duration: 3
+  _destroyBulletsOnFinish: 0
 --- !u!1 &4084435656790750396
 GameObject:
   m_ObjectHideFlags: 0
@@ -99,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d1a28c76f1e3084cbe7717eaccf2a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _locked: 1
+  _locked: 0
 --- !u!114 &2687716963495624833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +192,7 @@ Transform:
   m_Children:
   - {fileID: 4800873020065667365}
   - {fileID: 12263335052082027}
+  - {fileID: 6079358605306598120}
   m_Father: {fileID: 7078541216815778356}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5042250952940022195
@@ -190,20 +240,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startDelay: 0
-  _endDelay: 1.5
+  _endDelay: 2
   _attacks:
-  - _bullet: {fileID: 5788265927488326345, guid: 4ae0e01e334be6740b72bb6f0bc60d64, type: 3}
-    _count: 1
-    _countModifier: 0
-    _spread: 0
-    _spreadModifier: 0
+  - _bullet: {fileID: 7742745721561516334, guid: 8cc0c7c2bf3379e48a309cd79e1b143e, type: 3}
+    _count: 2
+    _countModifier: 1
+    _spread: 30
+    _spreadModifier: 20
     _angleOffsetStart: 0
     _angleOffsetIncrease: 0
-    _repetitions: 1
-    _repeatDelay: 0
-    _endDelay: 0.5
-    _startAtFixedAngle: 1
-    _fixedAngle: 180
+    _repetitions: 2
+    _repeatDelay: 1.5
+    _endDelay: 0
+    _startAtFixedAngle: 0
+    _fixedAngle: 0
     _randomAngleOffset: 0
   _launcher: {fileID: 2687716963495624833}
 --- !u!1 &5440129100339400408
@@ -285,7 +335,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 424620093, guid: 6991e5ee967c7f54b9dce23f185ffe52, type: 3}
+  m_Sprite: {fileID: 118772377, guid: 6991e5ee967c7f54b9dce23f185ffe52, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -317,7 +367,7 @@ GameObject:
   - component: {fileID: 157514930127168751}
   - component: {fileID: 3290305457317696467}
   m_Layer: 6
-  m_Name: YellowScarab
+  m_Name: BigGreenEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -362,8 +412,9 @@ MonoBehaviour:
   _startAction: {fileID: 3617773150698744460}
   _actions:
   - {fileID: 1391576852860654123}
+  - {fileID: 4753620057793859141}
   _aimer: {fileID: 1194031841007330206}
-  _scoreReward: 50
+  _scoreReward: 500
 --- !u!114 &202712700676898033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,7 +428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMove
   _rb: {fileID: 3290305457317696467}
-  _speed: 10
+  _speed: 3
 --- !u!114 &9072336374677288761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,7 +470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d647bb58e019c40bd9d004feee8a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 30
+  _maxHealth: 200
 --- !u!58 &83498906804546608
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -680,7 +731,7 @@ SpriteMask:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 424620093, guid: 6991e5ee967c7f54b9dce23f185ffe52, type: 3}
+  m_Sprite: {fileID: 1920599813, guid: 6991e5ee967c7f54b9dce23f185ffe52, type: 3}
   m_MaskAlphaCutoff: 0.136
   m_FrontSortingLayerID: 0
   m_BackSortingLayerID: 0
@@ -736,89 +787,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SplineContainer
   _drawArenaBox: 1
-  _segmentsPerCurve: 1
+  _segmentsPerCurve: 8
   _inputPoints:
-  - _position: {x: -20, y: 20}
-    _handleAngle: 0
+  - _position: {x: -12, y: 20}
+    _handleAngle: 90
     _handleLength: 1
-  - _position: {x: -15, y: 13}
-    _handleAngle: 0
-    _handleLength: 0
-  - _position: {x: 15, y: 13}
-    _handleAngle: 0
+  - _position: {x: -12, y: 12}
+    _handleAngle: 90
     _handleLength: 1
-  - _position: {x: 15, y: 10}
-    _handleAngle: 0
+  - _position: {x: 0, y: -12}
+    _handleAngle: 180
+    _handleLength: 10
+  - _position: {x: 12, y: 12}
+    _handleAngle: 90
     _handleLength: 1
-  - _position: {x: -15, y: 10}
-    _handleAngle: 0
-    _handleLength: 1
-  - _position: {x: -15, y: 7}
-    _handleAngle: 0
-    _handleLength: 1
-  - _position: {x: 15, y: 7}
-    _handleAngle: 0
-    _handleLength: 1
-  - _position: {x: 15, y: 4}
-    _handleAngle: 0
-    _handleLength: 1
-  - _position: {x: -15, y: 4}
-    _handleAngle: 0
-    _handleLength: 1
-  - _position: {x: -15, y: 1}
-    _handleAngle: 0
-    _handleLength: 1
-  - _position: {x: 15, y: 1}
-    _handleAngle: 0
-    _handleLength: 1
-  - _position: {x: 15, y: -2}
-    _handleAngle: 0
-    _handleLength: 1
-  - _position: {x: -15, y: -2}
-    _handleAngle: 0
-    _handleLength: 1
-  - _position: {x: -15, y: -5}
-    _handleAngle: 0
-    _handleLength: 1
-  - _position: {x: 15, y: -5}
-    _handleAngle: 0
-    _handleLength: 1
-  - _position: {x: 15, y: -8}
-    _handleAngle: 0
-    _handleLength: 1
-  - _position: {x: -15, y: -8}
-    _handleAngle: 0
-    _handleLength: 1
-  - _position: {x: -15, y: -11}
-    _handleAngle: 0
-    _handleLength: 1
-  - _position: {x: 15, y: -11}
-    _handleAngle: 0
-    _handleLength: 1
-  - _position: {x: 15, y: -20}
-    _handleAngle: 0
+  - _position: {x: 12, y: 20}
+    _handleAngle: 90
     _handleLength: 1
   _calculatedPoints:
-  - {x: -20, y: 20}
-  - {x: -15, y: 13}
-  - {x: 15, y: 13}
-  - {x: 15, y: 10}
-  - {x: -15, y: 10}
-  - {x: -15, y: 7}
-  - {x: 15, y: 7}
-  - {x: 15, y: 4}
-  - {x: -15, y: 4}
-  - {x: -15, y: 1}
-  - {x: 15, y: 1}
-  - {x: 15, y: -2}
-  - {x: -15, y: -2}
-  - {x: -15, y: -5}
-  - {x: 15, y: -5}
-  - {x: 15, y: -8}
-  - {x: -15, y: -8}
-  - {x: -15, y: -11}
-  - {x: 15, y: -11}
-  - {x: 15, y: -20}
+  - {x: -12, y: 20}
+  - {x: -12, y: 19.410156}
+  - {x: -12, y: 18.46875}
+  - {x: -12, y: 17.292969}
+  - {x: -12, y: 16}
+  - {x: -12, y: 14.707031}
+  - {x: -12, y: 13.53125}
+  - {x: -12, y: 12.589844}
+  - {x: -12, y: 12}
+  - {x: -11.894531, y: 10.681641}
+  - {x: -11.53125, y: 7.828125}
+  - {x: -10.839844, y: 3.9667969}
+  - {x: -9.75, y: -0.37500048}
+  - {x: -8.191406, y: -4.6699224}
+  - {x: -6.09375, y: -8.390625}
+  - {x: -3.3867188, y: -11.009766}
+  - {x: 0, y: -12}
+  - {x: 3.3867188, y: -10.927734}
+  - {x: 6.09375, y: -8.109375}
+  - {x: 8.191406, y: -4.142578}
+  - {x: 9.75, y: 0.37500048}
+  - {x: 10.839844, y: 4.845703}
+  - {x: 11.53125, y: 8.671875}
+  - {x: 11.894531, y: 11.255859}
+  - {x: 12, y: 12}
+  - {x: 12, y: 12.097656}
+  - {x: 12, y: 12.96875}
+  - {x: 12, y: 14.355469}
+  - {x: 12, y: 16}
+  - {x: 12, y: 17.644531}
+  - {x: 12, y: 19.03125}
+  - {x: 12, y: 19.902344}
+  - {x: 12, y: 20}
 --- !u!1 &7798970928728403723
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,7 +848,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4800873020065667365}
   - component: {fileID: 3617773150698744460}
-  - component: {fileID: 91119083317552299}
   m_Layer: 6
   m_Name: 0 wait
   m_TagString: Untagged
@@ -866,25 +884,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startDelay: 2
   _endDelay: 0
-  _groupedActions:
-  - {fileID: 91119083317552299}
---- !u!114 &91119083317552299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7798970928728403723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 545ba97feff96c44cb61b385e35e9487, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyPhaseAction
-  _startDelay: 0
-  _endDelay: 0
-  _healthPool: {fileID: 0}
-  _phaseChangeThreshold: 0.132
-  _loopBehaviour: 0
-  _phaseStartAction: {fileID: 0}
-  _phaseEndAction: {fileID: 0}
-  _phaseActions: []
+  _groupedActions: []

@@ -59,6 +59,12 @@ public abstract class EnemyAction : MonoBehaviour
         ExtraStopInstructions();
     }
 
+    private void OnDisable()
+    {
+        Stop();
+        StopAllCoroutines();
+    }
+
     protected virtual void ExtraStopInstructions()
     {
 
