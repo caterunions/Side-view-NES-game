@@ -32,6 +32,9 @@ public class EnemyBrain : MonoBehaviour
     private bool _moveOnStart = true;
 
     [SerializeField]
+    private bool _destroyOnSplineEnd = true;
+
+    [SerializeField]
     private EnemyMove _mover;
     public EnemyMove Mover => _mover;
 
@@ -44,13 +47,16 @@ public class EnemyBrain : MonoBehaviour
     [SerializeField]
     private List<EnemyAction> _actions;
 
-    private GameObject _player;
+    protected GameObject _player;
 
     [SerializeField]
     private EnemyAim _aimer;
     public EnemyAim Aimer => _aimer;
 
-    private EnemySpawner _spawner;
+    protected EnemySpawner _spawner;
+
+    private BulletMLPatternManager _bulletMLPatternManager;
+    public BulletMLPatternManager BulletMLPatternManager => _bulletMLPatternManager;
 
     [SerializeField]
     private int _scoreReward;
@@ -73,11 +79,13 @@ public class EnemyBrain : MonoBehaviour
         Aimer.Locked = false;
     }
 
-    public void Initialize(GameObject player, EnemySpawner spawner, bool flipSpline, float delay)
+    public void Initialize(GameObject player, EnemySpawner spawner,  BulletMLPatternManager bulletMLPatternManager, bool flipSpline, float delay)
     {
         _player = player;
 
         Aimer.Player = _player.transform;
+
+        _bulletMLPatternManager = bulletMLPatternManager;
 
         _spawner = spawner;
 
@@ -86,9 +94,9 @@ public class EnemyBrain : MonoBehaviour
         _delayMoveTime = delay;
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
-        _mover.OnEndReached += RequestDestroy;
+        _mover.OnEndReached += HandleSplineEndReached;
 
         _actionIndex = 0;
         if (_startAction != null)
@@ -99,14 +107,16 @@ public class EnemyBrain : MonoBehaviour
         else _curAction = _actions[_actionIndex];
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
-        _mover.OnEndReached -= RequestDestroy;
+        _mover.OnEndReached -= HandleSplineEndReached;
+
+        StopAllCoroutines();
 
         _curAction.Stop();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if(!_moved && _accumulatedMoveTime >= _delayMoveTime && _moveOnStart)
         {
@@ -132,14 +142,17 @@ public class EnemyBrain : MonoBehaviour
         }
 
         _launcher.Blocked = (
-            transform.position.x > 16  ||
-            transform.position.x < -16 ||
-            transform.position.y > 16  ||
-            transform.position.y < -16);
+            transform.position.x > 17  ||
+            transform.position.x < -17 ||
+            transform.position.y > 17  ||
+            transform.position.y < -17);
     }
 
-    private void RequestDestroy(EnemyMove mover)
+    protected void HandleSplineEndReached(EnemyMove mover)
     {
-        _spawner.DestroyEnemy(this, false);
+        if(_destroyOnSplineEnd)
+        {
+            _spawner.DestroyEnemy(this, false);
+        }
     }
 }

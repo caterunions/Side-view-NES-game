@@ -37,6 +37,9 @@ public class GameManager : MonoBehaviour
     private Bullet _cleanupProjectile;
 
     [SerializeField]
+    private BulletMLPatternManager _bulletMLPatternManager;
+
+    [SerializeField]
     private TimeKeeper _timeKeeper;
 
     public Transform Cursor => _cursor;
@@ -65,6 +68,7 @@ public class GameManager : MonoBehaviour
 
         Player = Instantiate(_shipDictionary.Ships[PlayerPrefs.GetInt("ShipSelection", 0)], Vector3.zero, Quaternion.identity);
 
+        _bulletMLPatternManager.Initialize(Player.gameObject);
         _playerHDR = Player.GetComponentInChildren<HealthDamageReceiver>();
         _playerMove = Player.GetComponentInChildren<PlayerMove>();
         _playerInputHandler = Player.GetComponentInChildren<PlayerInputHandler>();
