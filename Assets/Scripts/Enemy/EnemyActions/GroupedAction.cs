@@ -14,7 +14,7 @@ public class GroupedAction : EnemyAction
     {
         foreach(EnemyAction a in _groupedActions)
         {
-            a.Act();
+            if (a != null) a.Act();
         }
 
         yield return new WaitUntil(() => _groupedActions.All(a => !a.InProgress));
