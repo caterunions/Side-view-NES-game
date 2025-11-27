@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 
 using UnityEngine;
 
@@ -14,7 +13,7 @@ public class BulletMLVisualsBank : ScriptableObject
 
     public BulletMLVisuals GetVisuals(string name)
     {
-        BulletMLVisuals match = _bulletBank.FirstOrDefault(b => b.name == name);
+        BulletMLVisuals match = _bulletBank.Find(b => b.name == name);
         if (match != null) return match;
 
         //Debug.LogWarning($"Couldn't find visuals for name: {name}");

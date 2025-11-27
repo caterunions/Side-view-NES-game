@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class BulletMLSoundPlayer : MonoBehaviour
@@ -12,7 +11,7 @@ public class BulletMLSoundPlayer : MonoBehaviour
 
     public void PlaySound(string soundName)
     {
-        AudioClip found = _sounds.FirstOrDefault(s => s.name == soundName);
+        AudioClip found = _sounds.Find(s => s.name == soundName);
 
         if (found == null) return;
 
