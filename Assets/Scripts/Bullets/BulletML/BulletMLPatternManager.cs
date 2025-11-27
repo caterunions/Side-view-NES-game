@@ -37,7 +37,7 @@ public class BulletMLPatternManager : MonoBehaviour, IBulletManager
 
     public void StopPattern(Guid patternID, bool destroy)
     {
-        BulletMLPattern match = _patterns.FirstOrDefault(p => p.GUID == patternID);
+        BulletMLPattern match = _patterns.Find(p => p.GUID == patternID);
 
         if (match == null) return;
 
