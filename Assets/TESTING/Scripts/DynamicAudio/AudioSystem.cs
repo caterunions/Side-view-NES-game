@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Audio.Events;
+using Audio.EventRacks;
 
 namespace Audio
 {
@@ -11,11 +11,11 @@ namespace Audio
     public abstract class AudioEventSystem : MonoBehaviour
     {
         [SerializeField]
-        protected List<AudioEvents> loadedAudioEvents = new();
+        protected List<AudioEventRack> loadedEventRacks = new();
 
-        protected virtual void GetClip(string clipID)
+        protected virtual void GetClipFromRacks(string clipID)
         {
-            loadedAudioEvents.Find(clip => clip.GetClipID() == clipID);
+            loadedEventRacks.Find(clip => clip.GetClipID() == clipID);
         }
     }
 
@@ -29,26 +29,15 @@ namespace Audio
     [Serializable]
     public class AudioEvent
     {
-        [SerializeField] private AudioEventType eventType;
-        [SerializeField] private string eventID;
-        [SerializeField] private float customTime = 0f;
-        private event EventHandler EventFire;
+        [SerializeField] private AudioEventType _eventType;
+        [SerializeField] private string _eventID;
+        [SerializeField] private float _customTime = 0f;
+        [SerializeField] private event EventHandler EventFire;
 
 
-        public void Subscribe(EventHandler subscriber)
-        {
-            EventFire += subscriber;
-        }
-
-        public void UnSubscribe(EventHandler subscriber)
-        {
-            EventFire -= subscriber;
-        }
-
-        public AudioEventType GetEventType() => eventType;
-        public string GetEventID() => eventID;
-        public float GetEventCustomTime() => customTime;
-
+        public void Subscribe(EventHandler subscriber) => EventFire += subscriber;
+        public void UnSubscribe(EventHandler subscriber) => EventFire -= subscriber;
+        public string GetEventID() => _eventID;
     }
 
     public enum AudioEventType

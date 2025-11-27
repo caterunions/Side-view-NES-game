@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d441214a45eb0db468a15e67422a3ba0, type: 3}
-  m_Name: Intro
+  m_Name: IntroClip
   m_EditorClassIdentifier: Assembly-CSharp::Audio.SourceData.CustomAudioClip
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: abcb95d35383e0e45816dab4154d70e1, type: 3}
   volume: 1
   pitch: 1
   mute: 0

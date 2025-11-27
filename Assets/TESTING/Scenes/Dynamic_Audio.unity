@@ -255,9 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57afba12eee2ff14bb960aac1d8bb40d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Test_AudioManager
-  loadedCustomAudioClips:
-  - {fileID: 11400000, guid: 3bb6413364444a747a361971f8b7136c, type: 2}
-  - {fileID: 11400000, guid: f82e31da11e77c346aea5f0b9ce0cf92, type: 2}
+  loadedEventRacks: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
