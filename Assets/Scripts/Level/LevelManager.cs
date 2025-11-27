@@ -32,7 +32,7 @@ public class LevelManager : MonoBehaviour
 
     private void HandleSpawnedEnemyDeath(EnemySpawner enemySpawner, EnemyBrain enemy, bool killedByPlayer)
     {
-        if(_curTrackedEvent != null && // event queued exists
+        if (_curTrackedEvent != null && // event queued exists
             !_curTrackedEvent.Ongoing && // event has not started
             _eventQueued && // we are waiting to start an event
             _enemySpawner.NumAliveEnemies == 0) // no enemies alive
@@ -56,7 +56,7 @@ public class LevelManager : MonoBehaviour
 
             _curTrackedEvent = CreateEvent(nextEvent);
 
-            if(!nextEvent.WaitForNoEnemies)
+            if (!nextEvent.WaitForNoEnemies)
             {
                 _curTrackedEvent.StartEvent();
             }
@@ -78,7 +78,7 @@ public class LevelManager : MonoBehaviour
 
     private LevelEventTracker CreateEvent(LevelEventData data)
     {
-        if(data is SpecialEnemyEvent specialEnemy)
+        if (data is SpecialEnemyEvent specialEnemy)
         {
             return new SpecialEnemyEventTracker(_enemySpawner, specialEnemy.EnemiesToSpawn);
         }

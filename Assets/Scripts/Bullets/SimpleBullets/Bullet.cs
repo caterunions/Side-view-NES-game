@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -58,9 +57,9 @@ public class Bullet : MonoBehaviour
         }
 
         DamageReceiver dr = collision.GetComponentInParent<DamageReceiver>();
-        if(dr != null)
+        if (dr != null)
         {
-            if(dr.Team != Team)
+            if (dr.Team != Team)
             {
                 float damage = Damage;
 
@@ -77,7 +76,7 @@ public class Bullet : MonoBehaviour
         }
         else if (!collision.isTrigger)
         {
-            if(_solidObjectPierceCount <= 0) Destroy(gameObject);
+            if (_solidObjectPierceCount <= 0) Destroy(gameObject);
             _solidObjectPierceCount--;
         }
     }
@@ -89,7 +88,7 @@ public class Bullet : MonoBehaviour
 
     protected virtual void Awake()
     {
-        if(_collider != null) _collider.enabled = false;
+        if (_collider != null) _collider.enabled = false;
         Behaviours.ForEach(b => b.enabled = false);
         _origin = transform.position;
     }

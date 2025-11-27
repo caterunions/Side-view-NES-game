@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerStats : EntityStats
@@ -18,10 +16,10 @@ public class PlayerStats : EntityStats
     private float _currentEnergy;
     public float CurrentEnergy
     {
-        get 
+        get
         {
             return Mathf.Clamp(_currentEnergy, 0, _maxEnergy);
-        } 
+        }
         set
         {
             _currentEnergy = value;
@@ -40,7 +38,7 @@ public class PlayerStats : EntityStats
 
     private void Update()
     {
-        if(_currentEnergy < _maxEnergy)
+        if (_currentEnergy < _maxEnergy)
         {
             CurrentEnergy += _energyRegen * Time.deltaTime;
         }

@@ -1,9 +1,6 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class Homing : BulletBehaviour
 {
@@ -25,7 +22,7 @@ public class Homing : BulletBehaviour
         {
             float dist = Vector2.Distance(transform.position, t.position);
 
-            if(dist < lowestDist)
+            if (dist < lowestDist)
             {
                 lowestDist = dist;
                 closest = t;

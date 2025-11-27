@@ -31,7 +31,7 @@ public class BackgroundObjectSpawner : MonoBehaviour
 
     private IEnumerator SpawnRoutine()
     {
-        while(true)
+        while (true)
         {
             Vector3 spawnPos = new Vector3(transform.position.x + Random.Range(-_spawnRangeX, _spawnRangeX), transform.position.y, 0);
 

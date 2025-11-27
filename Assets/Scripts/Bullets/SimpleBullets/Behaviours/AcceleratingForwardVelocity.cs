@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AcceleratingForwardVelocity : BulletBehaviour
@@ -7,7 +5,7 @@ public class AcceleratingForwardVelocity : BulletBehaviour
     [SerializeField]
     protected float _startVelocity;
 
-    [SerializeField] 
+    [SerializeField]
     protected float _endVelocity;
 
     [SerializeField]

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ApplyRandomRotation : MonoBehaviour
@@ -7,7 +5,7 @@ public class ApplyRandomRotation : MonoBehaviour
     [SerializeField]
     private float _minRotation;
 
-    [SerializeField] 
+    [SerializeField]
     private float _maxRotation;
 
     private void OnEnable()

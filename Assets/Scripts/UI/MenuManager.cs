@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using TMPro;
-using System;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
@@ -71,7 +68,7 @@ public class MenuManager : MonoBehaviour
 
         int hiScore = 0;
 
-        switch((Gamemode)selection)
+        switch ((Gamemode)selection)
         {
             case Gamemode.Standard:
                 hiScore = PlayerPrefs.GetInt("StandardHiScore", 0);

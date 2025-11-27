@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletLauncher : MonoBehaviour
@@ -18,7 +16,7 @@ public class BulletLauncher : MonoBehaviour
         float aimAngle = pattern.FixedAngle == null ? transform.rotation.eulerAngles.z + pattern.AngleOffset : (float)pattern.FixedAngle + pattern.AngleOffset;
         float centeringOffset = (pattern.Spread / 2) - (angleStep / 2);
 
-        for(int i = 0; i < pattern.Count; i++)
+        for (int i = 0; i < pattern.Count; i++)
         {
             float currentBulletAngle = angleStep * i;
 

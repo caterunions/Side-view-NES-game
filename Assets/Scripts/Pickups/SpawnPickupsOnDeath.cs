@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class SpawnPickupsOnDeath : MonoBehaviour
 {
@@ -50,7 +47,7 @@ public class SpawnPickupsOnDeath : MonoBehaviour
 
         foreach (PickupSpawn spawn in _pickupSpawns)
         {
-            for(int i = 0; i < spawn.MaxCount; i++)
+            for (int i = 0; i < spawn.MaxCount; i++)
             {
                 if (Random.Range(0f, 1f) <= spawn.Chance)
                 {

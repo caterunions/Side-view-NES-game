@@ -1,5 +1,5 @@
-using UnityEngine;
 using BulletMLLib;
+using UnityEngine;
 
 public class UnityMLBullet : MonoBehaviour
 {

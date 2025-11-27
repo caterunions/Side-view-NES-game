@@ -1,9 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using static UnityEngine.Analytics.IAnalytic;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -61,7 +59,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnWave(EnemyWave wave)
     {
-        foreach(EnemySpawnData data in wave.Enemies)
+        foreach (EnemySpawnData data in wave.Enemies)
         {
             SpawnEnemy(data);
         }
@@ -71,10 +69,10 @@ public class EnemySpawner : MonoBehaviour
 
     public void DestroyEnemy(EnemyBrain enemy, bool killedByPlayer)
     {
-        if(!_aliveEnemies.Contains(enemy)) return;
+        if (!_aliveEnemies.Contains(enemy)) return;
 
         enemy.DamageReceiver.OnDamage -= MonitorEnemyHealth;
-        
+
         _aliveEnemies.Remove(enemy);
 
         OnSpawnedEnemyDeath?.Invoke(this, enemy, killedByPlayer);
@@ -109,9 +107,9 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        if(Paused || _levelData == null) return;
+        if (Paused || _levelData == null) return;
 
-        if(_aliveEnemies.Count == 0 || _timeRemaining <= 0)
+        if (_aliveEnemies.Count == 0 || _timeRemaining <= 0)
         {
             SpawnWave(GetRandomWeightedWave(_levelData.Waves));
         }

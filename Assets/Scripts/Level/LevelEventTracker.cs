@@ -1,6 +1,5 @@
-using System.Collections.Generic;
 using System;
-using UnityEngine;
+using System.Collections.Generic;
 
 public abstract class LevelEventTracker
 {
@@ -56,7 +55,7 @@ public class SpecialEnemyEventTracker : LevelEventTracker
 
         _enemiesTracked--;
 
-        if(_enemiesTracked <= 0)
+        if (_enemiesTracked <= 0)
         {
             RaiseEventComplete(this);
         }

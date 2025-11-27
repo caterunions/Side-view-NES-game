@@ -1,7 +1,7 @@
-using System.Collections.Generic;
-using System.Collections;
-using UnityEngine;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public enum PhaseLoopBehaviour
 {
@@ -16,7 +16,7 @@ public class EnemyPhaseAction : EnemyAction
     [SerializeField]
     private HealthPool _healthPool;
 
-    [SerializeField, Range(0,1)]
+    [SerializeField, Range(0, 1)]
     [Tooltip("Percentage of health to end phase at")]
     private float _phaseChangeThreshold = 1.0f;
 
@@ -55,7 +55,7 @@ public class EnemyPhaseAction : EnemyAction
 
         while (_healthPool.Health / _healthPool.MaxHealth > _phaseChangeThreshold)
         {
-            switch(_loopBehaviour)
+            switch (_loopBehaviour)
             {
                 case PhaseLoopBehaviour.Ordered:
                     _curAction = _phaseActions[_curActionIndex];
@@ -67,7 +67,7 @@ public class EnemyPhaseAction : EnemyAction
 
                 case PhaseLoopBehaviour.OrderedOnceThenRandom:
                     // ordered selection
-                    if(!_looped)
+                    if (!_looped)
                     {
                         _curAction = _phaseActions[_curActionIndex];
 
@@ -93,7 +93,7 @@ public class EnemyPhaseAction : EnemyAction
             yield return new WaitUntil(() => !_curAction.InProgress);
         }
 
-        if(_phaseEndAction != null)
+        if (_phaseEndAction != null)
         {
             _phaseEndAction.Act();
             yield return new WaitUntil(() => !_phaseEndAction.InProgress);
@@ -104,7 +104,7 @@ public class EnemyPhaseAction : EnemyAction
     {
         if (!_interruptActionOnThresholdMet || _actionInterrupted) return;
 
-        if(_healthPool.Health / _healthPool.MaxHealth > _phaseChangeThreshold)
+        if (_healthPool.Health / _healthPool.MaxHealth > _phaseChangeThreshold)
         {
             _actionInterrupted = true;
             _curAction.Stop();
