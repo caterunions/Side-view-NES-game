@@ -142,6 +142,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4800873020065667365}
+  - {fileID: 3219867116134023926}
   - {fileID: 12263335052082027}
   m_Father: {fileID: 7078541216815778356}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -156,7 +157,7 @@ GameObject:
   - component: {fileID: 12263335052082027}
   - component: {fileID: 1391576852860654123}
   m_Layer: 6
-  m_Name: 1 attack
+  m_Name: 2 attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -359,6 +360,7 @@ MonoBehaviour:
   _launcher: {fileID: 2687716963495624833}
   _startAction: {fileID: 1905051405717646506}
   _actions:
+  - {fileID: 683469734141646247}
   - {fileID: 1391576852860654123}
   _aimer: {fileID: 1194031841007330206}
   _scoreReward: 50
@@ -816,6 +818,54 @@ MonoBehaviour:
   - {x: -15, y: -11}
   - {x: 15, y: -11}
   - {x: 15, y: -20}
+--- !u!1 &7722929085780168826
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3219867116134023926}
+  - component: {fileID: 683469734141646247}
+  m_Layer: 6
+  m_Name: 1 random delay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3219867116134023926
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7722929085780168826}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5316133863632661026}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &683469734141646247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7722929085780168826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19f2353e15af7641ab84712c435250a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyRandomDelay
+  _startDelay: 0
+  _endDelay: 0
+  _minDelay: 0
+  _maxDelay: 0.2
 --- !u!1 &7798970928728403723
 GameObject:
   m_ObjectHideFlags: 0

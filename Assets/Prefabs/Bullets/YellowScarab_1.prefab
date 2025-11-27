@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5788265927488326345}
   - component: {fileID: -8706196250951921517}
   - component: {fileID: 7931637914619626776}
+  - component: {fileID: 2942966765031705671}
   m_Layer: 0
   m_Name: YellowScarab_1
   m_TagString: Untagged
@@ -124,8 +125,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _behaviours:
   - {fileID: -8706196250951921517}
+  - {fileID: 2942966765031705671}
   _solidObjectPierceCount: 0
-  _range: 30
+  _range: 20
   _collider: {fileID: 4318565045240832066}
   _destroyOnWalls: 1
   _damage: 1
@@ -141,8 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9eaa15e6c158424993baf12b464610a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startVelocity: 5
-  _endVelocity: 40
+  _startVelocity: 10
+  _endVelocity: 20
   _rampTime: 1
 --- !u!114 &7931637914619626776
 MonoBehaviour:
@@ -157,6 +159,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeepTrailOnDestroy
   _trail: {fileID: 1480786104395055705}
+--- !u!114 &2942966765031705671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6115566008800870705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5799ed8f3a76fa042a13e927aea5ed34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SinWaveMovement
+  _frequency: 20
+  _magnitude: 5
 --- !u!1 &8287364170319371110
 GameObject:
   m_ObjectHideFlags: 0
