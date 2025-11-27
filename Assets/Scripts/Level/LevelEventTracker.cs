@@ -43,15 +43,13 @@ public class SpecialEnemyEventTracker : LevelEventTracker
         foreach (EnemySpawnData data in _enemiesToSpawn)
         {
             EnemyBrain enemy = _enemySpawner.SpawnEnemy(data);
-            enemy.DamageReceiver.OnDamage += MonitorEnemyHealth;
+            enemy.OnGameObjectDestroy += HandleEnemyDestroy;
         }
     }
 
-    private void MonitorEnemyHealth(DamageReceiver dr, DamageEvent dmgEvent, DamageResult result)
+    private void HandleEnemyDestroy(EnemyBrain enemy)
     {
-        if (!result.Killed) return;
-
-        dr.OnDamage -= MonitorEnemyHealth;
+        enemy.OnGameObjectDestroy -= HandleEnemyDestroy;
 
         _enemiesTracked--;
 

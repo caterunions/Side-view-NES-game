@@ -18,3 +18,6 @@ MonoBehaviour:
   - _enemy: {fileID: 3151780183727672985, guid: 85260384506b63348af2bc914ae20ac9, type: 3}
     _flipSpline: 0
     _initDelay: 0
+  - _enemy: {fileID: 3151780183727672985, guid: 85260384506b63348af2bc914ae20ac9, type: 3}
+    _flipSpline: 1
+    _initDelay: 0

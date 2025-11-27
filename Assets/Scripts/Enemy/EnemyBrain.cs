@@ -1,8 +1,11 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBrain : MonoBehaviour
 {
+    public event Action<EnemyBrain> OnGameObjectDestroy;
+
     private HealthPool _healthPool;
     protected HealthPool healthPool
     {
@@ -90,6 +93,11 @@ public class EnemyBrain : MonoBehaviour
         _mover.FlipSpline = flipSpline;
 
         _delayMoveTime = delay;
+    }
+
+    private void OnDestroy()
+    {
+        OnGameObjectDestroy?.Invoke(this);
     }
 
     protected virtual void OnEnable()
