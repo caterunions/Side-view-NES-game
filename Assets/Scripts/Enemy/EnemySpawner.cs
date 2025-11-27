@@ -15,10 +15,10 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private BulletMLPatternManager _bulletMLPatternManager;
 
-    [SerializeField]
-    private List<EnemyWave> _waves;
+    private LevelData _levelData;
 
     private List<EnemyBrain> _aliveEnemies = new List<EnemyBrain>();
+    public int NumAliveEnemies => _aliveEnemies.Count;
 
     private float _nextSpawnTime;
 
@@ -38,6 +38,11 @@ public class EnemySpawner : MonoBehaviour
         {
             return _nextSpawnTime - Time.time;
         }
+    }
+
+    public void Initialize(LevelData data)
+    {
+        _levelData = data;
     }
 
     // spawns and initializes an enemy. also adds it to the list of tracked enemies.
@@ -69,8 +74,10 @@ public class EnemySpawner : MonoBehaviour
         if(!_aliveEnemies.Contains(enemy)) return;
 
         enemy.DamageReceiver.OnDamage -= MonitorEnemyHealth;
-        OnSpawnedEnemyDeath?.Invoke(this, enemy, killedByPlayer);
+        
         _aliveEnemies.Remove(enemy);
+
+        OnSpawnedEnemyDeath?.Invoke(this, enemy, killedByPlayer);
 
         Destroy(enemy.gameObject);
     }
@@ -102,11 +109,11 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        if(Paused) return;
+        if(Paused || _levelData == null) return;
 
         if(_aliveEnemies.Count == 0 || _timeRemaining <= 0)
         {
-            SpawnWave(GetRandomWeightedWave(_waves));
+            SpawnWave(GetRandomWeightedWave(_levelData.Waves));
         }
     }
 

@@ -15,4 +15,9 @@ public class EnemyAttackFromML : EnemyAction
         yield return new WaitForSeconds(_duration);
         EnemyBrain.BulletMLPatternManager.StopPattern();
     }
+
+    protected override void ExtraStopInstructions()
+    {
+        EnemyBrain.BulletMLPatternManager.StopPattern();
+    }
 }
