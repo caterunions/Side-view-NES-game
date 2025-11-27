@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DisplayHeavyCharge : MonoBehaviour
@@ -50,12 +48,12 @@ public class DisplayHeavyCharge : MonoBehaviour
 
     private void HandleChargeChange(ShipWeaponHolder shipWeaponHolder)
     {
-        if(_shipWeaponHolder.ChargePercentage == 1 && !_chargeComplete)
+        if (_shipWeaponHolder.ChargePercentage == 1 && !_chargeComplete)
         {
             Instantiate(_chargeCompleteParticles, _heavyChargeFX.transform.position, Quaternion.identity);
             _chargeComplete = true;
         }
-        else if(_shipWeaponHolder.ChargePercentage < 1f)
+        else if (_shipWeaponHolder.ChargePercentage < 1f)
         {
             _chargeComplete = false;
         }
@@ -68,7 +66,7 @@ public class DisplayHeavyCharge : MonoBehaviour
         Color outlineColor = _chargeAttackReadyOutline.color;
         if (stats.CurrentEnergy >= _shipWeaponHolder.HeavyEnergyCost)
         {
-            if(_alphaIncreasing)
+            if (_alphaIncreasing)
             {
                 _curOutlineAlpha += Time.deltaTime / _fadeTime;
                 outlineColor.a = _curOutlineAlpha;
@@ -76,7 +74,7 @@ public class DisplayHeavyCharge : MonoBehaviour
             }
             else
             {
-                if(_curOutlineAlpha > 0.1f) _curOutlineAlpha -= Time.deltaTime / _fadeTime;
+                if (_curOutlineAlpha > 0.1f) _curOutlineAlpha -= Time.deltaTime / _fadeTime;
                 else _curOutlineAlpha -= Time.deltaTime / _fadeTime / 20f;
                 outlineColor.a = _curOutlineAlpha;
                 if (_curOutlineAlpha <= 0) _alphaIncreasing = true;

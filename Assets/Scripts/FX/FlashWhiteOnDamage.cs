@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FlashWhiteOnDamage : MonoBehaviour
@@ -43,6 +41,6 @@ public class FlashWhiteOnDamage : MonoBehaviour
     {
         _maskedWhiteSprite.SetActive(_currentFlashTimeRemaining > 0);
 
-        if(_currentFlashTimeRemaining > 0) _currentFlashTimeRemaining -= Time.deltaTime;
+        if (_currentFlashTimeRemaining > 0) _currentFlashTimeRemaining -= Time.deltaTime;
     }
 }

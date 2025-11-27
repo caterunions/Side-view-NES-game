@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using System.Net;
-using UnityEditor;
 using UnityEngine;
 
 using Color = UnityEngine.Color;
@@ -37,7 +35,7 @@ public class SplineContainer : MonoBehaviour
         {
             float t = j / (float)curveSegments;
 
-            _calculatedPoints.Add(CubicBezierPoint(p0,p1,p2,p3,t));
+            _calculatedPoints.Add(CubicBezierPoint(p0, p1, p2, p3, t));
         }
     }
 
@@ -51,14 +49,14 @@ public class SplineContainer : MonoBehaviour
         for (int i = 0; i < _inputPoints.Count; i++)
         {
             Vector2 handlePoint = new Vector2(
-                Mathf.Cos(_inputPoints[i].HandleAngle * Mathf.Deg2Rad), 
+                Mathf.Cos(_inputPoints[i].HandleAngle * Mathf.Deg2Rad),
                 Mathf.Sin(_inputPoints[i].HandleAngle * Mathf.Deg2Rad));
 
             handlePoint *= _inputPoints[i].HandleLength;
 
-            if(i > 0) _bezierPoints.Add(handlePoint + _inputPoints[i].Position);
+            if (i > 0) _bezierPoints.Add(handlePoint + _inputPoints[i].Position);
             _bezierPoints.Add(_inputPoints[i].Position);
-            if(i < _inputPoints.Count - 1) _bezierPoints.Add((handlePoint * -1) + _inputPoints[i].Position);
+            if (i < _inputPoints.Count - 1) _bezierPoints.Add((handlePoint * -1) + _inputPoints[i].Position);
         }
 
         for (int i = 0; i < _inputPoints.Count - 1; i++)
@@ -74,7 +72,7 @@ public class SplineContainer : MonoBehaviour
                 );
         }
 
-        if(_inputPoints.Count > 0)
+        if (_inputPoints.Count > 0)
         {
             _calculatedPoints.Add(_inputPoints[^1].Position);
         }
@@ -99,7 +97,7 @@ public class SplineContainer : MonoBehaviour
 
         if (_inputPoints.Count == 0 || _bezierPoints.Count == 0 || _calculatedPoints.Count == 0) return;
 
-        foreach(SplinePoint point in _inputPoints)
+        foreach (SplinePoint point in _inputPoints)
         {
             Gizmos.color = Color.hotPink;
             Gizmos.DrawSphere(point.Position, 0.25f);
@@ -109,11 +107,11 @@ public class SplineContainer : MonoBehaviour
         {
             Gizmos.color = Color.orange;
 
-            if(i > 0)
+            if (i > 0)
             {
                 Gizmos.DrawLine(_bezierPoints[i * 3], _bezierPoints[(i * 3) - 1]);
             }
-            if(i < _inputPoints.Count - 1)
+            if (i < _inputPoints.Count - 1)
             {
                 Gizmos.DrawLine(_bezierPoints[i * 3], _bezierPoints[(i * 3) + 1]);
             }
@@ -122,7 +120,7 @@ public class SplineContainer : MonoBehaviour
         for (int i = 0; i < _calculatedPoints.Count; i++)
         {
             Gizmos.color = Color.limeGreen;
-            if(i > 0)
+            if (i > 0)
             {
                 Gizmos.DrawLine(_calculatedPoints[i - 1], _calculatedPoints[i]);
             }
@@ -150,7 +148,7 @@ public struct SplinePoint
     public float HandleAngle => _handleAngle;
 
     [SerializeField]
-    [Range(1f,10f)]
+    [Range(1f, 10f)]
     private float _handleLength;
     public float HandleLength => _handleLength;
 }

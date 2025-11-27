@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerFire : MonoBehaviour
@@ -69,7 +68,7 @@ public class PlayerFire : MonoBehaviour
 
     private IEnumerator LightFireRoutine()
     {
-        while(_firingLight)
+        while (_firingLight)
         {
             Attack attack = _shipWeaponHolder.LightAttack;
 
@@ -94,10 +93,10 @@ public class PlayerFire : MonoBehaviour
             if (!_firingLight) break;
         }
 
-        if(_firingHeavy && _shipWeaponHolder.CanFireHeavyWeapon)
+        if (_firingHeavy && _shipWeaponHolder.CanFireHeavyWeapon)
         {
             SwitchFiringHeavy();
-        } 
+        }
         else
         {
             _fireRoutine = null;
@@ -106,7 +105,7 @@ public class PlayerFire : MonoBehaviour
 
     private IEnumerator HeavyFireRoutine()
     {
-        while(_firingHeavy)
+        while (_firingHeavy)
         {
             if (_shipWeaponHolder.ChargePercentage < 1)
             {
@@ -118,7 +117,7 @@ public class PlayerFire : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        if(_shipWeaponHolder.ChargePercentage >= 1)
+        if (_shipWeaponHolder.ChargePercentage >= 1)
         {
             _shipWeaponHolder.DeductHeavyWeaponCost();
 

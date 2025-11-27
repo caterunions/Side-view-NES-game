@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Pickup : MonoBehaviour
@@ -33,7 +32,7 @@ public abstract class Pickup : MonoBehaviour
 
     private void Update()
     {
-        if(Vector2.Distance(transform.position, GameManager.Instance.Player.transform.position) <= _magnetDistance)
+        if (Vector2.Distance(transform.position, GameManager.Instance.Player.transform.position) <= _magnetDistance)
         {
             rb.AddForce((GameManager.Instance.Player.transform.position - transform.position).normalized * _magnetForce * Time.deltaTime);
         }

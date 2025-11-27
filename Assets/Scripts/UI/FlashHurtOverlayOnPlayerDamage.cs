@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -42,7 +40,7 @@ public class FlashHurtOverlayOnPlayerDamage : MonoBehaviour
     private void Update()
     {
         Color overlayColor = _hurtOverlay.color;
-        if(overlayColor.a > 0f) overlayColor.a -= Time.deltaTime / _fadeTime;
+        if (overlayColor.a > 0f) overlayColor.a -= Time.deltaTime / _fadeTime;
         _hurtOverlay.color = overlayColor;
     }
 }

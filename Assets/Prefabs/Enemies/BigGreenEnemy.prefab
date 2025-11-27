@@ -102,7 +102,7 @@ MonoBehaviour:
   _endDelay: 2
   _patternFile: {fileID: 4900000, guid: fcdf656108051c24c949a0550c6791c7, type: 3}
   _duration: 3
-  _destroyBulletsOnFinish: 0
+  _destroyBulletsOnEnd: 0
 --- !u!1 &4084435656790750396
 GameObject:
   m_ObjectHideFlags: 0

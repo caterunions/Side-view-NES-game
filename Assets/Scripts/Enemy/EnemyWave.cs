@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="Enemy Wave")]
+[CreateAssetMenu(fileName = "Enemy Wave")]
 public class EnemyWave : ScriptableObject
 {
     [SerializeField]
@@ -16,10 +14,6 @@ public class EnemyWave : ScriptableObject
     [SerializeField]
     private float _waitTimeUntilNextWave = 5;
     public float WaitTimeUntilNextWave => _waitTimeUntilNextWave;
-
-    [SerializeField]
-    private int _minScoreToSpawn = 0;
-    public int MinScoreToSpawn => _minScoreToSpawn;
 }
 
 [System.Serializable]

@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TimeKeeper : MonoBehaviour
@@ -15,7 +13,7 @@ public class TimeKeeper : MonoBehaviour
 
     private float _startedAt = 0;
     private float? _endAt = 0;
-    
+
     public float TimeRemaining
     {
         get
@@ -38,7 +36,7 @@ public class TimeKeeper : MonoBehaviour
 
     private void Update()
     {
-        if(TimeRemaining <= 0f)
+        if (TimeRemaining <= 0f)
         {
             OnTimeRunOut?.Invoke(this);
             _endAt = null;
@@ -53,7 +51,7 @@ public class TimeKeeper : MonoBehaviour
 
     public void AddTime(float amt)
     {
-        if(TimeRemaining + amt > _maxTime)
+        if (TimeRemaining + amt > _maxTime)
         {
             _endAt += _maxTime - TimeRemaining;
         }

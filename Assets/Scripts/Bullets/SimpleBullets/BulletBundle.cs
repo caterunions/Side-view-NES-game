@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +8,7 @@ public class BulletBundle : Bullet
 
     protected override void Awake()
     {
-        foreach(Bullet b in _bullets)
+        foreach (Bullet b in _bullets)
         {
             b.gameObject.SetActive(false);
         }
@@ -17,7 +16,7 @@ public class BulletBundle : Bullet
 
     public override void Initialize(GameObject spawner, BulletLauncher launcher, DamageTeam team)
     {
-        foreach(Bullet b in _bullets)
+        foreach (Bullet b in _bullets)
         {
             b.gameObject.SetActive(true);
 

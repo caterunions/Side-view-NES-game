@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FlickerHitbox : BulletBehaviour
@@ -25,7 +24,7 @@ public class FlickerHitbox : BulletBehaviour
 
     private IEnumerator FlickerRoutine()
     {
-        while(true)
+        while (true)
         {
             yield return new WaitForSeconds(_flickerRate);
             _hitbox.enabled = false;

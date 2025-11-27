@@ -19,7 +19,7 @@ public class DelayedSpawnBullets : BulletBehaviour
     {
         yield return new WaitForSeconds(_spawnDelay);
 
-        foreach(Attack attack in _attacks)
+        foreach (Attack attack in _attacks)
         {
             int curCount = attack.Count;
             float curSpread = attack.Spread;

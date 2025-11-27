@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FadeSpriteAfterDelay : MonoBehaviour
@@ -22,7 +21,7 @@ public class FadeSpriteAfterDelay : MonoBehaviour
     {
         yield return new WaitForSeconds(_delay);
 
-        while(_spriteRenderer.color.a > 0f)
+        while (_spriteRenderer.color.a > 0f)
         {
             Color color = _spriteRenderer.color;
             color.a -= Time.deltaTime / _fadeTime;

@@ -1,10 +1,11 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.WSA;
 
 public class EnemyBrain : MonoBehaviour
 {
+    public event Action<EnemyBrain> OnGameObjectDestroy;
+
     private HealthPool _healthPool;
     protected HealthPool healthPool
     {
@@ -79,7 +80,7 @@ public class EnemyBrain : MonoBehaviour
         Aimer.Locked = false;
     }
 
-    public void Initialize(GameObject player, EnemySpawner spawner,  BulletMLPatternManager bulletMLPatternManager, bool flipSpline, float delay)
+    public void Initialize(GameObject player, EnemySpawner spawner, BulletMLPatternManager bulletMLPatternManager, bool flipSpline, float delay)
     {
         _player = player;
 
@@ -92,6 +93,11 @@ public class EnemyBrain : MonoBehaviour
         _mover.FlipSpline = flipSpline;
 
         _delayMoveTime = delay;
+    }
+
+    private void OnDestroy()
+    {
+        OnGameObjectDestroy?.Invoke(this);
     }
 
     protected virtual void OnEnable()
@@ -118,7 +124,7 @@ public class EnemyBrain : MonoBehaviour
 
     protected virtual void Update()
     {
-        if(!_moved && _accumulatedMoveTime >= _delayMoveTime && _moveOnStart)
+        if (!_moved && _accumulatedMoveTime >= _delayMoveTime && _moveOnStart)
         {
             _mover.FollowSpline(_splineContainer);
             _moved = true;
@@ -142,15 +148,15 @@ public class EnemyBrain : MonoBehaviour
         }
 
         _launcher.Blocked = (
-            transform.position.x > 17  ||
+            transform.position.x > 17 ||
             transform.position.x < -17 ||
-            transform.position.y > 17  ||
+            transform.position.y > 17 ||
             transform.position.y < -17);
     }
 
     protected void HandleSplineEndReached(EnemyMove mover)
     {
-        if(_destroyOnSplineEnd)
+        if (_destroyOnSplineEnd)
         {
             _spawner.DestroyEnemy(this, false);
         }

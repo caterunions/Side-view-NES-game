@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RandomlyFlipSprite : MonoBehaviour
@@ -9,7 +7,7 @@ public class RandomlyFlipSprite : MonoBehaviour
 
     private void OnEnable()
     {
-        if(Random.Range(0, 2) == 0)
+        if (Random.Range(0, 2) == 0)
         {
             _spriteRenderer.flipX = true;
         }

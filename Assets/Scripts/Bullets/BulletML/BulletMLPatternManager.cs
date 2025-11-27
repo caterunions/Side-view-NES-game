@@ -1,7 +1,8 @@
 using BulletMLLib;
+using System;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
+using UnityEngine;
 
 public class BulletMLPatternManager : MonoBehaviour, IBulletManager
 {
@@ -15,24 +16,13 @@ public class BulletMLPatternManager : MonoBehaviour, IBulletManager
 
     private Dictionary<MLBullet, UnityMLBullet> _bullets = new Dictionary<MLBullet, UnityMLBullet>();
 
-    private BulletPattern Pattern
-    {
-        get
-        {
-            if (_pattern == null)
-            {
-                _pattern = new BulletPattern();
-            }
-            return _pattern;
-        }
-    }
 
     [SerializeField]
     private BulletMLVisualsBank _visualsBank;
 
     private GameObject _combatPlayer;
 
-    private BulletPattern _pattern;
+    private List<BulletMLPattern> _patterns = new List<BulletMLPattern>();
 
     private void OnEnable()
     {
@@ -45,11 +35,23 @@ public class BulletMLPatternManager : MonoBehaviour, IBulletManager
         _combatPlayer = combatPlayer;
     }
 
-    public void StopPattern()
+    public void StopPattern(Guid patternID, bool destroy)
     {
-        ClearBullets();
+        BulletMLPattern match = _patterns.FirstOrDefault(p => p.GUID == patternID);
 
-        _pattern = new BulletPattern();
+        if (match == null) return;
+
+        if (destroy)
+        {
+            List<MLBullet> bullets = _bullets.Where(b => b.Key.Pattern.GUID == patternID).Select(b => b.Key).ToList();
+
+            foreach (MLBullet bullet in bullets)
+            {
+                RemoveBullet(bullet);
+            }
+        }
+
+        _patterns.Remove(match);
     }
 
     public void ClearBullets()
@@ -63,39 +65,29 @@ public class BulletMLPatternManager : MonoBehaviour, IBulletManager
         }
     }
 
-    public void StartPattern(string path)
+    public Guid StartPattern(TextAsset xmlAsset)
     {
-        ClearBullets();
-        _pattern = new BulletPattern();
-        Pattern.ParseXML(path);
+        BulletMLPattern pattern = new BulletMLPattern();
+        pattern.ParseXML(xmlAsset);
 
-        MLBullet top = new MLBullet(this, true);
+        _patterns.Add(pattern);
+
+        MLBullet top = new MLBullet(this, pattern, true);
         UnityMLBullet topBullet = Instantiate(_bulletPrefab);
-        top.InitTopNode(Pattern.RootNode);
+        top.InitTopNode(pattern.RootNode);
 
         topBullet.Initialize(top);
 
         _bullets.Add(top, topBullet);
+
+        return pattern.GUID;
     }
 
-    public void StartPattern(TextAsset xmlAsset)
+    public MLBullet CreateBullet(MLBullet source, BulletMLPattern pattern, bool top)
     {
-        ClearBullets();
-        _pattern = new BulletPattern();
-        Pattern.ParseXML(xmlAsset);
+        if (!_patterns.Any(p => p.GUID == pattern.GUID)) return null;
 
-        MLBullet top = new MLBullet(this, true);
-        UnityMLBullet topBullet = Instantiate(_bulletPrefab);
-        top.InitTopNode(Pattern.RootNode);
-
-        topBullet.Initialize(top);
-
-        _bullets.Add(top, topBullet);
-    }
-
-    public MLBullet CreateBullet(MLBullet source, bool top)
-    {
-        MLBullet bullet = new MLBullet(this, top);
+        MLBullet bullet = new MLBullet(this, pattern, top);
         bullet.OnFinishSetup += InitializeUnityBullet;
         UnityMLBullet unityBullet = Instantiate(_bulletPrefab);
         unityBullet.CombatManager = this;

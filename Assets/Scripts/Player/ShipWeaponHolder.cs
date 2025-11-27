@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShipWeaponHolder : MonoBehaviour
@@ -64,7 +62,7 @@ public class ShipWeaponHolder : MonoBehaviour
     {
         get { return _powerUpEndTime - Time.time; }
     }
-    
+
     private float _chargePercentage = 0;
     public float ChargePercentage
     {
@@ -98,7 +96,7 @@ public class ShipWeaponHolder : MonoBehaviour
 
     private void Update()
     {
-        if(PowerUpTimeRemaining <= 0f)
+        if (PowerUpTimeRemaining <= 0f)
         {
             _powerUpLightAttack = null;
             _powerUpLightAttackSprite = null;

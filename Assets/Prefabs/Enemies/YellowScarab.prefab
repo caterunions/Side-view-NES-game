@@ -865,5 +865,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startDelay: 2
   _endDelay: 0
-  _groupedActions:
-  - {fileID: 0}
+  _groupedActions: []
