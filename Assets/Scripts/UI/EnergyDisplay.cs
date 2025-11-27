@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,7 +29,7 @@ public class EnergyDisplay : MonoBehaviour
         _heavyAttackCostText.text = $"X{_shipWeaponHolder.HeavyEnergyCost}";
 
         _energyBarMaxPercentage = _playerStats.MaxEnergy / 16f;
-        
+
         _energyBarEmpty.fillAmount = _energyBarMaxPercentage;
         _energyBar.fillAmount = _energyBarMaxPercentage;
 

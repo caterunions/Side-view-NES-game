@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthPool : MonoBehaviour
@@ -26,7 +24,7 @@ public class HealthPool : MonoBehaviour
 
     public float Damage(float damage)
     {
-        if(_health < damage)
+        if (_health < damage)
         {
             damage -= _health;
             _health = 0;
@@ -43,7 +41,7 @@ public class HealthPool : MonoBehaviour
 
     public float Heal(float heal)
     {
-        if(_health + heal > MaxHealth)
+        if (_health + heal > MaxHealth)
         {
             heal -= (MaxHealth - _health);
             _health = MaxHealth;

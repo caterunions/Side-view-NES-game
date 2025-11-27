@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -114,9 +113,9 @@ public class GameOverManager : MonoBehaviour
         yield return new WaitUntil(() => _scoreRollUp.CurrentValue == _scoreRollUp.EndValue);
         yield return new WaitForSeconds(_revealDelay);
 
-        if(_scoreKeeper.Score > GameManager.Instance.HiScore)
+        if (_scoreKeeper.Score > GameManager.Instance.HiScore)
         {
-            switch(GameManager.Instance.Gamemode)
+            switch (GameManager.Instance.Gamemode)
             {
                 case Gamemode.Standard:
                     PlayerPrefs.SetInt("StandardHiScore", _scoreKeeper.Score);

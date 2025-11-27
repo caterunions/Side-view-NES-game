@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class EnemyAction : MonoBehaviour
@@ -57,6 +56,12 @@ public abstract class EnemyAction : MonoBehaviour
         InProgress = false;
         _actionRoutine = null;
         ExtraStopInstructions();
+    }
+
+    private void OnDisable()
+    {
+        Stop();
+        StopAllCoroutines();
     }
 
     protected virtual void ExtraStopInstructions()

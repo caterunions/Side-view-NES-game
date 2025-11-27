@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -21,6 +20,6 @@ public class HealthDamageReceiver : DamageReceiver
             damage -= _healthPools.First(hp => hp.Health > 0).Damage(damage);
         }
 
-        return new DamageResult(dmgEvent.Damage, _healthPools[0].Health <= 0);
+        return new DamageResult(dmgEvent.Damage, _healthPools.All(p => p.Health <= 0));
     }
 }
