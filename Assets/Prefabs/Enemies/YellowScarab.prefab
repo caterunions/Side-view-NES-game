@@ -354,12 +354,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 918bad7d515aeff4b8102e3979bf1468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _splineContainer: {fileID: 2227721361624158228}
-  _moveOnStart: 1
   _destroyOnSplineEnd: 1
   _mover: {fileID: 202712700676898033}
   _launcher: {fileID: 2687716963495624833}
-  _startAction: {fileID: 3617773150698744460}
+  _startAction: {fileID: 5345967007457194510}
   _actions:
   - {fileID: 1391576852860654123}
   _aimer: {fileID: 1194031841007330206}
@@ -377,7 +375,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMove
   _rb: {fileID: 3290305457317696467}
-  _speed: 10
 --- !u!114 &9072336374677288761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -828,9 +825,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4800873020065667365}
-  - component: {fileID: 3617773150698744460}
+  - component: {fileID: 5345967007457194510}
   m_Layer: 6
-  m_Name: 0 wait
+  m_Name: 0 go spline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -851,7 +848,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5316133863632661026}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3617773150698744460
+--- !u!114 &5345967007457194510
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -860,9 +857,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7798970928728403723}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4c465210bc95ab48bbf14cce128baf8, type: 3}
+  m_Script: {fileID: 11500000, guid: 6cab28534ef41fe4aa3643cae8544213, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  _startDelay: 2
-  _endDelay: 0
-  _groupedActions: []
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyFollowSpline
+  _startDelay: 0
+  _endDelay: 2
+  _spline: {fileID: 2227721361624158228}
+  _mover: {fileID: 202712700676898033}
+  _speed: 10
+  _stallUntilComplete: 0

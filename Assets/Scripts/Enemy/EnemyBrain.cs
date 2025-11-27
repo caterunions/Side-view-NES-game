@@ -27,12 +27,6 @@ public class EnemyBrain : MonoBehaviour
     }
 
     [SerializeField]
-    private SplineContainer _splineContainer;
-
-    [SerializeField]
-    private bool _moveOnStart = true;
-
-    [SerializeField]
     private bool _destroyOnSplineEnd = true;
 
     [SerializeField]
@@ -66,9 +60,10 @@ public class EnemyBrain : MonoBehaviour
     private EnemyAction _curAction;
     private int _actionIndex = 0;
 
-    private float _delayMoveTime;
-    private float _accumulatedMoveTime;
-    private bool _moved = false;
+    private float _delayInitTime;
+    private float _accumulatedInitTime;
+
+    private bool _startActionQueued = false;
 
     public void LockAimer()
     {
@@ -85,6 +80,7 @@ public class EnemyBrain : MonoBehaviour
         _player = player;
 
         Aimer.Player = _player.transform;
+        _mover.Player = _player.transform;
 
         _bulletMLPatternManager = bulletMLPatternManager;
 
@@ -92,7 +88,7 @@ public class EnemyBrain : MonoBehaviour
 
         _mover.FlipSpline = flipSpline;
 
-        _delayMoveTime = delay;
+        _delayInitTime = delay;
     }
 
     private void OnDestroy()
@@ -102,20 +98,20 @@ public class EnemyBrain : MonoBehaviour
 
     protected virtual void OnEnable()
     {
-        _mover.OnEndReached += HandleSplineEndReached;
+        _mover.OnSplineEndReached += HandleSplineEndReached;
 
         _actionIndex = 0;
         if (_startAction != null)
         {
             _curAction = _startAction;
-            _curAction.Act();
+            _startActionQueued = true;
         }
         else _curAction = _actions[_actionIndex];
     }
 
     protected virtual void OnDisable()
     {
-        _mover.OnEndReached -= HandleSplineEndReached;
+        _mover.OnSplineEndReached -= HandleSplineEndReached;
 
         StopAllCoroutines();
 
@@ -124,17 +120,17 @@ public class EnemyBrain : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (!_moved && _accumulatedMoveTime >= _delayMoveTime && _moveOnStart)
+        _accumulatedInitTime += Time.deltaTime;
+
+        if (_accumulatedInitTime < _delayInitTime) return;
+
+        if (_startActionQueued)
         {
-            _mover.FollowSpline(_splineContainer);
-            _moved = true;
-        }
-        else
-        {
-            _accumulatedMoveTime += Time.deltaTime;
+            _curAction.Act();
+            _startActionQueued = false;
         }
 
-        if (_curAction.InProgress == false)
+        if (!_curAction.InProgress)
         {
             if (_curAction != _actions[_actionIndex] && !_actions[_actionIndex].InProgress)
             {
