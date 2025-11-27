@@ -10,14 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2ac3802033873140bbb2bdb342fc2c4, type: 3}
-  m_Name: GreenEnemyTagTeam
+  m_Name: GearR
   m_EditorClassIdentifier: 
   _enemies:
-  - _enemy: {fileID: 3151780183727672985, guid: 85260384506b63348af2bc914ae20ac9, type: 3}
-    _flipSpline: 0
-    _initDelay: 0
-  - _enemy: {fileID: 3151780183727672985, guid: 85260384506b63348af2bc914ae20ac9, type: 3}
+  - _enemy: {fileID: 3151780183727672985, guid: 2115cf7490ff75e48b45cf659e6a3201, type: 3}
     _flipSpline: 1
     _initDelay: 0
-  _weight: 200
-  _waitTimeUntilNextWave: 5
+  _weight: 50
+  _waitTimeUntilNextWave: 3

@@ -56,7 +56,7 @@ public class LevelManager : MonoBehaviour
 
             _curTrackedEvent = CreateEvent(nextEvent);
 
-            if (!nextEvent.WaitForNoEnemies)
+            if (!nextEvent.WaitForNoEnemies || _enemySpawner.NumAliveEnemies == 0)
             {
                 _curTrackedEvent.StartEvent();
             }
