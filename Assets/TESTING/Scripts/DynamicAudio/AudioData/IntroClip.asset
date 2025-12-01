@@ -19,7 +19,7 @@ MonoBehaviour:
   bypassEffects: 0
   bypassListenerEffects: 0
   bypassReverbZones: 0
-  playOnAwake: 0
+  playOnAwake: 1
   loop: 0
   spatialize: 0
   rolloffMode: 0

@@ -1,21 +1,16 @@
 using System;
 using UnityEngine;
 using System.Collections.Generic;
-using UnityEditorInternal;
-
 
 using Audio.SourceData;
-using Audio.Subsystems;
 using Audio.Linker;
-using Discord.Sdk;
-
-
 
 #if UNITY_EDITOR
 using UnityEditor;
+using UnityEditorInternal;
 #endif
 
-namespace Audio.EventRack
+namespace Audio.Subsystems
 {
 
 
@@ -24,14 +19,17 @@ namespace Audio.EventRack
     menuName = "Audio/Audio Clip Event Rack")]
     public class AudioEventRack : ScriptableObject, IAudioSubsystem
     {
+        ///////////////////AUDIO SYSTEM//////////////////////
         [SerializeField] private string _audioSystemID = "Not Linked To Audio System";
         public string AudioSystemID { get { return _audioSystemID; } set { _audioSystemID = value; } }
 
-        [SerializeField] private CustomAudioClip _clip;
-        public CustomAudioClip Clip => _clip;
-
         [SerializeField] private string _ID;
         public string ID => _ID;
+        //////////////////////////////////////////////////
+
+
+        [SerializeField] private CustomAudioClip _clip;
+        public CustomAudioClip Clip => _clip;
 
         [SerializeField] private List<AudioEvent> _events = new();
         public List<AudioEvent> Events => _events;
@@ -215,8 +213,7 @@ namespace Audio.EventRack
 
             EditorGUILayout.LabelField("Audio System", EditorStyles.boldLabel);
             EditorGUI.BeginDisabledGroup(true);
-            SerializedProperty audioSystemID = serializedObject.FindProperty("_audioSystemID");
-            EditorGUILayout.PropertyField(audioSystemID);
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("_audioSystemID"));
             EditorGUI.EndDisabledGroup();
 
             EditorGUILayout.LabelField("Event Rack Settings", EditorStyles.boldLabel);

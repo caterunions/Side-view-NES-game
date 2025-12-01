@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-using Audio.EventRack;
+using Audio.Subsystems;
 using Audio.Linker;
 
 
@@ -13,15 +13,21 @@ namespace Audio
     {
         public string SystemTag = "AudioSystem";
 
+        [Header("Audio Subsystems")]
         [SerializeField]
         private List<AudioEventRack> _eventRacks = new();
 
+        [SerializeField]
+        private List<AudioSequenceRack> _sequenceRacks = new();
+
+
         private void OnEnable()
         {
-            UnityAudioLink.audioSystems.Add(this);
+            UnityAudioLink.AudioSystems.Add(this);
 
             //set system ID for all subsystems
             _eventRacks.ForEach(rack => rack.AudioSystemID = SystemTag);
+            _sequenceRacks.ForEach(rack => rack.AudioSystemID = SystemTag);
 
             if (runInEditMode) return;
 

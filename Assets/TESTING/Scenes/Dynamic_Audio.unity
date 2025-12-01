@@ -255,8 +255,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57afba12eee2ff14bb960aac1d8bb40d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  SystemTag: AudioSystem
   _eventRacks:
   - {fileID: 11400000, guid: 24811f42f8a0e314f9915bcd1788ad8b, type: 2}
+  _sequenceRacks:
+  - {fileID: 0}
 --- !u!1 &1455692938
 GameObject:
   m_ObjectHideFlags: 0

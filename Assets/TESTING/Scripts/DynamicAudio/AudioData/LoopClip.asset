@@ -20,7 +20,7 @@ MonoBehaviour:
   bypassListenerEffects: 0
   bypassReverbZones: 0
   playOnAwake: 0
-  loop: 0
+  loop: 1
   spatialize: 0
   rolloffMode: 0
   dopplerLevel: 1

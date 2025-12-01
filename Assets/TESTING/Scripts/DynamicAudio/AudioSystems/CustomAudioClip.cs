@@ -1,8 +1,9 @@
 using System;
 using System.Collections;
-using Audio.EventRack;
-using Audio.Linker;
 using UnityEngine;
+
+using Audio.Subsystems;
+using Audio.Linker;
 
 namespace Audio.SourceData
 {
@@ -48,11 +49,19 @@ namespace Audio.SourceData
 
         private AudioSystem audioSystem;
 
-        private double nextEndTime;
+        private double nextEndTimeDSP;
+        private bool stopRequested = false;
+        private Coroutine playClipRoutine;
 
         public void Initialize()
         {
             audioSystem = UnityAudioLink.GetAudioSystem(attachedEventRack.AudioSystemID);
+        }
+
+        public void UpdateCustomClip()
+        {
+            if (unityInstance == null) return;
+            ApplyToSource(unityInstance);
         }
 
         /// <summary>
@@ -61,31 +70,47 @@ namespace Audio.SourceData
         /// <returns>void</returns>
         public void Play()
         {
-            attachedEventRack.InvokeEvents(this, AudioEventType.ClipBeginPlay);
-            double startTime = AudioSettings.dspTime;
-            nextEndTime = startTime + (clip.length / unityInstance.pitch);
+            stopRequested = false;
+            double startDSP = AudioSettings.dspTime;
 
-            unityInstance.PlayScheduled(startTime);
+            unityInstance.PlayScheduled(startDSP);
 
-            audioSystem.StartCoroutine(PlayClip());
+            if (playClipRoutine != null)
+            {
+                //unityInstance.Stop();
+                audioSystem.StopCoroutine(playClipRoutine);
+            }
+
+            playClipRoutine = audioSystem.StartCoroutine(TrackClipEnd(startDSP));
         }
 
-        private IEnumerator PlayClip()
+
+        private IEnumerator TrackClipEnd(double startDSP)
         {
-        while (AudioSettings.dspTime < nextEndTime)
-            yield return null;
-
-            
-
-            if (loop)
+            while (!stopRequested)
             {
-                attachedEventRack.InvokeEvents(this, AudioEventType.ClipPlayEnded);
-                Play();
-            } else
-            {
-                Stop();
+                // Track playback time in real DSP seconds
+                double elapsed = (AudioSettings.dspTime - startDSP) * unityInstance.pitch;
+
+                if (elapsed >= clip.length)
+                {
+
+                    if (loop && !stopRequested)
+                    {
+                        attachedEventRack.InvokeEvents(this, AudioEventType.ClipPlayEnded);
+                        Play(); // loop precisely
+                    } else
+                    {
+                        Stop();
+                    }
+
+                        yield break; // stop coroutine
+                }
+
+                yield return null; // wait until next frame
             }
         }
+
 
         /// <summary>
         /// Plays the audio clip
@@ -93,9 +118,11 @@ namespace Audio.SourceData
         /// <returns>void</returns>
         public void Stop()
         {
+            stopRequested = true;
             attachedEventRack.InvokeEvents(this, AudioEventType.ClipPlayEnded);
             unityInstance.Stop();
-            
+            if (playClipRoutine != null)
+                audioSystem.StopCoroutine(playClipRoutine);
         }
 
         public void ApplyToSource(AudioSource source)

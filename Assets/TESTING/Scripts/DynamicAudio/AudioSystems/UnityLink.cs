@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Audio.SourceData;
-using NUnit.Framework;
 using UnityEngine;
+
+using Audio.SourceData;
 
 namespace Audio.Linker
 {
@@ -10,17 +10,18 @@ namespace Audio.Linker
     public static class UnityAudioLink
     {
         internal static GameObject AudioParent;
-        internal static List<AudioSystem> audioSystems = new();
+        internal static List<AudioSystem> AudioSystems = new();
+        internal static Action UpdateWithUnity;
 
 
         public static AudioSystem GetAudioSystem(string systemID)
         {
-            return audioSystems.Find(system => system.SystemTag == systemID);
+            return AudioSystems.Find(system => system.SystemTag == systemID);
         }
 
         public static void Update()
         {
-
+            UpdateWithUnity.Invoke();
         }
 
         public static void InitializeClip(CustomAudioClip customClip)
@@ -31,7 +32,9 @@ namespace Audio.Linker
 
             customClip.Initialize();
             customClip.ApplyToSource(unityAudioSource);
+
             customClip.unityInstance = unityAudioSource;
+            UpdateWithUnity += customClip.UpdateCustomClip;
 
             audioSourceGameObject.transform.SetParent(AudioParent.transform);
 

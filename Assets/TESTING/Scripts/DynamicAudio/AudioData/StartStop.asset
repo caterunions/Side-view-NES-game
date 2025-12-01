@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29f4817ef039c284796b1ef66804d59c, type: 3}
   m_Name: StartStop
   m_EditorClassIdentifier: Assembly-CSharp::Audio.Events.AudioEvents
+  _audioSystemID: AudioSystem
   _ID: TestRack
+  _clip: {fileID: 11400000, guid: 318aa0425c925fc4d99e9a8bc0ca08d3, type: 2}
   _events:
   - _eventType: 1
     _eventID: ClipsPlayed
@@ -21,7 +23,6 @@ MonoBehaviour:
     _eventID: ClipsPlayEnded
     _customTime: 0
   _clipGroupMode: 1
-  _clip: {fileID: 11400000, guid: 318aa0425c925fc4d99e9a8bc0ca08d3, type: 2}
   _clips:
   - {fileID: 11400000, guid: d375f81a0918c844392bcdc4add94baa, type: 2}
   - {fileID: 11400000, guid: 318aa0425c925fc4d99e9a8bc0ca08d3, type: 2}
