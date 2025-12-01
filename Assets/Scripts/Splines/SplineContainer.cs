@@ -6,7 +6,7 @@ using Color = UnityEngine.Color;
 public class SplineContainer : MonoBehaviour
 {
     [SerializeField]
-    private bool _drawArenaBox = false;
+    private bool _debugDraw = false;
 
     [SerializeField]
     [Range(1, 25)]
@@ -80,20 +80,19 @@ public class SplineContainer : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (_drawArenaBox)
+        if (!_debugDraw) return;
+
+        Gizmos.color = Color.lawnGreen;
+
+        Vector3[] arenaPoints = new Vector3[8]
         {
-            Gizmos.color = Color.lawnGreen;
+            new Vector3(-17, -17), new Vector3(17, -17),
+            new Vector3(17, 17), new Vector3(17, -17),
+            new Vector3(17, 17), new Vector3(-17, 17),
+            new Vector3(-17, 17), new Vector3(-17, -17),
+        };
 
-            Vector3[] arenaPoints = new Vector3[8]
-            {
-                new Vector3(-17, -17), new Vector3(17, -17),
-                new Vector3(17, 17), new Vector3(17, -17),
-                new Vector3(17, 17), new Vector3(-17, 17),
-                new Vector3(-17, 17), new Vector3(-17, -17),
-            };
-
-            Gizmos.DrawLineList(arenaPoints);
-        }
+        Gizmos.DrawLineList(arenaPoints);
 
         if (_inputPoints.Count == 0 || _bezierPoints.Count == 0 || _calculatedPoints.Count == 0) return;
 

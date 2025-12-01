@@ -5,7 +5,8 @@ public enum EnemyMovementMode
 {
     None,
     ChasePlayer,
-    FollowSpline
+    FollowSpline,
+    MoveToPoint
 }
 
 public class EnemyMove : MonoBehaviour
@@ -15,7 +16,7 @@ public class EnemyMove : MonoBehaviour
     [SerializeField]
     private Rigidbody2D _rb;
 
-    private EnemyMovementMode _movementMode = EnemyMovementMode.None;
+    public EnemyMovementMode MovementMode { get; private set; } = EnemyMovementMode.None;
 
     // player chasing stuff
     private Transform _player;
@@ -33,7 +34,7 @@ public class EnemyMove : MonoBehaviour
     // spline stuff
     private SplineContainer _spline;
 
-    private float _splineSpeed = 1.0f;
+    private float _speed = 1.0f;
     private int _splineTargetIndex = 0;
     private bool _splineEndReached;
     public bool SplineEndReached => _splineEndReached;
@@ -48,10 +49,12 @@ public class EnemyMove : MonoBehaviour
         }
     }
 
+    private Vector2 _moveToTarget;
+
     public void FollowSpline(SplineContainer spline, float speed)
     {
-        _splineSpeed = speed;
-        _movementMode = EnemyMovementMode.FollowSpline;
+        _speed = speed;
+        MovementMode = EnemyMovementMode.FollowSpline;
         _splineEndReached = false;
         _spline = spline;
         _splineTargetIndex = 0;
@@ -60,27 +63,37 @@ public class EnemyMove : MonoBehaviour
 
     public void ChasePlayer(float minDist, float maxDist, float forwardSpeed, float backwardSpeed)
     {
-        _movementMode = EnemyMovementMode.ChasePlayer;
+        MovementMode = EnemyMovementMode.ChasePlayer;
         _forwardChaseSpeed = forwardSpeed;
         _backwardChaseSpeed = backwardSpeed;
         _minDist = minDist;
         _maxDist = maxDist;
     }
 
+    public void MoveToPoint(Vector2 point, float speed)
+    {
+        MovementMode = EnemyMovementMode.MoveToPoint;
+        _speed = speed;
+        _moveToTarget = point;
+    }
+
     public void CancelMovement()
     {
-        _movementMode = EnemyMovementMode.None;
+        MovementMode = EnemyMovementMode.None;
     }
 
     private void FixedUpdate()
     {
-        switch (_movementMode)
+        switch (MovementMode)
         {
             case EnemyMovementMode.FollowSpline:
                 SplineMovement();
                 break;
             case EnemyMovementMode.ChasePlayer:
                 ChasePlayerMovement();
+                break;
+            case EnemyMovementMode.MoveToPoint:
+                MoveToPointMovement();
                 break;
             default:
                 break;
@@ -99,14 +112,16 @@ public class EnemyMove : MonoBehaviour
             }
             else
             {
+                MovementMode = EnemyMovementMode.None;
+                _rb.linearVelocity = Vector2.zero;
                 _splineEndReached = true;
                 OnSplineEndReached?.Invoke(this);
-                _rb.linearVelocity = Vector2.zero;
+                return;
             }
         }
 
         Vector2 toTarg = (_curSplineTarget - (Vector2)transform.position).normalized;
-        _rb.linearVelocity = toTarg * _splineSpeed;
+        _rb.linearVelocity = toTarg * _speed;
     }
 
     private void ChasePlayerMovement()
@@ -126,5 +141,18 @@ public class EnemyMove : MonoBehaviour
         {
             _rb.linearVelocity *= 0.9f;
         }
+    }
+
+    private void MoveToPointMovement()
+    {
+        if (Vector2.Distance(transform.position, _moveToTarget) < 0.1f)
+        {
+            MovementMode = EnemyMovementMode.None;
+            _rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
+        Vector2 toTarg = (_moveToTarget - (Vector2)transform.position).normalized;
+        _rb.linearVelocity = toTarg * _speed;
     }
 }

@@ -10,14 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ecd59d2ec221c245ae518f547d5b038, type: 3}
-  m_Name: GreenEnemyEncounter
+  m_Name: EyeballMinibossEncounter
   m_EditorClassIdentifier: Assembly-CSharp::SpecialEnemyEvent
-  _scoreTrigger: 500
+  _scoreTrigger: 1
   _waitForNoEnemies: 1
   _enemiesToSpawn:
-  - _enemy: {fileID: 3151780183727672985, guid: 85260384506b63348af2bc914ae20ac9, type: 3}
+  - _enemy: {fileID: 3151780183727672985, guid: c6a5876204af14a4f8ba87391befb21f, type: 3}
     _flipSpline: 0
-    _initDelay: 0
-  - _enemy: {fileID: 3151780183727672985, guid: 85260384506b63348af2bc914ae20ac9, type: 3}
-    _flipSpline: 1
     _initDelay: 0

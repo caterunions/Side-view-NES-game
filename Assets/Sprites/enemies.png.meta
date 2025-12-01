@@ -448,7 +448,7 @@ TextureImporter:
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -457,6 +457,28 @@ TextureImporter:
       bones: []
       spriteID: 31eab8b1a204782429160e67d9dba67a
       internalID: -1902892366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemies_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 80
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64cc5ae9ed92a8940a47e419afe5f2af
+      internalID: 420697866
       vertices: []
       indices: 
       edges: []
@@ -483,6 +505,7 @@ TextureImporter:
       enemies_13: 179164103
       enemies_14: -1853458035
       enemies_15: -1902892366
+      enemies_16: 420697866
       enemies_2: -304817504
       enemies_3: 118772377
       enemies_4: 544012035

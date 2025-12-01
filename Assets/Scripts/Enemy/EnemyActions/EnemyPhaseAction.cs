@@ -104,7 +104,7 @@ public class EnemyPhaseAction : EnemyAction
     {
         if (!_interruptActionOnThresholdMet || _actionInterrupted) return;
 
-        if (_healthPool.Health / _healthPool.MaxHealth > _phaseChangeThreshold)
+        if (_healthPool.Health / _healthPool.MaxHealth <= _phaseChangeThreshold)
         {
             _actionInterrupted = true;
             _curAction.Stop();
@@ -120,7 +120,7 @@ public class EnemyPhaseAction : EnemyAction
         int newIndex = 0;
         while (!found)
         {
-            newIndex = UnityEngine.Random.Range(0, _phaseActions.Count - 1);
+            newIndex = UnityEngine.Random.Range(0, _phaseActions.Count);
             found = newIndex != _curActionIndex;
         }
         // store for more random selection later
