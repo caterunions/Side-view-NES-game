@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-using Audio.SourceData;
+using Audio.CustomSource;
 
 namespace Audio.Linker
 {
@@ -12,11 +12,12 @@ namespace Audio.Linker
         internal static GameObject AudioParent;
         internal static List<AudioSystem> AudioSystems = new();
         internal static Action UpdateWithUnity;
+        internal static AudioSource UnitySource;
 
 
-        public static AudioSystem GetAudioSystem(string systemID)
+        public static AudioSystem GetAudioSystem(Guid systemID)
         {
-            return AudioSystems.Find(system => system.SystemTag == systemID);
+            return AudioSystems.Find(system => system.ID == systemID);
         }
 
         public static void Update()

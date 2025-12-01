@@ -1,5 +1,5 @@
 using System;
-using Audio.SourceData;
+using Audio.CustomSource;
 using UnityEngine;
 
 public enum AudioEventType
@@ -20,10 +20,6 @@ namespace Audio.Subsystems
     {
         [SerializeField] private AudioEventType _eventType;
         public AudioEventType EventType => _eventType;
-
-
-        [SerializeField] private string _eventID;
-        public string EventID => _eventID;
 
 
         [SerializeField] private float _customTime = 0f;

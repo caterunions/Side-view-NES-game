@@ -1,20 +1,16 @@
 using UnityEngine;
 using Audio;
+using Audio.Subsystems;
+using Audio.CustomSource;
 
 public class AudioManager : AudioSystem
 {
+    AudioEventRack eventRack;
     private void Awake()
     {
-        GetEventRackByID("TestRack").Subscribe("ClipsPlayed", (clip) =>
-        {
-            Debug.LogWarning("Audio \"ClipsPlayed\" Event Fired: " + clip.name);
-        }).Subscribe("ClipsPlayEnded", (clip) =>
-        {
-            if (clip.name == "IntroClip")
-                GetEventRackByID("TestRack").GetClip("LoopClip").Play();
-
-            Debug.LogWarning("Audio \"ClipsPlayEnded\" Event Fired: " + clip.name);
-        });
+        //TODO: Remove string matching where possible
+        eventRack = GetEventRackByID("TestRack");
+        eventRack.ClipBeginPlay += OnClipPlay;
     }
 
 
@@ -28,5 +24,20 @@ public class AudioManager : AudioSystem
     protected override void Update()
     {
         base.Update();
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            GetEventRackByID("TestRack").Clip.Play();
+        }
+    }
+
+    private void OnClipPlay(CustomAudioClip clip)
+    {
+        Debug.LogWarning("Audio \"ClipsPlayed\" Event Fired: " + clip.name);
+    }
+
+
+    private void OnDestroy()
+    {
+        eventRack.ClipBeginPlay -= OnClipPlay;
     }
 }

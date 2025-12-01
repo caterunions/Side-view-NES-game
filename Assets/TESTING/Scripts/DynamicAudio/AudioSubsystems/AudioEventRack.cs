@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 
-using Audio.SourceData;
+using Audio.CustomSource;
 using Audio.Linker;
 
 #if UNITY_EDITOR
@@ -20,9 +20,9 @@ namespace Audio.Subsystems
     public class AudioEventRack : ScriptableObject, IAudioSubsystem
     {
         ///////////////////AUDIO SYSTEM//////////////////////
-        [SerializeField] private string _audioSystemID = "Not Linked To Audio System";
-        public string AudioSystemID { get { return _audioSystemID; } set { _audioSystemID = value; } }
-
+        [SerializeField] private Guid _audioSystemID = Guid.Empty;
+        public Guid AudioSystemID { get { return _audioSystemID; } set { _audioSystemID = value; } }
+        ////////////////////SUBSYSTEM///////////////////////
         [SerializeField] private string _ID;
         public string ID => _ID;
         //////////////////////////////////////////////////
@@ -31,15 +31,22 @@ namespace Audio.Subsystems
         [SerializeField] private CustomAudioClip _clip;
         public CustomAudioClip Clip => _clip;
 
-        [SerializeField] private List<AudioEvent> _events = new();
-        public List<AudioEvent> Events => _events;
-
         [SerializeField] private bool _clipGroupMode;
 
 
         //USED ONLY IF IN GROUP MODE
         [SerializeField] private List<CustomAudioClip> _clips;
         //
+
+        [SerializeField] public Action<CustomAudioClip> ClipBeginPlay;
+        [SerializeField] public Action<CustomAudioClip> ClipPlayEnded;
+        [SerializeField] public Action<CustomAudioClip> ClipTempoIncrease;
+        [SerializeField] public Action<CustomAudioClip> ClipTempoDecrease;
+        [SerializeField] public Action<CustomAudioClip> ClipCustomTime;
+        [SerializeField] public Action<CustomAudioClip> AllEvents;
+
+
+
 
         /// <summary>
         /// Get a clip by index (only if in group mode)
@@ -50,22 +57,6 @@ namespace Audio.Subsystems
         {
             return _clips[index];
         }
-
-        /// <summary>
-        /// Get a clip by name (only if in group mode)
-        /// </summary>
-        /// <param name="name">Name of clip to get</param>
-        /// <returns>Found clip</returns>
-        public CustomAudioClip GetClip(string name)
-        {
-            return _clips.Find(clip => clip.name == name);
-        }
-
-        public void InvokeEvents(CustomAudioClip invoker, AudioEventType eventType)
-        {
-            _events.ForEach(e => { if (e.EventType == eventType) e.RunEvent(invoker); });
-        }
-
 
         public void LinkToUnity()
         {
@@ -81,58 +72,7 @@ namespace Audio.Subsystems
                 UnityAudioLink.InitializeClip(_clip);
             }
         }
-
-        /// <summary>
-        /// Subscribers to an event by ID
-        /// </summary>
-        /// <param name="eventID">Event ID to subscribe to</param>
-        /// <param name="subscriber">Clip to subscribe to audio event</param>
-        /// <returns>True if subscription completed</returns>
-        public AudioEventRack Subscribe(string eventID, Action<CustomAudioClip> subscriber)
-        {
-            AudioEvent audioEvent = _events.Find(e => e.EventID == eventID);
-            if (audioEvent != null)
-            {
-                audioEvent.EventFire += subscriber;
-                return this;
-            }
-            Debug.LogError("[AudioEventRack]: Subscription failed, event ID not found => " + eventID);
-            return this;
-        }
-
-        /// <summary>
-        /// Unsubscribes to an event by ID
-        /// </summary>
-        /// <param name="eventID">Event ID to unsubscribe from</param>
-        /// <param name="desubscriber">Clip to unsubscribe from audio event</param>
-        /// <returns>True if unsubscription completed</returns>
-        public AudioEventRack Unsubscribe(string eventID, Action<CustomAudioClip> unsubscriber)
-        {
-            AudioEvent audioEvent = _events.Find(e => e.EventID == eventID);
-            if (audioEvent != null)
-            {
-                audioEvent.EventFire -= unsubscriber;
-                return this;
-            }
-            Debug.LogError("[AudioEventRack]: Unsubscription failed, event ID not found => " + eventID);
-            return this;
-        }
-
-        private void OnDestroy()
-        {
-            //clean up all subscriptions on destroy
-            foreach (AudioEvent audioEvent in _events)
-            {
-                Delegate[] invocationList = audioEvent.GetInvocationList();
-                if (invocationList != null)
-                {
-                    foreach (Delegate del in invocationList)
-                    {
-                        audioEvent.EventFire -= (Action<CustomAudioClip>)del;
-                    }
-                }
-            }
-        }
+        
     }
 
 
@@ -172,16 +112,6 @@ namespace Audio.Subsystems
 
                 rect.y += EditorGUIUtility.singleLineHeight + 2;
 
-                // Event ID
-                SerializedProperty idProp = element.FindPropertyRelative("_eventID");
-                idProp.stringValue = EditorGUI.TextField(
-                    new Rect(rect.x, rect.y, rect.width, rect.height),
-                    "Event ID",
-                    idProp.stringValue
-                );
-
-                rect.y += EditorGUIUtility.singleLineHeight + 2;
-
                 // Custom Time (conditional appearance)
                 if ((AudioEventType)typeProp.enumValueIndex == AudioEventType.ClipCustomTime)
                 {
@@ -199,7 +129,7 @@ namespace Audio.Subsystems
                 SerializedProperty element = eventsProp.GetArrayElementAtIndex(index);
                 SerializedProperty typeProp = element.FindPropertyRelative("_eventType");
 
-                float lines = 2;
+                float lines = 1;
                 if ((AudioEventType)typeProp.enumValueIndex == AudioEventType.ClipCustomTime)
                     lines += 1; // extra line for Custom Time
 
@@ -210,11 +140,6 @@ namespace Audio.Subsystems
         public override void OnInspectorGUI()
         {
             serializedObject.Update();
-
-            EditorGUILayout.LabelField("Audio System", EditorStyles.boldLabel);
-            EditorGUI.BeginDisabledGroup(true);
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("_audioSystemID"));
-            EditorGUI.EndDisabledGroup();
 
             EditorGUILayout.LabelField("Event Rack Settings", EditorStyles.boldLabel);
             SerializedProperty groupMode = serializedObject.FindProperty("_clipGroupMode");

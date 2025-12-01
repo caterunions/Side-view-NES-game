@@ -11,7 +11,7 @@ namespace Audio
     [Serializable]
     public abstract class AudioSystem : MonoBehaviour
     {
-        public string SystemTag = "AudioSystem";
+        public Guid ID = Guid.NewGuid();
 
         [Header("Audio Subsystems")]
         [SerializeField]
@@ -26,30 +26,21 @@ namespace Audio
             UnityAudioLink.AudioSystems.Add(this);
 
             //set system ID for all subsystems
-            _eventRacks.ForEach(rack => rack.AudioSystemID = SystemTag);
-            _sequenceRacks.ForEach(rack => rack.AudioSystemID = SystemTag);
+            _eventRacks.ForEach(rack => rack.AudioSystemID = ID);
+            _sequenceRacks.ForEach(rack => rack.AudioSystemID = ID);
 
-            if (runInEditMode) return;
 
-            if (GameObject.FindGameObjectsWithTag(SystemTag).Length > 1)
-            {
-                Debug.LogError("[AudioSystem]: Error, one or more GameObjects\nare using a prohibited AudioSystem tag => " + SystemTag);
-                this.enabled = false;
-                return;
-            }
+            UnityAudioLink.AudioParent = gameObject;
 
-            UnityAudioLink.AudioParent = GameObject.FindGameObjectWithTag(SystemTag);
-            Debug.Log("[AudioSystem]: Audio System \"" + SystemTag + "\" Initializing");
+            Debug.Log("[AudioSystem]: Audio System \"" + ID + "\" Initialized");
         }
 
         protected virtual void Start() {
-            if (runInEditMode) return;
             LinkSubsystemsToUnity();      
         }
 
         protected virtual void Update()
         {
-            if (runInEditMode) return;
             UnityAudioLink.Update();
         }
 

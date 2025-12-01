@@ -18,12 +18,13 @@ namespace Audio.Subsystems
     public class AudioSequenceRack : ScriptableObject, IAudioSubsystem
     {
         ///////////////////AUDIO SYSTEM//////////////////////
-        [SerializeField] private string _audioSystemID = "Not Linked To Audio System";
-        public string AudioSystemID { get { return _audioSystemID; } set { _audioSystemID = value; } }
+        [SerializeField] private Guid _audioSystemID = Guid.Empty;
+        public Guid AudioSystemID { get { return _audioSystemID; } set { _audioSystemID = value; } }
+        ////////////////////SUBSYSTEM///////////////////////
 
         [SerializeField] private string _ID;
         public string ID => _ID;
-        //////////////////////////////////////////////////
+        ////////////////////////////////////////////////////
 
 
         [SerializeField] private List<ClipSequences> _sequences = new();
@@ -87,11 +88,6 @@ namespace Audio.Subsystems
             public override void OnInspectorGUI()
             {
                 serializedObject.Update();
-
-                EditorGUILayout.LabelField("Audio System", EditorStyles.boldLabel);
-                EditorGUI.BeginDisabledGroup(true);
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("_audioSystemID"));
-                EditorGUI.EndDisabledGroup();
 
                 EditorGUILayout.LabelField("Sequence", EditorStyles.boldLabel);
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("_ID"));

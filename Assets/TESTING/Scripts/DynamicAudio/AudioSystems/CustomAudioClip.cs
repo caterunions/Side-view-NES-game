@@ -5,7 +5,7 @@ using UnityEngine;
 using Audio.Subsystems;
 using Audio.Linker;
 
-namespace Audio.SourceData
+namespace Audio.CustomSource
 {
     [CreateAssetMenu(
     fileName = "CustomAudioClip",
@@ -49,7 +49,6 @@ namespace Audio.SourceData
 
         private AudioSystem audioSystem;
 
-        private double nextEndTimeDSP;
         private bool stopRequested = false;
         private Coroutine playClipRoutine;
 
@@ -74,6 +73,7 @@ namespace Audio.SourceData
             double startDSP = AudioSettings.dspTime;
 
             unityInstance.PlayScheduled(startDSP);
+            attachedEventRack.ClipBeginPlay(this);
 
             if (playClipRoutine != null)
             {
@@ -97,7 +97,7 @@ namespace Audio.SourceData
 
                     if (loop && !stopRequested)
                     {
-                        attachedEventRack.InvokeEvents(this, AudioEventType.ClipPlayEnded);
+                        attachedEventRack.ClipPlayEnded(this);
                         Play(); // loop precisely
                     } else
                     {
@@ -119,7 +119,7 @@ namespace Audio.SourceData
         public void Stop()
         {
             stopRequested = true;
-            attachedEventRack.InvokeEvents(this, AudioEventType.ClipPlayEnded);
+            attachedEventRack.ClipPlayEnded(this);
             unityInstance.Stop();
             if (playClipRoutine != null)
                 audioSystem.StopCoroutine(playClipRoutine);
