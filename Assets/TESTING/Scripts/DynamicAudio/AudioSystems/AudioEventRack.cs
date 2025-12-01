@@ -2,9 +2,10 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEditorInternal;
+
+
 using Audio.SourceData;
-
-
+using Audio.Subsystems;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -20,44 +21,43 @@ namespace Audio.EventRacks
     public class AudioEventRack : ScriptableObject
     {
         [SerializeField] private string _ID;
+        public string ID => _ID;
+
+        [SerializeField] private List<AudioEvent> _events = new();
+        public List<AudioEvent> Events => _events;
 
         [SerializeField] private bool _clipGroupMode;
 
-        [SerializeField] private List<AudioEvent> _events = new();
-
         [SerializeField] private CustomAudioClip _clip;
-
 
         //USED ONLY IF IN GROUP MODE
         [SerializeField] private List<CustomAudioClip> _clips;
+        //
 
 
-
-        public bool SubscribeToEvent(string eventID, EventHandler subscriber)
+        //subscribe to event by ID
+        public bool Subscribe(string eventID, Action<CustomAudioClip> subscriber)
         {
-            AudioEvent audioEvent = _events.Find(e => e.GetEventID() == eventID);
+            AudioEvent audioEvent = _events.Find(e => e.EventID == eventID);
             if (audioEvent != null)
             {
-                audioEvent.Subscribe(subscriber);
+                audioEvent.EventFire += subscriber;
                 return true;
             }
             return false;
         }
 
-        public bool UnSubscribeFromEvent(string eventID, EventHandler desubscriber)
+        //unsubscribe from event by ID
+        public bool Unsubscribe(string eventID, Action<CustomAudioClip> desubscriber)
         {
-            AudioEvent audioEvent = _events.Find(e => e.GetEventID() == eventID);
+            AudioEvent audioEvent = _events.Find(e => e.EventID == eventID);
             if (audioEvent != null)
             {
-                audioEvent.UnSubscribe(desubscriber);
+                audioEvent.EventFire -= desubscriber;
                 return true;
             }
             return false;
         }
-
-
-        public string GetClipID() => _ID;
-        public List<AudioEvent> GetClipEvents() => _events;
     }
 
 

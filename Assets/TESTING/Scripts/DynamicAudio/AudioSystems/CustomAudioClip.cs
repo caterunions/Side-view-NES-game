@@ -2,7 +2,9 @@ using UnityEngine;
 
 namespace Audio.SourceData
 {
-    [CreateAssetMenu(fileName = "CustomAudioClip", menuName = "Audio/Custom Audio Clip")]
+    [CreateAssetMenu(
+    fileName = "CustomAudioClip",
+    menuName = "Audio/Custom Audio Clip")]
     public class CustomAudioClip : ScriptableObject
     {
         [Header("Audio Clip")]
