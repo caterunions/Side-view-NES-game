@@ -1,3 +1,7 @@
+using System;
+using System.Collections;
+using Audio.EventRack;
+using Audio.Linker;
 using UnityEngine;
 
 namespace Audio.SourceData
@@ -37,5 +41,98 @@ namespace Audio.SourceData
         public bool ignoreListenerPause = false;
         public bool ignoreListenerVolume = false;
         public bool loopStartTime = false;
+
+
+        internal AudioSource unityInstance;
+        internal AudioEventRack attachedEventRack;
+
+        private AudioSystem audioSystem;
+
+        private double nextEndTime;
+
+        public void Initialize()
+        {
+            audioSystem = UnityAudioLink.GetAudioSystem(attachedEventRack.AudioSystemID);
+        }
+
+        /// <summary>
+        /// Plays the audio clip
+        /// </summary>
+        /// <returns>void</returns>
+        public void Play()
+        {
+            attachedEventRack.InvokeEvents(this, AudioEventType.ClipBeginPlay);
+            double startTime = AudioSettings.dspTime;
+            nextEndTime = startTime + (clip.length / unityInstance.pitch);
+
+            unityInstance.PlayScheduled(startTime);
+
+            audioSystem.StartCoroutine(PlayClip());
+        }
+
+        private IEnumerator PlayClip()
+        {
+        while (AudioSettings.dspTime < nextEndTime)
+            yield return null;
+
+            
+
+            if (loop)
+            {
+                attachedEventRack.InvokeEvents(this, AudioEventType.ClipPlayEnded);
+                Play();
+            } else
+            {
+                Stop();
+            }
+        }
+
+        /// <summary>
+        /// Plays the audio clip
+        /// </summary>
+        /// <returns>void</returns>
+        public void Stop()
+        {
+            attachedEventRack.InvokeEvents(this, AudioEventType.ClipPlayEnded);
+            unityInstance.Stop();
+            
+        }
+
+        public void ApplyToSource(AudioSource source)
+        {
+            if (source == null) return;
+
+            source.clip = clip;
+            source.volume = volume;
+            source.pitch = pitch;
+            source.mute = mute;
+            source.bypassEffects = bypassEffects;
+            source.bypassListenerEffects = bypassListenerEffects;
+            source.bypassReverbZones = bypassReverbZones;
+            source.playOnAwake = playOnAwake;
+
+
+            //source.loop = loop; <-- handled by CustomAudioSource 
+
+            source.spatialize = spatialize;
+            source.rolloffMode = rolloffMode;
+            source.dopplerLevel = dopplerLevel;
+            source.spread = spread;
+            source.minDistance = minDistance;
+            source.maxDistance = maxDistance;
+
+            source.spatialBlend = spatialBlend3D ? 1f : 0f;
+
+            source.reverbZoneMix = reverbZoneMix;
+            source.priority = priority;
+
+            source.ignoreListenerPause = ignoreListenerPause;
+            source.ignoreListenerVolume = ignoreListenerVolume;
+
+
+            if (loopStartTime && source.time > 0f)
+                source.time = 0f;
+        }
+
     }
 }

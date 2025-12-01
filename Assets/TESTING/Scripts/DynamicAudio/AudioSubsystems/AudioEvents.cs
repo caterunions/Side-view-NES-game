@@ -31,5 +31,16 @@ namespace Audio.Subsystems
 
 
         public event Action<CustomAudioClip> EventFire;
+
+        public void RunEvent(CustomAudioClip clip)
+        {
+            EventFire?.Invoke(clip);
+        }
+
+        public Delegate[] GetInvocationList()
+        {
+            return EventFire.GetInvocationList();
+        }
+
     }
 }

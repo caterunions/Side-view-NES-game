@@ -254,11 +254,44 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 57afba12eee2ff14bb960aac1d8bb40d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Test_AudioManager
-  loadedEventRacks: []
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  _eventRacks:
+  - {fileID: 11400000, guid: 24811f42f8a0e314f9915bcd1788ad8b, type: 2}
+--- !u!1 &1455692938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1455692939}
+  m_Layer: 0
+  m_Name: Audio
+  m_TagString: AudioSystem
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1455692939
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455692938}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.71832, y: 2.61907, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 613493971}
   - {fileID: 1016491334}
+  - {fileID: 1455692939}
