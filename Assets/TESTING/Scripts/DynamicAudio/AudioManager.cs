@@ -26,12 +26,12 @@ public class AudioManager : AudioSystem
         }
     }
 
-    private void OnClipPlay(CustomAudioClip clip)
+    private void OnClipPlay(CustomAudioSource clip)
     {
         Debug.LogWarning("Audio \"PLAY\" Event Fired: " + clip.name);
     }
 
-    private void OnClipEnd(CustomAudioClip clip)
+    private void OnClipEnd(CustomAudioSource clip)
     {
         Debug.LogWarning("Audio \"END\" Event Fired: " + clip.name);
         if (clip.name == "IntroClip")

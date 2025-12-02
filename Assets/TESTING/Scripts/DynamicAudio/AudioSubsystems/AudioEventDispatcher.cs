@@ -12,8 +12,8 @@ namespace Audio.Subsystems
     {
         private AudioEventRack parentRack;
 
-        public event Action<CustomAudioClip> ClipBeginPlay;
-        public event Action<CustomAudioClip> ClipPlayEnded;
+        public event Action<CustomAudioSource> ClipBeginPlay;
+        public event Action<CustomAudioSource> ClipPlayEnded;
         //public event Action<CustomAudioClip> ClipTempoIncrease;
         //public event Action<CustomAudioClip> ClipTempoDecrease;
         //public event Action<CustomAudioClip> ClipCustomTime;
@@ -32,7 +32,7 @@ namespace Audio.Subsystems
         {
             if (parentRack.Events.Find(e => e.EventType == @event) != null)
             {
-                CustomAudioClip clip = caller as CustomAudioClip;
+                CustomAudioSource clip = caller as CustomAudioSource;
                 if (clip != null)
                 {
                     InvokeEvent(@event, clip);
@@ -40,7 +40,7 @@ namespace Audio.Subsystems
             }
         }
 
-        private void InvokeEvent(AudioEventType @event, CustomAudioClip clip)
+        private void InvokeEvent(AudioEventType @event, CustomAudioSource clip)
         {
             switch (@event)
             {

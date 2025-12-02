@@ -11,7 +11,7 @@ namespace Audio.CustomSource
     [CreateAssetMenu(
     fileName = "CustomAudioClip",
     menuName = "Audio/Custom Audio Clip")]
-    public class CustomAudioClip : ScriptableObject, IAudioEventCaller
+    public class CustomAudioSource : ScriptableObject, IAudioEventCaller
     {
         [Header("Audio Clip"), SerializeField]
         private AudioClip _clip;

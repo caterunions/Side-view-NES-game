@@ -30,7 +30,7 @@ namespace Audio.Linker
             UnityUpdate.Invoke();
         }
         //TODO: AudioEventRack parameter to be changed to AudioSystemsGUID later
-        public static void InitializeClipWithEventRack(CustomAudioClip customClip, AudioSystemsGUID linkToSystem, AudioEventRack rack)
+        public static void InitializeClipWithEventRack(CustomAudioSource customClip, AudioSystemsGUID linkToSystem, AudioEventRack rack)
         {
             Debug.Log("[UnityAudioLink]: Initializing Clip \"" + customClip.Clip.name + "\"");
             GameObject audioSourceGameObject = new("UAC_" + customClip.Clip.name);

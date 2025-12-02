@@ -99,7 +99,7 @@ namespace Audio.Editors
                     SerializedProperty element = clipsProp.GetArrayElementAtIndex(i);
                     if (element.objectReferenceValue != null)
                     {
-                        CustomAudioClip data = (CustomAudioClip)element.objectReferenceValue;
+                        CustomAudioSource data = (CustomAudioSource)element.objectReferenceValue;
 
                         EditorGUILayout.Space();
                         EditorGUILayout.LabelField($"Clip {i + 1} Data", EditorStyles.boldLabel);
@@ -134,7 +134,7 @@ namespace Audio.Editors
                 if (audioSourceDataProp.objectReferenceValue != null)
                 {
                     // render audio clip data if assigned in editor
-                    CustomAudioClip data = (CustomAudioClip)audioSourceDataProp.objectReferenceValue;
+                    CustomAudioSource data = (CustomAudioSource)audioSourceDataProp.objectReferenceValue;
 
                     EditorGUI.indentLevel++;
                     EditorGUI.BeginDisabledGroup(true);

@@ -26,16 +26,16 @@ namespace Audio.Subsystems
         //////////////////////////////////////////////////
 
 
-        [SerializeField] private CustomAudioClip _clip;
-        public CustomAudioClip Clip => _clip;
+        [SerializeField] private CustomAudioSource _clip;
+        public CustomAudioSource Clip => _clip;
 
         [SerializeField]
         private bool _clipGroupMode;
 
         //USED ONLY IF IN GROUP MODE
         [SerializeField]
-        private List<CustomAudioClip> _clips;
-        public List<CustomAudioClip> Clips => _clips;
+        private List<CustomAudioSource> _clips;
+        public List<CustomAudioSource> Clips => _clips;
 
 
         [SerializeField]
@@ -61,7 +61,7 @@ namespace Audio.Subsystems
         public void LinkToUnity()
         {
             if (_clipGroupMode)
-                foreach (CustomAudioClip clip in _clips)
+                foreach (CustomAudioSource clip in _clips)
                 {
                     UnityAudioLink.InitializeClipWithEventRack(clip, _audioSystemGUID, this);
                 }
