@@ -2,19 +2,20 @@ using System;
 using Audio.CustomSource;
 using UnityEngine;
 
-public enum AudioEventType
-{
-    None,
-    ClipBeginPlay,
-    ClipPlayEnded,
-    ClipTempoIncrease,
-    ClipTempoDecrease,
-    ClipCustomTime
-    // pitch change and volume change events - if needed - can be added here in future
-}
-
 namespace Audio.Subsystems
 {
+    public enum AudioEventType
+    {
+        None,
+        ClipBeginPlay,
+        ClipPlayEnded,
+        ClipTempoIncrease,
+        ClipTempoDecrease,
+        ClipCustomTime
+        // pitch change and volume change events - if needed - can be added here in future
+    }
+
+
     [Serializable]
     /// <summary>
     /// Class representing an audio event and its parameters
