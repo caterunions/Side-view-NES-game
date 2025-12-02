@@ -16,27 +16,16 @@ public enum AudioEventType
 namespace Audio.Subsystems
 {
     [Serializable]
+    /// <summary>
+    /// Class representing an audio event and its parameters
+    /// </summary>
     public class AudioEvent
     {
         [SerializeField] private AudioEventType _eventType;
         public AudioEventType EventType => _eventType;
 
-
+        ///////////////////EVENT PARAMETERS//////////////////////
         [SerializeField] private float _customTime = 0f;
         public float CustomTime => _customTime;
-
-
-        public event Action<CustomAudioClip> EventFire;
-
-        public void RunEvent(CustomAudioClip clip)
-        {
-            EventFire?.Invoke(clip);
-        }
-
-        public Delegate[] GetInvocationList()
-        {
-            return EventFire.GetInvocationList();
-        }
-
     }
 }

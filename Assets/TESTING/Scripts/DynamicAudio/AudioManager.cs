@@ -8,36 +8,40 @@ public class AudioManager : AudioSystem
     AudioEventRack eventRack;
     private void Awake()
     {
-        //TODO: Remove string matching where possible
-        eventRack = GetEventRackByID("TestRack");
-        eventRack.ClipBeginPlay += OnClipPlay;
+        //TODO: Remove string matching where possible [done :)]
+        eventRack = LinkedSubsystems.EventRacks[0];
+        eventRack.Dispatcher.ClipBeginPlay += OnClipPlay;
+        eventRack.Dispatcher.ClipPlayEnded += OnClipEnd;
     }
 
 
     //MUST HAVE THESE BELOW CALL BASE
-
-    protected override void Start()
-    {
-        base.Start();
-    }
 
     protected override void Update()
     {
         base.Update();
         if (Input.GetKeyDown(KeyCode.W))
         {
-            GetEventRackByID("TestRack").Clip.Play();
+            eventRack.Clip.Play();
         }
     }
 
     private void OnClipPlay(CustomAudioClip clip)
     {
-        Debug.LogWarning("Audio \"ClipsPlayed\" Event Fired: " + clip.name);
+        Debug.LogWarning("Audio \"PLAY\" Event Fired: " + clip.name);
+    }
+
+    private void OnClipEnd(CustomAudioClip clip)
+    {
+        Debug.LogWarning("Audio \"END\" Event Fired: " + clip.name);
+        if (clip.name == "IntroClip")
+            eventRack.Clips[1].Play();
     }
 
 
     private void OnDestroy()
     {
-        eventRack.ClipBeginPlay -= OnClipPlay;
+        eventRack.Dispatcher.ClipBeginPlay -= OnClipPlay;
+        eventRack.Dispatcher.ClipPlayEnded -= OnClipEnd;
     }
 }

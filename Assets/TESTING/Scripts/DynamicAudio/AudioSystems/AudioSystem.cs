@@ -2,8 +2,9 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-using Audio.Subsystems;
+using Audio.GUID;
 using Audio.Linker;
+using Audio.Subsystems;
 
 
 namespace Audio
@@ -11,32 +12,33 @@ namespace Audio
     [Serializable]
     public abstract class AudioSystem : MonoBehaviour
     {
-        public Guid ID = Guid.NewGuid();
+        public AudioSystemsGUID AudioSystemGUID;
 
-        [Header("Audio Subsystems")]
-        [SerializeField]
-        private List<AudioEventRack> _eventRacks = new();
-
-        [SerializeField]
-        private List<AudioSequenceRack> _sequenceRacks = new();
+        public AudioSubsystemCollection LinkedSubsystems = new();
 
 
         private void OnEnable()
         {
+            //generate new GUID
+            AudioSystemGUID = AudioSystemsGUID.NewGuid();
+
+
+
             UnityAudioLink.AudioSystems.Add(this);
 
             //set system ID for all subsystems
-            _eventRacks.ForEach(rack => rack.AudioSystemID = ID);
-            _sequenceRacks.ForEach(rack => rack.AudioSystemID = ID);
+            LinkedSubsystems.LinkToAudioSystem(AudioSystemGUID);
 
-
+            //VVVVVVVVVV | THIS WILL BE CHANGED LATER | VVVVVVVVVV
             UnityAudioLink.AudioParent = gameObject;
 
-            Debug.Log("[AudioSystem]: Audio System \"" + ID + "\" Initialized");
+            Debug.Log("[AudioSystem]: Audio System \"" + AudioSystemGUID.guidString + "\" Initialized");
         }
 
-        protected virtual void Start() {
-            LinkSubsystemsToUnity();      
+        protected virtual void Start()
+        {
+            //link subsystems to unity audio system
+            LinkedSubsystems.LinkToUnity();
         }
 
         protected virtual void Update()
@@ -44,17 +46,10 @@ namespace Audio
             UnityAudioLink.Update();
         }
 
-
-        protected virtual void LinkSubsystemsToUnity()
+        protected virtual void OnDisable()
         {
-            foreach (AudioEventRack rack in _eventRacks)
-                rack.LinkToUnity();
-            //add more for other substysem below (like sequence)
-        }
-
-        protected virtual AudioEventRack GetEventRackByID(string rackID)
-        {
-            return _eventRacks.Find(rack => rack.ID == rackID);
+            UnityAudioLink.AudioSystems.Remove(this);
+            Debug.Log("[AudioSystem]: Audio System \"" + AudioSystemGUID.guidString + "\" Deinitialized");
         }
     }
 }
