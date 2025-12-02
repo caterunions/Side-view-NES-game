@@ -1,12 +1,11 @@
 using System;
 
 using Audio.CustomSource;
-using Audio.Subsystems;
 
 /*
  These events are dispatched by AudioEventCallers (e.g., CustomAudioClip) to notify subscribers.
  */
-namespace Audio
+namespace Audio.Subsystems
 {
     [Serializable]
     public class AudioEventDispatcher
