@@ -39,8 +39,8 @@ namespace Audio.GUID
 
         ////////// instance methods ////////
 
-        public Guid guid;
-        public string guidString;
+        public readonly Guid guid;
+        public readonly string guidString;
 
         public AudioSystemsGUID(Guid g)
         {
