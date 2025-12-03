@@ -20,9 +20,8 @@ namespace Audio.Subsystems
         public AudioSystemsGUID AudioSystemGUID
         { get { return _audioSystemGUID; } set { _audioSystemGUID = value; } }
         ////////////////////SUBSYSTEM///////////////////////
-        /// TODO: CONVERT SUBSYS IDS TO AUDIOSYSTEMSGUID
-        [SerializeField] private string _audioSubsystemID;
-        public string AudioSubsystemID => _audioSubsystemID;
+        [SerializeField] private AudioSystemsGUID _audioSubsystemID = AudioSystemsGUID.Empty;
+        public AudioSystemsGUID AudioSubsystemID => _audioSubsystemID;
         //////////////////////////////////////////////////
 
 
@@ -51,7 +50,16 @@ namespace Audio.Subsystems
 
         private void OnEnable()
         {
+            _audioSubsystemID = AudioSystemsGUID.NewGuid();
             _dispatcher = new AudioEventDispatcher(this);
+
+            //add to subsystem list
+            AudioSystems.Add(this);
+        }
+
+        private void OnDisable()
+        {
+            AudioSystems.Remove(this);
         }
 
 
@@ -63,11 +71,15 @@ namespace Audio.Subsystems
             if (_clipGroupMode)
                 foreach (CustomAudioSource clip in _clips)
                 {
-                    UnityAudioLink.InitializeClipWithEventRack(clip, _audioSystemGUID, this);
+                    clip.AttachAudioSystem(_audioSystemGUID);
+                    clip.AttachSubsystem(_audioSubsystemID);
+                    UnityAudioLink.InitializeClip(clip);
                 }
             else
             {
-                UnityAudioLink.InitializeClipWithEventRack(_clip, _audioSystemGUID, this);
+                _clip.AttachAudioSystem(_audioSystemGUID);
+                _clip.AttachSubsystem(_audioSubsystemID);
+                UnityAudioLink.InitializeClip(_clip);
             }
         }
         

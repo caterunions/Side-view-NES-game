@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 1016491334}
   - component: {fileID: 1016491335}
   m_Layer: 0
-  m_Name: test
+  m_Name: AudioSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -354,14 +354,66 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   AudioSystemGUID:
-    guidString: 
+    _guidString: 00000000-0000-0000-0000-000000000000
   LinkedSubsystems:
     EventRacks:
     - {fileID: 11400000, guid: 24811f42f8a0e314f9915bcd1788ad8b, type: 2}
+    SequenceRacks:
+    - {fileID: 11400000, guid: 262728d2e09999544b3c9e49c631e06a, type: 2}
+--- !u!1 &2109269821
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2109269823}
+  - component: {fileID: 2109269822}
+  m_Layer: 0
+  m_Name: AudioSystem2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &2109269822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109269821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb514ce17551b734eaa7dc491a7e404f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager2
+  AudioSystemGUID:
+    _guidString: 00000000-0000-0000-0000-000000000000
+  LinkedSubsystems:
+    EventRacks:
+    - {fileID: 11400000, guid: da59e0e976139db4688760c2db4d83d6, type: 2}
     SequenceRacks: []
+--- !u!4 &2109269823
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109269821}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.71832, y: 2.61907, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 613493971}
   - {fileID: 1016491334}
+  - {fileID: 2109269823}

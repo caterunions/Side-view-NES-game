@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 29f4817ef039c284796b1ef66804d59c, type: 3}
-  m_Name: StartStop
+  m_Name: StartStop2
   m_EditorClassIdentifier: Assembly-CSharp::Audio.Events.AudioEvents
   _audioSystemGUID:
     _guidString: a098a817-0c1d-486d-8b35-33574aeed51e
   _audioSubsystemID:
-    _guidString: a5d9d3ea-9b97-46c7-9aef-582f988cb948
+    _guidString: 0743933b-9f68-46f1-95d6-a0016e4b12bb
   _clip: {fileID: 0}
   _clipGroupMode: 1
   _clips:
-  - {fileID: 11400000, guid: 13b24b71a70eb87449c6f509579b4a1f, type: 2}
+  - {fileID: 11400000, guid: a14e94aaf194c674187764d4ecd08dac, type: 2}
   - {fileID: 11400000, guid: 3f437326686d6194da9590e26e75f8af, type: 2}
   _events:
   - _eventType: 1

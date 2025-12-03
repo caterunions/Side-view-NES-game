@@ -1,10 +1,11 @@
+using System;
 using Audio.GUID;
 
 namespace Audio.Subsystems
 {
-    interface IAudioSubsystem
+    public interface IAudioSubsystem
     {
         AudioSystemsGUID AudioSystemGUID { get; set; }
-        string AudioSubsystemID { get; }
+        AudioSystemsGUID AudioSubsystemID { get; }
     }
 }

@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f86c1cf0eba7a7c46874ce54dec7eb06, type: 3}
+  m_Name: Loop
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.CustomSource.CustomAudioSource
+  _clip: {fileID: 8300000, guid: f844afc2913ae144685e8cc475b19915, type: 3}
+  _volume: 1
+  _pitch: 1
+  _mute: 0
+  _bypassEffects: 0
+  _bypassListenerEffects: 0
+  _bypassReverbZones: 0
+  _playOnAwake: 0
+  _loop: 1
+  _spatialize: 0
+  _rolloffMode: 0
+  _dopplerLevel: 1
+  _spread: 0
+  _minDistance: 1
+  _maxDistance: 500
+  _spatialBlend3D: 0
+  _reverbZoneMix: 1
+  _priority: 128
+  _ignoreListenerPause: 0
+  _ignoreListenerVolume: 0
+  _loopStartTime: 0

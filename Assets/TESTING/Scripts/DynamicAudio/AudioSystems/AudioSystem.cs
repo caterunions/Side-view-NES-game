@@ -12,8 +12,7 @@ namespace Audio
     [Serializable]
     public abstract class AudioSystem : MonoBehaviour
     {
-        public AudioSystemsGUID AudioSystemGUID;
-
+        public AudioSystemsGUID AudioSystemGUID = AudioSystemsGUID.Empty;
         public AudioSubsystemCollection LinkedSubsystems = new();
 
 
@@ -22,9 +21,7 @@ namespace Audio
             //generate new GUID
             AudioSystemGUID = AudioSystemsGUID.NewGuid();
 
-
-
-            UnityAudioLink.AudioSystems.Add(this);
+            AudioSystems.Add(this);
 
             //set system ID for all subsystems
             LinkedSubsystems.LinkToAudioSystem(AudioSystemGUID);
@@ -32,7 +29,7 @@ namespace Audio
             //VVVVVVVVVV | THIS WILL BE CHANGED LATER | VVVVVVVVVV
             UnityAudioLink.AudioParent = gameObject;
 
-            Debug.Log("[AudioSystem]: Audio System \"" + AudioSystemGUID.guidString + "\" Initialized");
+            Debug.Log("[AudioSystem]: Audio System \"" + AudioSystemGUID.GuidString + "\" Initialized");
         }
 
         protected virtual void Start()
@@ -48,8 +45,8 @@ namespace Audio
 
         protected virtual void OnDisable()
         {
-            UnityAudioLink.AudioSystems.Remove(this);
-            Debug.Log("[AudioSystem]: Audio System \"" + AudioSystemGUID.guidString + "\" Deinitialized");
+            AudioSystems.Remove(this);
+            Debug.Log("[AudioSystem]: Audio System \"" + AudioSystemGUID.GuidString + "\" Deinitialized");
         }
     }
 }

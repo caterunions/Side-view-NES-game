@@ -72,18 +72,28 @@ namespace Audio.Editors
         {
             serializedObject.Update();
 
+            //
             EditorGUILayout.LabelField("Audio System", EditorStyles.boldLabel);
             EditorGUI.BeginDisabledGroup(true);
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_audioSystemGUID"));
             EditorGUI.EndDisabledGroup();
+            //
 
+            //
             EditorGUILayout.LabelField("Event Rack Settings", EditorStyles.boldLabel);
+
+            EditorGUI.BeginDisabledGroup(true);
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("_audioSubsystemID"));
+            EditorGUI.EndDisabledGroup();
+
             SerializedProperty groupMode = serializedObject.FindProperty("_clipGroupMode");
             EditorGUILayout.PropertyField(groupMode);
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("_audioSubsystemID"));
+            //
 
+            //
             EditorGUILayout.LabelField("Clip Events", EditorStyles.boldLabel);
             eventList.DoLayoutList(); //draw event list
+            //
 
             EditorGUILayout.LabelField("Clip Settings", EditorStyles.boldLabel);
             if (groupMode.boolValue)
@@ -112,6 +122,7 @@ namespace Audio.Editors
                         EditorGUILayout.Slider("Pitch", data.Pitch, -3f, 3f);
                         EditorGUILayout.Toggle("Mute", data.Mute);
                         EditorGUILayout.Toggle("Loop", data.Loop);
+                        EditorGUILayout.Toggle("Play On Awake", data.PlayOnAwake);
                         EditorGUILayout.Toggle("Spatialize", data.Spatialize);
                         EditorGUILayout.EnumPopup("Rolloff Mode", data.RolloffMode);
                         EditorGUILayout.FloatField("Min Distance", data.MinDistance);
@@ -143,6 +154,7 @@ namespace Audio.Editors
                     EditorGUILayout.Slider("Pitch", data.Pitch, -3f, 3f);
                     EditorGUILayout.Toggle("Mute", data.Mute);
                     EditorGUILayout.Toggle("Loop", data.Loop);
+                    EditorGUILayout.Toggle("Play On Awake", data.PlayOnAwake);
                     EditorGUILayout.Toggle("Spatialize", data.Spatialize);
                     EditorGUILayout.EnumPopup("Rolloff Mode", data.RolloffMode);
                     EditorGUILayout.FloatField("Min Distance", data.MinDistance);

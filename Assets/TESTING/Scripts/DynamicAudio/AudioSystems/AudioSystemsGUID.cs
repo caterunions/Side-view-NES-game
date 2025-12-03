@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace Audio.GUID
 {
@@ -18,12 +19,12 @@ namespace Audio.GUID
         //////// operators ////////
         public static bool operator ==(AudioSystemsGUID left, AudioSystemsGUID right)
         {
-            return left.guid == right.guid;
+            return left.Guid == right.Guid;
         }
 
         public static bool operator !=(AudioSystemsGUID left, AudioSystemsGUID right)
         {
-            return left.guid != right.guid;
+            return left.Guid != right.Guid;
         }
 
         ////////// overrides ////////
@@ -34,18 +35,23 @@ namespace Audio.GUID
 
         public override readonly int GetHashCode()
         {
-            return guid.GetHashCode();
+            return _guid.GetHashCode();
         }
 
         ////////// instance methods ////////
 
-        public readonly Guid guid;
-        public readonly string guidString;
+        [SerializeField]
+        private Guid _guid;
+        public readonly Guid Guid => _guid;
+
+        [SerializeField]
+        private string _guidString;
+        public readonly string GuidString => _guidString;
 
         public AudioSystemsGUID(Guid g)
         {
-            guid = g;
-            guidString = g.ToString();
+            _guid = g;
+            _guidString = g.ToString();
         }
     }
 }

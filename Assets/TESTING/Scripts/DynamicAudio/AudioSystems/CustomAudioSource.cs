@@ -1,10 +1,11 @@
 using System;
 using System.Collections;
-using UnityEngine;
-
+using System.Collections.Generic;
+using Audio.GUID;
 using Audio.Linker;
 using Audio.Subsystems;
-using Audio.GUID;
+using UnityEditor.Search;
+using UnityEngine;
 
 namespace Audio.CustomSource
 {
@@ -117,44 +118,70 @@ namespace Audio.CustomSource
         public bool LoopStartTime
         { get { return _loopStartTime; } set { _loopStartTime = value; } }
 
-
+        //audio sys
         private AudioSystem _audioSystem;
         private AudioSource _unitySource;
-        private AudioEventRack _attachedEventRack; // <== only set when linked to an event rack
+        private List<IAudioSubsystem> _linkedSubsystems = new();
 
-
+        //playback tracking
         private bool _stopRequested = false;
         private Coroutine _playClipRoutine;
 
-        public void Initialize(AudioSystemsGUID linkToAudioSystem, AudioSource unitySource)
+        /// <summary>
+        /// Attaches a Unity AudioSource to this CustomAudioClip for playback
+        /// </summary>
+        /// <param name="unityAudioSource"></param>
+        public void AttachUnityAudioSource(AudioSource unityAudioSource)
         {
-            _audioSystem = UnityAudioLink.GetAudioSystem(linkToAudioSystem);
-            _unitySource = unitySource;
-        }
-
-        public void AttachEventRack(AudioEventRack eventRack) => _attachedEventRack = eventRack;
-
-        private void CallEvent(AudioEventType @event)
-        {
-            if (_attachedEventRack != null)
-                _attachedEventRack.Dispatcher.DispatchEvent(this, @event);
+            _unitySource = unityAudioSource;
         }
 
         /// <summary>
-        /// Keeps the Unity AudioSource updated with any changes made to this CustomAudioClip
+        /// Attaches an audio system to this CustomAudioClip for coroutine handling
         /// </summary>
-        public void UpdateCustomClip()
+        /// <param name="audioSystemGUID"></param>
+        public void AttachAudioSystem(AudioSystemsGUID audioSystemGUID)
+        {
+            _audioSystem = AudioSystems.GetAudioSystem(audioSystemGUID);
+        }
+
+        /// <summary>
+        /// Attaches an audio subsystem to this CustomAudioClip for event calling
+        /// </summary>
+        /// <param name="subsystemGUID">GUID of subsystem to add</param>
+        public void AttachSubsystem(AudioSystemsGUID subsystemGUID)
+        {
+            _linkedSubsystems.Add(AudioSystems.GetAudioSubsystem(subsystemGUID));
+        }
+
+        /// <summary>
+        /// Keeps the Unity AudioSource synced with any changes made to this CustomAudioClip
+        /// </summary>
+        public void SyncWithUnitySource()
         {
             if (_unitySource == null) return;
             ApplyToSource(_unitySource);
         }
 
-        //TODO: Move event calls to reduce coupling? [done :)]
+
+        //AudioEventRack attachment
+        private void CallEvent(AudioEventType @event)
+        {
+            if (_linkedSubsystems.Count != 0)
+            {
+                //make calls to all linked event racks
+                foreach (IAudioSubsystem rack in _linkedSubsystems)
+                {
+                    if ((rack as AudioEventRack) == null) continue;
+
+                    (rack as AudioEventRack).Dispatcher.DispatchEvent(this, @event);
+                }
+            }
+        }
 
         /// <summary>
         /// Plays the audio clip
         /// </summary>
-        /// <returns>void</returns>
         public void Play()
         {
             if (!_unitySource)

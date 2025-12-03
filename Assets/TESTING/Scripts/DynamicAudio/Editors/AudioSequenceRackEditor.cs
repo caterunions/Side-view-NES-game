@@ -68,8 +68,10 @@ namespace Audio.Editors
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_audioSystemGUID"));
             EditorGUI.EndDisabledGroup();
 
-            EditorGUILayout.LabelField("Sequence", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField("Sequence Rack Settings", EditorStyles.boldLabel);
+            EditorGUI.BeginDisabledGroup(true);
             EditorGUILayout.PropertyField(serializedObject.FindProperty("_audioSubsystemID"));
+            EditorGUI.EndDisabledGroup();
 
             _sequences.DoLayoutList();
 

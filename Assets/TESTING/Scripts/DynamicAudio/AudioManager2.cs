@@ -3,7 +3,7 @@ using Audio;
 using Audio.Subsystems;
 using Audio.CustomSource;
 
-public class AudioManager : AudioSystem
+public class AudioManager2 : AudioSystem
 {
     AudioEventRack eventRack;
     private void Awake()
@@ -19,7 +19,7 @@ public class AudioManager : AudioSystem
         base.Update();
         if (Input.GetKeyDown(KeyCode.W))
         {
-            eventRack.Clip.Play();
+            eventRack.Clips[0].Play();
         }
     }
 

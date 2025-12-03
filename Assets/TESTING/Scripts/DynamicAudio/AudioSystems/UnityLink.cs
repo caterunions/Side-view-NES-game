@@ -11,15 +11,8 @@ namespace Audio.Linker
     public static class UnityAudioLink
     {
         internal static GameObject AudioParent;
-        internal static List<AudioSystem> AudioSystems = new();
         internal static AudioSource UnitySource;
-
         internal static event Action UnityUpdate;
-
-        public static AudioSystem GetAudioSystem(AudioSystemsGUID systemID)
-        {
-            return AudioSystems.Find(system => system.AudioSystemGUID == systemID);
-        }
 
         public static void Update()
         {
@@ -29,25 +22,24 @@ namespace Audio.Linker
 #endif
             UnityUpdate.Invoke();
         }
-        //TODO: AudioEventRack parameter to be changed to AudioSystemsGUID later
-        public static void InitializeClipWithEventRack(CustomAudioSource customClip, AudioSystemsGUID linkToSystem, AudioEventRack rack)
+
+        public static void InitializeClip(CustomAudioSource customSource)
         {
-            Debug.Log("[UnityAudioLink]: Initializing Clip \"" + customClip.Clip.name + "\"");
-            GameObject audioSourceGameObject = new("UAC_" + customClip.Clip.name);
+            Debug.Log("[UnityAudioLink]: Initializing Clip \"" + customSource.Clip.name + "\"");
+            GameObject audioSourceGameObject = new("UAC_" + customSource.Clip.name);
             AudioSource unityAudioSource = audioSourceGameObject.AddComponent<AudioSource>();
 
             //apply settings
-            customClip.Initialize(linkToSystem, unityAudioSource);
-            customClip.AttachEventRack(rack);
-            customClip.UpdateCustomClip();
-            UnityUpdate += customClip.UpdateCustomClip;
+            customSource.AttachUnityAudioSource(unityAudioSource);
+            customSource.SyncWithUnitySource();
+            UnityUpdate += customSource.SyncWithUnitySource;
 
 
             audioSourceGameObject.transform.SetParent(AudioParent.transform);
 
-            if (customClip.PlayOnAwake)
+            if (customSource.PlayOnAwake)
             {
-                customClip.Play();
+                customSource.Play();
             }
         }
 
